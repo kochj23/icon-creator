@@ -237,7 +237,6 @@ struct EffectSection<Content: View>: View {
         VStack(alignment: .leading, spacing: 10) {
             Toggle(title, isOn: $isEnabled)
                 .font(.subheadline)
-                .fontWeight(.medium)
 
             if isEnabled {
                 content()

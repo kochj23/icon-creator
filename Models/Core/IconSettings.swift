@@ -69,12 +69,12 @@ struct ColorComponents: Codable, Equatable {
     init(_ color: Color) {
         // Convert SwiftUI Color to components
         #if canImport(AppKit)
-        if let nsColor = NSColor(color) {
-            let ciColor = CIColor(color: nsColor)
-            self.red = ciColor?.red ?? 0
-            self.green = ciColor?.green ?? 0
-            self.blue = ciColor?.blue ?? 0
-            self.alpha = ciColor?.alpha ?? 1
+        let nsColor = NSColor(color)
+        if let ciColor = CIColor(color: nsColor) {
+            self.red = Double(ciColor.red)
+            self.green = Double(ciColor.green)
+            self.blue = Double(ciColor.blue)
+            self.alpha = Double(ciColor.alpha)
         } else {
             // Fallback
             self.red = 1
@@ -82,6 +82,12 @@ struct ColorComponents: Codable, Equatable {
             self.blue = 1
             self.alpha = 1
         }
+        #else
+        // Fallback for non-AppKit platforms
+        self.red = 1
+        self.green = 1
+        self.blue = 1
+        self.alpha = 1
         #endif
     }
 
@@ -147,7 +153,7 @@ struct GradientComponents: Codable, Equatable {
     static var forest: GradientComponents {
         GradientComponents(stops: [
             GradientStop(color: ColorComponents(.green), location: 0.0),
-            GradientStop(color: ColorComponents(red: 0.2, green: 0.6, blue: 0.2, alpha: 1.0)), location: 1.0)
+            GradientStop(color: ColorComponents(red: 0.2, green: 0.6, blue: 0.2, alpha: 1.0), location: 1.0)
         ])
     }
 }
