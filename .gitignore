@@ -1,0 +1,29 @@
+# Xcode
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Build products
+build/
+DerivedData/
+*.app
+
+# Binaries
+*.ipa
+
+# User settings
+xcuserdata/
+*.xcuserstate
+
+# Ruby
+add_file_to_project.rb
+
+# Temporary files
+*.swp
+*~.nib
