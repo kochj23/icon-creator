@@ -108,9 +108,82 @@
 
 ---
 
+## v2.2.0 - Phase 3 Complete (December 5, 2025)
+
+### Advanced Features
+
+#### 1. Color Management System
+- ColorAnalyzer with k-means clustering for dominant color extraction
+- ColorPalette model with 5 preset palettes
+- ColorHarmonyGenerator (complementary, triadic, analogous, monochromatic, split-complementary, tetradic)
+- Contrast calculation (WCAG standards)
+- Automatic background color suggestions
+
+#### 2. Icon Variants System
+- IconVariant model with modification system
+- VariantGenerator for applying modifications
+- Badge types: Beta, Debug, Dev, Alpha, RC, numbered
+- Seasonal themes: Halloween, Christmas, New Year, Spring, Summer, Fall, Winter
+- Text badges with customizable position
+- Tint effects
+- iOS alternate icons support ready
+
+#### 3. Collaboration Features
+- CollaborationPackage model for sharing
+- CollaborationManager for import/export
+- Comments system with attachments
+- Version history tracking
+- Share presets, variants, and settings
+- Optional source image inclusion
+
+#### 4. Watch Folder & Automation
+- WatchFolderManager with file system monitoring
+- ProcessingRule system
+- Automatic image processing on file addition
+- Configurable actions (generate, validate, move, notify)
+- Notification support
+
+#### 5. AppleScript/Shortcuts Support
+- ScriptingBridge for automation
+- AppleScript handlers for generate and validate
+- Integration with macOS Shortcuts
+- Batch processing via scripts
+- Full automation capabilities
+
+### Files Added
+- Utilities/ColorAnalyzer.swift
+- Models/Core/ColorPalette.swift
+- Models/Core/IconVariant.swift
+- Models/Core/CollaborationPackage.swift
+- Services/Automation/WatchFolderManager.swift
+- Services/Automation/ScriptingBridge.swift
+
+### Technical Details
+- K-means clustering for color extraction
+- WCAG contrast calculations
+- File system event monitoring
+- AppleScript interface
+- UserNotifications framework integration
+
+---
+
+## v2.1.0 - Phase 2 Complete (December 5, 2025)
+
+### Workflow & Automation Features
+- Project Management System
+- Custom Project Paths
+- Export Manager (7 formats)
+- Validation System
+- Command-Line Interface
+
+### Files Added (10 files)
+See Phase 2 documentation
+
+---
+
 ## Planned Versions
 
-### v2.1 - Phase 2 (Planned)
+### v2.3 - Phase 4 (In Progress)
 - Project management (recent/favorites)
 - Custom project paths
 - Multi-format export (Android, Web, Windows, Electron)
