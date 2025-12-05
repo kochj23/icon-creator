@@ -70,10 +70,15 @@ class PresetManager: ObservableObject {
 
     func importPreset(from data: Data) throws -> IconPreset {
         let decoder = JSONDecoder()
-        var preset = try decoder.decode(IconPreset.self, from: data)
-        preset.id = UUID() // New ID to avoid conflicts
-        preset.isBuiltIn = false
-        return preset
+        let decodedPreset = try decoder.decode(IconPreset.self, from: data)
+        // Create new preset with new ID to avoid conflicts
+        return IconPreset(
+            id: UUID(),
+            name: decodedPreset.name,
+            settings: decodedPreset.settings,
+            thumbnail: decodedPreset.thumbnail,
+            isBuiltIn: false
+        )
     }
 
     func exportPresetToFile(_ preset: IconPreset) {

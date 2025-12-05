@@ -12,6 +12,16 @@
 		IC0000030000000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = IC0000040000000000000001 /* ContentView.swift */; };
 		IC0000050000000000000001 /* IconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = IC0000060000000000000001 /* IconGenerator.swift */; };
 		IC0000070000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = IC0000080000000000000001 /* Assets.xcassets */; };
+		11DD1E2FC0CA41A484DC3D9A /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDDFC51D7FE4AB29ADA682B /* BatchItem.swift */; };
+		69BEE07DB5EF4109A0FB1166 /* IconPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E201EB4BC84BBBA2035027 /* IconPreset.swift */; };
+		FED53A03E2F34F41AD381E22 /* IconSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F24E390A8A41D08B5B69D8 /* IconSettings.swift */; };
+		8E7190CD1A894806A1E05C21 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5000BBBF5C24D67A5D7511E /* ImageProcessor.swift */; };
+		805024CE227B4FB68B303270 /* BatchProcessingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53509EC0A1794AAA9C801A0D /* BatchProcessingManager.swift */; };
+		37B2D2E86555447D888CC65F /* PresetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1174F6707545D0B04E1B91 /* PresetManager.swift */; };
+		4B438BE8ACE84A97AB57657B /* BatchQueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18F0EBB1CA496786BC73BE /* BatchQueueView.swift */; };
+		734317D3998344BB993DB034 /* ImageEffectsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A31A0D638641C5A859C0AF /* ImageEffectsPanel.swift */; };
+		7EA1DC8DEB3E4C83B1F65F28 /* PresetLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCFA61CE34543AA9628601A /* PresetLibraryView.swift */; };
+		2C4943D49D544E3FBA8261E6 /* ContextPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7594BD322A224B91AC818DEB /* ContextPreviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +33,16 @@
 		IC0000110000000000000001 /* Icon Creator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Icon Creator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		IC0000120000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		IC0000130000000000000001 /* Icon_Creator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Icon_Creator.entitlements; sourceTree = "<group>"; };
+		FDDDFC51D7FE4AB29ADA682B /* BatchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Batch/BatchItem.swift"; sourceTree = "<group>"; };
+		17E201EB4BC84BBBA2035027 /* IconPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Core/IconPreset.swift"; sourceTree = "<group>"; };
+		29F24E390A8A41D08B5B69D8 /* IconSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Core/IconSettings.swift"; sourceTree = "<group>"; };
+		D5000BBBF5C24D67A5D7511E /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/ImageProcessing/ImageProcessor.swift"; sourceTree = "<group>"; };
+		53509EC0A1794AAA9C801A0D /* BatchProcessingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/BatchProcessingManager.swift"; sourceTree = "<group>"; };
+		0C1174F6707545D0B04E1B91 /* PresetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/PresetManager.swift"; sourceTree = "<group>"; };
+		EB18F0EBB1CA496786BC73BE /* BatchQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Batch/BatchQueueView.swift"; sourceTree = "<group>"; };
+		32A31A0D638641C5A859C0AF /* ImageEffectsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Effects/ImageEffectsPanel.swift"; sourceTree = "<group>"; };
+		FCCFA61CE34543AA9628601A /* PresetLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Presets/PresetLibraryView.swift"; sourceTree = "<group>"; };
+		7594BD322A224B91AC818DEB /* ContextPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Preview/ContextPreviewView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +59,16 @@
 		IC0000150000000000000001 = {
 			isa = PBXGroup;
 			children = (
+				FDDDFC51D7FE4AB29ADA682B /* BatchItem.swift */,
+				17E201EB4BC84BBBA2035027 /* IconPreset.swift */,
+				29F24E390A8A41D08B5B69D8 /* IconSettings.swift */,
+				D5000BBBF5C24D67A5D7511E /* ImageProcessor.swift */,
+				53509EC0A1794AAA9C801A0D /* BatchProcessingManager.swift */,
+				0C1174F6707545D0B04E1B91 /* PresetManager.swift */,
+				EB18F0EBB1CA496786BC73BE /* BatchQueueView.swift */,
+				32A31A0D638641C5A859C0AF /* ImageEffectsPanel.swift */,
+				FCCFA61CE34543AA9628601A /* PresetLibraryView.swift */,
+				7594BD322A224B91AC818DEB /* ContextPreviewView.swift */,
 				D05AE2142EB1869500E93E77 /* XcodeProjectManager.swift */,
 				IC0000020000000000000001 /* IconCreatorApp.swift */,
 				IC0000040000000000000001 /* ContentView.swift */,
@@ -122,6 +152,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11DD1E2FC0CA41A484DC3D9A /* BatchItem.swift in Sources */,
+				69BEE07DB5EF4109A0FB1166 /* IconPreset.swift in Sources */,
+				FED53A03E2F34F41AD381E22 /* IconSettings.swift in Sources */,
+				8E7190CD1A894806A1E05C21 /* ImageProcessor.swift in Sources */,
+				805024CE227B4FB68B303270 /* BatchProcessingManager.swift in Sources */,
+				37B2D2E86555447D888CC65F /* PresetManager.swift in Sources */,
+				4B438BE8ACE84A97AB57657B /* BatchQueueView.swift in Sources */,
+				734317D3998344BB993DB034 /* ImageEffectsPanel.swift in Sources */,
+				7EA1DC8DEB3E4C83B1F65F28 /* PresetLibraryView.swift in Sources */,
+				2C4943D49D544E3FBA8261E6 /* ContextPreviewView.swift in Sources */,
 				IC0000010000000000000001 /* IconCreatorApp.swift in Sources */,
 				D05AE2152EB1869500E93E77 /* XcodeProjectManager.swift in Sources */,
 				IC0000030000000000000001 /* ContentView.swift in Sources */,

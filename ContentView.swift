@@ -7,6 +7,8 @@ import UniformTypeIdentifiers
 struct ContentView: View {
     @StateObject private var iconGenerator = IconGenerator()
     @StateObject private var projectManager = XcodeProjectManager()
+    @StateObject private var batchManager = BatchProcessingManager()
+    @StateObject private var presetManager = PresetManager()
     @State private var selectedPlatforms: Set<Platform> = []
     @State private var showingPreview = false
     @State private var isExporting = false
@@ -16,19 +18,55 @@ struct ContentView: View {
     @State private var autoInstallEnabled = true
     @State private var showingProjectSelector = false
     @State private var pendingImage: NSImage? = nil
+    @State private var batchModeEnabled = false
+    @State private var showingBatchQueue = false
+    @State private var showingPresetLibrary = false
 
     var body: some View {
         VStack(spacing: 0) {
             // MARK: - Header Section
-            VStack(spacing: 8) {
-                Text("Icon Creator")
-                    .font(.largeTitle)
-                    .bold()
-                Text("Create app icons for all Apple platforms")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+            VStack(spacing: 12) {
+                HStack {
+                    Spacer()
+                    VStack(spacing: 8) {
+                        Text("Icon Creator")
+                            .font(.largeTitle)
+                            .bold()
+                        Text("Create app icons for all Apple platforms")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    Spacer()
+                }
+
+                // Toolbar
+                HStack(spacing: 15) {
+                    Toggle("Batch Mode", isOn: $batchModeEnabled)
+                        .toggleStyle(.button)
+
+                    if batchModeEnabled {
+                        Button(action: { showingBatchQueue = true }) {
+                            Label("Queue (\(batchManager.queue.count))", systemImage: "list.bullet")
+                        }
+                    }
+
+                    Spacer()
+
+                    Button(action: { showingPresetLibrary = true }) {
+                        Label("Presets", systemImage: "star.fill")
+                    }
+
+                    if let preset = presetManager.selectedPreset {
+                        Text("• \(preset.name)")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.small)
             }
             .padding(.top, 30)
+            .padding(.horizontal, 40)
             .padding(.bottom, 20)
 
             Divider()
@@ -42,7 +80,9 @@ struct ContentView: View {
                         validationWarning: $validationWarning,
                         projectManager: projectManager,
                         pendingImage: $pendingImage,
-                        showingProjectSelector: $showingProjectSelector
+                        showingProjectSelector: $showingProjectSelector,
+                        batchManager: batchManager,
+                        batchModeEnabled: $batchModeEnabled
                     )
                     .padding(.horizontal, 40)
                     .padding(.top, 30)
@@ -74,6 +114,10 @@ struct ContentView: View {
                     if iconGenerator.sourceImage != nil {
                         // Image adjustment controls
                         ImageEditorView(iconGenerator: iconGenerator)
+                            .padding(.horizontal, 40)
+
+                        // Advanced Effects Panel
+                        ImageEffectsPanel(effects: $iconGenerator.effects)
                             .padding(.horizontal, 40)
 
                         Divider()
@@ -149,7 +193,15 @@ struct ContentView: View {
         }
         .frame(minWidth: 800, minHeight: 700)
         .sheet(isPresented: $showingPreview) {
-            PreviewView(iconGenerator: iconGenerator, platforms: Array(selectedPlatforms))
+            if let preview = iconGenerator.generatePreview(size: 1024) {
+                ContextPreviewView(icon: preview)
+            }
+        }
+        .sheet(isPresented: $showingBatchQueue) {
+            BatchQueueView(batchManager: batchManager, projectManager: projectManager)
+        }
+        .sheet(isPresented: $showingPresetLibrary) {
+            PresetLibraryView(presetManager: presetManager, iconGenerator: iconGenerator)
         }
         .sheet(isPresented: $showingProjectSelector) {
             ProjectSelectorSheet(
@@ -245,24 +297,35 @@ struct ContentView: View {
 
             // If auto-install is enabled and a project is selected, install the icons
             if shouldInstall, let project = projectManager.selectedProject {
-                // Only install the first selected platform (typically there should only be one when auto-installing)
-                if let platform = selectedPlatforms.first {
-                    let platformURL = exportURL.appendingPathComponent(platform.folderName)
-                    let appiconsetURL = platformURL.appendingPathComponent("AppIcon.appiconset")
+                // Install all selected platforms using new multi-platform method
+                do {
+                    let results = try await projectManager.installMultiplePlatforms(
+                        from: exportURL,
+                        platforms: selectedPlatforms,
+                        to: project
+                    )
 
-                    do {
-                        try projectManager.installIcons(from: appiconsetURL, to: project, platform: platform)
-                        exportMessage = "✓ Success! Icons installed to '\(project.displayName)' project"
+                    // Check results
+                    let successCount = results.values.filter { result in
+                        if case .success = result { return true }
+                        return false
+                    }.count
 
-                        // Optionally open the project
-                        // projectManager.openInXcode(project)
-
-                        // Clean up temporary files
-                        try? FileManager.default.removeItem(at: exportURL)
-                    } catch {
-                        exportMessage = "✗ Installation Error: \(error.localizedDescription)"
-                        print("❌ Installation failed: \(error)")
+                    if successCount == selectedPlatforms.count {
+                        exportMessage = "✓ Success! Icons installed to '\(project.displayName)' for \(successCount) platform\(successCount == 1 ? "" : "s")"
+                    } else {
+                        let failedPlatforms = results.filter { result in
+                            if case .failure = result.value { return true }
+                            return false
+                        }.map { $0.key.rawValue }.joined(separator: ", ")
+                        exportMessage = "⚠️ Partial success: \(successCount)/\(selectedPlatforms.count) platforms installed. Failed: \(failedPlatforms)"
                     }
+
+                    // Clean up temporary files
+                    try? FileManager.default.removeItem(at: exportURL)
+                } catch {
+                    exportMessage = "✗ Installation Error: \(error.localizedDescription)"
+                    print("❌ Installation failed: \(error)")
                 }
             } else {
                 // Success! (manual export)
@@ -300,6 +363,8 @@ struct DropZoneView: View {
     @ObservedObject var projectManager: XcodeProjectManager
     @Binding var pendingImage: NSImage?
     @Binding var showingProjectSelector: Bool
+    @ObservedObject var batchManager: BatchProcessingManager
+    @Binding var batchModeEnabled: Bool
     @State private var isDragOver = false
 
     var body: some View {
@@ -413,13 +478,22 @@ struct DropZoneView: View {
 
         if let image = NSImage(contentsOf: url) {
             DispatchQueue.main.async {
-                // Show project selector if projects are available
-                if !projectManager.projects.isEmpty {
-                    pendingImage = image
-                    showingProjectSelector = true
+                if batchModeEnabled {
+                    // Batch mode: add to queue
+                    batchManager.add(
+                        image: image,
+                        project: projectManager.selectedProject,
+                        platforms: [.iOS],
+                        settings: iconGenerator.currentSettings
+                    )
                 } else {
-                    // No projects found, load directly
-                    iconGenerator.sourceImage = image
+                    // Single mode: show project selector or load directly
+                    if !projectManager.projects.isEmpty {
+                        pendingImage = image
+                        showingProjectSelector = true
+                    } else {
+                        iconGenerator.sourceImage = image
+                    }
                 }
             }
         } else {
@@ -431,12 +505,22 @@ struct DropZoneView: View {
     private func selectImage() {
         let panel = NSOpenPanel()
         panel.allowedContentTypes = [.image, .png, .jpeg, .heic, .tiff, .bmp, .gif]
-        panel.allowsMultipleSelection = false
+        panel.allowsMultipleSelection = batchModeEnabled
         panel.canChooseDirectories = false
-        panel.message = "Select an image file for your app icon"
+        panel.message = batchModeEnabled ? "Select images for batch processing" : "Select an image file for your app icon"
 
-        if panel.runModal() == .OK, let url = panel.url {
-            loadImage(from: url)
+        if panel.runModal() == .OK {
+            if batchModeEnabled {
+                // Load multiple images
+                for url in panel.urls {
+                    loadImage(from: url)
+                }
+            } else {
+                // Load single image
+                if let url = panel.url {
+                    loadImage(from: url)
+                }
+            }
         }
     }
 }

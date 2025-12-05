@@ -1,0 +1,264 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project "Icon Creator.xcodeproj" -scheme "Icon Creator" clean build
+
+2025-12-05 10:41:57.851 xcodebuild[30964:56678537] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00006032-001011922192801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00006032-001011922192801C, name:My Mac }
+{ platform:macOS, name:Any Mac }
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+** CLEAN SUCCEEDED **
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00006032-001011922192801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00006032-001011922192801C, name:My Mac }
+{ platform:macOS, name:Any Mac }
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'Icon Creator' in project 'Icon Creator' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: e2ba5732950d79987a93597d9778382a
+Build description path: /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/XCBuildData/e2ba5732950d79987a93597d9778382a.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk /Users/kochj/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache
+    cd /Volumes/Data/xcode/Icon\ Creator/Icon\ Creator.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -o /Users/kochj/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache
+
+CreateBuildDirectory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products
+    cd /Volumes/Data/xcode/Icon\ Creator/Icon\ Creator.xcodeproj
+    builtin-create-build-directory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products
+
+CreateBuildDirectory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex
+    cd /Volumes/Data/xcode/Icon\ Creator/Icon\ Creator.xcodeproj
+    builtin-create-build-directory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Volumes/Data/xcode/Icon\ Creator/Icon\ Creator.xcodeproj
+    builtin-create-build-directory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Volumes/Data/xcode/Icon\ Creator/Icon\ Creator.xcodeproj
+    builtin-create-build-directory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+    cd /Volumes/Data/xcode/Icon\ Creator/Icon\ Creator.xcodeproj
+    builtin-create-build-directory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator-f5527c55580fdb99e75090c2cf45c79d-VFS/all-product-headers.yaml
+    cd /Volumes/Data/xcode/Icon\ Creator/Icon\ Creator.xcodeproj
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator-f5527c55580fdb99e75090c2cf45c79d-VFS/all-product-headers.yaml
+
+CreateBuildDirectory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug
+    cd /Volumes/Data/xcode/Icon\ Creator/Icon\ Creator.xcodeproj
+    builtin-create-build-directory /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-generated-files.hmap (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-generated-files.hmap
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.hmap (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.hmap
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-own-target-headers.hmap (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-project-headers.hmap (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-project-headers.hmap
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-all-target-headers.hmap (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-all-non-framework-target-headers.hmap (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-DebugDylibInstallName-normal-arm64.txt (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-DebugDylibInstallName-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator_const_extract_protocols.json (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator.LinkFileList (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator.LinkFileList
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator-OutputFileMap.json (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-DebugDylibPath-normal-arm64.txt (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator.SwiftConstValuesFileList (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator.SwiftFileList (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator.SwiftFileList
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/DerivedSources/Entitlements.plist (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/DerivedSources/Entitlements.plist
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.DependencyStaticMetadataFileList (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.DependencyMetadataFileList (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    write-file /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.DependencyMetadataFileList
+
+MkDir /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    /bin/mkdir -p /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app
+
+MkDir /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    /bin/mkdir -p /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents
+
+MkDir /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/MacOS (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    /bin/mkdir -p /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/MacOS
+
+MkDir /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/Resources (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    /bin/mkdir -p /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/Resources
+
+ProcessProductPackaging /Volumes/Data/xcode/Icon\ Creator/Icon_Creator.entitlements /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.app.xcent (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    
+    Entitlements:
+    
+    {
+    "com.apple.security.app-sandbox" = 1;
+    "com.apple.security.assets.pictures.read-write" = 1;
+    "com.apple.security.files.bookmarks.app-scope" = 1;
+    "com.apple.security.files.downloads.read-write" = 1;
+    "com.apple.security.files.user-selected.read-only" = 1;
+    "com.apple.security.files.user-selected.read-write" = 1;
+    "com.apple.security.get-task-allow" = 1;
+    "com.apple.security.temporary-exception.files.absolute-path.read-write" =     (
+        "/Users/kochj/Desktop/",
+        "/Users/kochj/Documents/",
+        "/Users/kochj/Developer/",
+        "/Users/kochj/Projects/",
+        "/Users/kochj/Code/",
+        "/Users/kochj/Development/",
+        "/Users/kochj/workspace/",
+        "/Users/kochj/Workspace/"
+    );
+}
+    
+    builtin-productPackagingUtility /Volumes/Data/xcode/Icon\ Creator/Icon_Creator.entitlements -entitlements -format xml -o /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.app.xcent
+
+ProcessProductPackagingDER /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.app.xcent /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.app.xcent.der (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    /usr/bin/derq query -f xml -i /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.app.xcent -o /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator.app.xcent.der --raw
+
+Ld /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/MacOS/__preview.dylib normal (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos12.0 -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -O0 -L/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug -F/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug -install_name @rpath/Icon\ Creator.debug.dylib -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator_dependency_info.dat -Xlinker -no_adhoc_codesign -o /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/MacOS/__preview.dylib
+
+GenerateAssetSymbols /Volumes/Data/xcode/Icon\ Creator/Assets.xcassets (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Volumes/Data/xcode/Icon\ Creator/Assets.xcassets --compile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/Resources --output-format human-readable-text --notices --warnings --export-dependency-info /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_dependencies --output-partial-info-plist /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_generated_info.plist --app-icon AppIcon --enable-on-demand-resources NO --development-region en --target-device mac --minimum-deployment-target 12.0 --platform macosx --bundle-identifier com.kochj.IconCreator --generate-swift-asset-symbols /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/DerivedSources/GeneratedAssetSymbols.swift --generate-objc-asset-symbols /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/DerivedSources/GeneratedAssetSymbols.h --generate-asset-symbol-index /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/* com.apple.actool.document.warnings */
+/Volumes/Data/xcode/Icon Creator/Assets.xcassets:./AppIcon.appiconset/[][mac][1024x1024][][][1x][][][][][2d][icon_1024x1024@1x.png]: warning: The app icon set "AppIcon" has 4 unassigned children.
+/Volumes/Data/xcode/Icon Creator/Assets.xcassets:./AppIcon.appiconset/[][mac][1024x1024][][][1x][][][][][2d][icon_1024x1024@1x.png]: warning: The app icon set "AppIcon" has 4 unassigned children.
+/* com.apple.actool.compilation-results */
+/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon Creator.build/Debug/Icon Creator.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon Creator.build/Debug/Icon Creator.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon Creator.build/Debug/Icon Creator.build/DerivedSources/GeneratedAssetSymbols.swift
+
+
+MkDir /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_output/unthinned (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    /bin/mkdir -p /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_output/unthinned
+
+MkDir /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_output/thinned (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    /bin/mkdir -p /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_output/thinned
+
+CompileAssetCatalogVariant thinned /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/Resources /Volumes/Data/xcode/Icon\ Creator/Assets.xcassets (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Volumes/Data/xcode/Icon\ Creator/Assets.xcassets --compile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_dependencies_thinned --output-partial-info-plist /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --enable-on-demand-resources NO --development-region en --target-device mac --minimum-deployment-target 12.0 --platform macosx
+/* com.apple.actool.document.warnings */
+/Volumes/Data/xcode/Icon Creator/Assets.xcassets:./AppIcon.appiconset/[][mac][1024x1024][][][1x][][][][][2d][icon_1024x1024@1x.png]: warning: The app icon set "AppIcon" has 4 unassigned children.
+/Volumes/Data/xcode/Icon Creator/Assets.xcassets:./AppIcon.appiconset/[][mac][1024x1024][][][1x][][][][][2d][icon_1024x1024@1x.png]: warning: The app icon set "AppIcon" has 4 unassigned children.
+/Volumes/Data/xcode/Icon Creator/Assets.xcassets:./AppIcon.appiconset/[][mac][1024x1024][][][1x][][][][][2d][icon_1024x1024@1x.png]: warning: The app icon set "AppIcon" has 4 unassigned children.
+/* com.apple.actool.compilation-results */
+/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon Creator.build/Debug/Icon Creator.build/assetcatalog_generated_info.plist_thinned
+/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon Creator.build/Debug/Icon Creator.build/assetcatalog_output/thinned/AppIcon.icns
+/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon Creator.build/Debug/Icon Creator.build/assetcatalog_output/thinned/Assets.car
+
+
+LinkAssetCatalog /Volumes/Data/xcode/Icon\ Creator/Assets.xcassets (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    builtin-linkAssetCatalog --thinned /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_output/thinned --thinned-dependencies /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_dependencies_thinned --thinned-info-plist-content /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_generated_info.plist_thinned --unthinned /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_output/unthinned --unthinned-dependencies /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_dependencies_unthinned --unthinned-info-plist-content /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_generated_info.plist_unthinned --output /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/Resources --plist-output /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_generated_info.plist
+note: Emplaced /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon Creator.app/Contents/Resources/Assets.car (in target 'Icon Creator' from project 'Icon Creator')
+note: Emplaced /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon Creator.app/Contents/Resources/AppIcon.icns (in target 'Icon Creator' from project 'Icon Creator')
+
+ProcessInfoPlistFile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/Info.plist /Volumes/Data/xcode/Icon\ Creator/Info.plist (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    builtin-infoPlistUtility /Volumes/Data/xcode/Icon\ Creator/Info.plist -producttype com.apple.product-type.application -genpkginfo /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/PkgInfo -expandbuildsettings -platform macosx -additionalcontentfile /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/assetcatalog_generated_info.plist -o /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/Icon\ Creator.app/Contents/Info.plist
+
+SwiftDriver Icon\ Creator normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Icon Creator' from project 'Icon Creator')
+    cd /Volumes/Data/xcode/Icon\ Creator
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Icon_Creator -Onone -enforce-exclusivity\=checked @/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -target arm64-apple-macos12.0 -g -module-cache-path /Users/kochj/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug -F /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64 -c -j32 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/kochj/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache -output-file-map /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/kochj/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/kochj/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon_Creator.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/kochj/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon\ Creator_const_extract_protocols.json -Xcc -iquote -Xcc /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-generated-files.hmap -Xcc -I/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-own-target-headers.hmap -Xcc -I/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-all-target-headers.hmap -Xcc -iquote -Xcc /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Icon\ Creator-project-headers.hmap -Xcc -I/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Products/Debug/include -Xcc -I/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/DerivedSources-normal/arm64 -Xcc -I/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/DerivedSources/arm64 -Xcc -I/Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/kochj/Library/Developer/Xcode/DerivedData/Icon_Creator-duriwmxqhgfyxafefryrqlvisyzn/Build/Intermediates.noindex/Icon\ Creator.build/Debug/Icon\ Creator.build/Objects-normal/arm64/Icon_Creator-Swift.h -working-directory /Volumes/Data/xcode/Icon\ Creator -experimental-emit-module-separately -disable-cmo
+/Volumes/Data/xcode/Icon Creator/Models/Core/IconSettings.swift:150:104: error: expected ',' separator
+            GradientStop(color: ColorComponents(red: 0.2, green: 0.6, blue: 0.2, alpha: 1.0)), location: 1.0)
+                                                                                                       ^
+                                                                                                       ,
+/Volumes/Data/xcode/Icon Creator/Models/Core/IconSettings.swift:150:104: error: expected expression in container literal
+            GradientStop(color: ColorComponents(red: 0.2, green: 0.6, blue: 0.2, alpha: 1.0)), location: 1.0)
+                                                                                                       ^
+/Volumes/Data/xcode/Icon Creator/Models/Core/IconSettings.swift:150:104: error: Expected ',' separator
+            GradientStop(color: ColorComponents(red: 0.2, green: 0.6, blue: 0.2, alpha: 1.0)), location: 1.0)
+                                                                                                       ^
+                                                                                                       , (in target 'Icon Creator' from project 'Icon Creator')
+/Volumes/Data/xcode/Icon Creator/Models/Core/IconSettings.swift:150:104: error: Expected expression in container literal
+            GradientStop(color: ColorComponents(red: 0.2, green: 0.6, blue: 0.2, alpha: 1.0)), location: 1.0)
+                                                                                                       ^ (in target 'Icon Creator' from project 'Icon Creator')
+
+** BUILD FAILED **
+
+
+The following build commands failed:
+	SwiftDriver Icon\ Creator normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Icon Creator' from project 'Icon Creator')
+	Building project Icon Creator with scheme Icon Creator
+(2 failures)
