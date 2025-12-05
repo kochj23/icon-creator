@@ -475,6 +475,38 @@ class XcodeProjectManager: ObservableObject {
     func openInXcode(_ project: XcodeProject) {
         NSWorkspace.shared.open(project.path)
     }
+
+    // MARK: - Multi-Platform Installation
+
+    /// Installs icons for multiple platforms simultaneously
+    /// - Parameters:
+    ///   - baseURL: Base directory containing exported icons for all platforms
+    ///   - platforms: Set of platforms to install
+    ///   - project: Target Xcode project
+    /// - Returns: Dictionary mapping each platform to its installation result
+    func installMultiplePlatforms(
+        from baseURL: URL,
+        platforms: Set<Platform>,
+        to project: XcodeProject
+    ) async throws -> [Platform: Result<Void, Error>] {
+        var results: [Platform: Result<Void, Error>] = [:]
+
+        for platform in platforms {
+            let platformURL = baseURL.appendingPathComponent(platform.folderName)
+            let appiconsetURL = platformURL.appendingPathComponent("AppIcon.appiconset")
+
+            do {
+                try installIcons(from: appiconsetURL, to: project, platform: platform)
+                results[platform] = .success(())
+                print("✅ Successfully installed \(platform.rawValue) icons")
+            } catch {
+                results[platform] = .failure(error)
+                print("❌ Failed to install \(platform.rawValue) icons: \(error)")
+            }
+        }
+
+        return results
+    }
 }
 
 // MARK: - Error Handling
