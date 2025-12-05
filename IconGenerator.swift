@@ -69,6 +69,7 @@ class IconGenerator: ObservableObject {
         didSet {
             // Clamp scale to valid range
             scale = max(Constants.minScale, min(Constants.maxScale, scale))
+            clearCache()
         }
     }
 
@@ -78,22 +79,37 @@ class IconGenerator: ObservableObject {
         didSet {
             // Clamp padding to valid range
             padding = max(Constants.minPadding, min(Constants.maxPadding, padding))
+            clearCache()
         }
     }
 
     /// Background color for the icon
     /// Default: white
-    @Published var backgroundColor: Color = .white
+    @Published var backgroundColor: Color = .white {
+        didSet {
+            clearCache()
+        }
+    }
 
     /// Whether to automatically crop non-square images to square
     /// Default: true
     @Published var autoCropToSquare: Bool = true
+
+    /// Image effects configuration
+    @Published var effects: ImageEffects = ImageEffects() {
+        didSet {
+            clearCache()
+        }
+    }
 
     /// Stores the original image before cropping (if cropped)
     private var originalImage: NSImage?
 
     /// Whether the current image was auto-cropped
     @Published var wasAutoCropped: Bool = false
+
+    /// Image processor for applying effects
+    private let imageProcessor = ImageProcessor()
 
     // MARK: - Constants
 
@@ -118,7 +134,33 @@ class IconGenerator: ObservableObject {
         scale = 1.0
         padding = 10.0
         backgroundColor = .white
+        effects = ImageEffects()
         previewCache.removeAll()
+    }
+
+    /// Clears the preview cache
+    func clearCache() {
+        previewCache.removeAll()
+    }
+
+    /// Gets current settings as IconSettings struct
+    var currentSettings: IconSettings {
+        IconSettings(
+            scale: scale,
+            padding: padding,
+            backgroundColor: ColorComponents(backgroundColor),
+            autoCropToSquare: autoCropToSquare,
+            effects: effects
+        )
+    }
+
+    /// Applies IconSettings to this generator
+    func applySettings(_ settings: IconSettings) {
+        scale = settings.scale
+        padding = settings.padding
+        backgroundColor = settings.backgroundColor.color
+        autoCropToSquare = settings.autoCropToSquare
+        effects = settings.effects
     }
 
     /// Automatically crops an image to square by trimming edges
@@ -251,6 +293,18 @@ class IconGenerator: ObservableObject {
     ///   - size: Target size in pixels (width and height)
     /// - Returns: Generated icon, or nil if generation fails
     func generateIcon(from image: NSImage, size: Int) -> NSImage? {
+        // Check if any effects are enabled
+        let hasEffects = effects.cornerRadiusEnabled || effects.shadowEnabled ||
+                        effects.borderEnabled || effects.brightness != 0 ||
+                        effects.contrast != 0 || effects.saturation != 0 ||
+                        effects.backgroundType != .solid
+
+        // Use ImageProcessor if effects are enabled
+        if hasEffects {
+            return imageProcessor.processImage(image, with: currentSettings, targetSize: size)
+        }
+
+        // Otherwise use the original fast path
         let targetSize = CGFloat(size)
 
         // Calculate padding amount in pixels
