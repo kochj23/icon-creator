@@ -355,4 +355,81 @@ class ImageProcessor {
 
         return composed
     }
+
+    // MARK: - App Store Connect Screenshot Resizing
+
+    /// Resizes an image to 1920x1080 for App Store Connect screenshot requirements
+    /// Maintains aspect ratio and adds letterboxing/pillarboxing as needed
+    /// - Parameters:
+    ///   - image: Source image to resize
+    ///   - backgroundColor: Background color for letterbox/pillarbox bars (default: black)
+    /// - Returns: Resized image at 1920x1080, or nil if resize fails
+    func resizeForAppStore(_ image: NSImage, backgroundColor: NSColor = .black) -> NSImage? {
+        let targetSize = NSSize(width: 1920, height: 1080)
+        let sourceSize = image.size
+
+        // Calculate aspect ratios
+        let sourceAspect = sourceSize.width / sourceSize.height
+        let targetAspect = targetSize.width / targetSize.height
+
+        // Calculate scaled size to fit within target while maintaining aspect ratio
+        var scaledSize: NSSize
+        if sourceAspect > targetAspect {
+            // Image is wider - fit to width
+            scaledSize = NSSize(
+                width: targetSize.width,
+                height: targetSize.width / sourceAspect
+            )
+        } else {
+            // Image is taller - fit to height
+            scaledSize = NSSize(
+                width: targetSize.height * sourceAspect,
+                height: targetSize.height
+            )
+        }
+
+        // Create output image
+        let outputImage = NSImage(size: targetSize)
+
+        autoreleasepool {
+            outputImage.lockFocus()
+            defer { outputImage.unlockFocus() }
+
+            // Draw background (letterbox/pillarbox)
+            backgroundColor.setFill()
+            NSRect(origin: .zero, size: targetSize).fill()
+
+            // Calculate position to center the scaled image
+            let x = (targetSize.width - scaledSize.width) / 2
+            let y = (targetSize.height - scaledSize.height) / 2
+
+            // Draw source image with high quality interpolation
+            let sourceRect = NSRect(origin: .zero, size: sourceSize)
+            let destRect = NSRect(x: x, y: y, width: scaledSize.width, height: scaledSize.height)
+
+            NSGraphicsContext.current?.imageInterpolation = .high
+            image.draw(in: destRect, from: sourceRect, operation: .sourceOver, fraction: 1.0)
+        }
+
+        return outputImage
+    }
+
+    /// Saves an NSImage as PNG to the specified URL
+    /// - Parameters:
+    ///   - image: Image to save
+    ///   - url: Destination file URL
+    /// - Throws: Error if PNG conversion or file write fails
+    func saveImageAsPNG(_ image: NSImage, to url: URL) throws {
+        guard let tiffData = image.tiffRepresentation,
+              let bitmapImage = NSBitmapImageRep(data: tiffData),
+              let pngData = bitmapImage.representation(using: .png, properties: [:]) else {
+            throw NSError(
+                domain: "ImageProcessor",
+                code: 1,
+                userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to PNG format"]
+            )
+        }
+
+        try pngData.write(to: url)
+    }
 }
