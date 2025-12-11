@@ -26,7 +26,19 @@ struct ProjectLocationsView: View {
     @State private var newGitClonePath = NSHomeDirectory() + "/Developer/GitRepos"
 
     var body: some View {
-        NavigationView {
+        VStack(spacing: 0) {
+            // Toolbar
+            HStack {
+                Spacer()
+                Button("Done") {
+                    dismiss()
+                }
+                .keyboardShortcut(.cancelAction)
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+
             ScrollView {
                 VStack(alignment: .leading, spacing: 30) {
                     // Header
@@ -163,15 +175,8 @@ struct ProjectLocationsView: View {
                 }
                 .padding(.bottom, 30)
             }
-            .frame(minWidth: 900, minHeight: 700)
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
-                        dismiss()
-                    }
-                }
-            }
         }
+        .frame(minWidth: 900, minHeight: 700)
         .sheet(isPresented: $showingAddDirectory) {
             AddDirectorySheet(locationManager: locationManager, isPresented: $showingAddDirectory)
         }
