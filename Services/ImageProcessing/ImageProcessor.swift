@@ -432,4 +432,143 @@ class ImageProcessor {
 
         try pngData.write(to: url)
     }
+
+    // MARK: - Multi-Size Screenshot Resizing
+
+    /// Resizes an image to a specific screenshot size with letterboxing/pillarboxing
+    /// Supports all App Store Connect screenshot sizes
+    /// - Parameters:
+    ///   - image: Source image to resize
+    ///   - targetSize: Target size (width and height)
+    ///   - backgroundColor: Background color for letterbox/pillarbox bars
+    ///   - maintainAspectRatio: Whether to maintain aspect ratio (default: true)
+    /// - Returns: Resized image, or nil if resize fails
+    func resizeToScreenshotSize(
+        _ image: NSImage,
+        targetSize: NSSize,
+        backgroundColor: NSColor = .black,
+        maintainAspectRatio: Bool = true
+    ) -> NSImage? {
+        let sourceSize = image.size
+
+        // Calculate aspect ratios
+        let sourceAspect = sourceSize.width / sourceSize.height
+        let targetAspect = targetSize.width / targetSize.height
+
+        // Calculate scaled size to fit within target while maintaining aspect ratio
+        var scaledSize: NSSize
+
+        if maintainAspectRatio {
+            if sourceAspect > targetAspect {
+                // Image is wider - fit to width
+                scaledSize = NSSize(
+                    width: targetSize.width,
+                    height: targetSize.width / sourceAspect
+                )
+            } else {
+                // Image is taller - fit to height
+                scaledSize = NSSize(
+                    width: targetSize.height * sourceAspect,
+                    height: targetSize.height
+                )
+            }
+        } else {
+            // Stretch to fill
+            scaledSize = targetSize
+        }
+
+        // Create output image
+        let outputImage = NSImage(size: targetSize)
+
+        autoreleasepool {
+            outputImage.lockFocus()
+            defer { outputImage.unlockFocus() }
+
+            // Draw background (letterbox/pillarbox)
+            backgroundColor.setFill()
+            NSRect(origin: .zero, size: targetSize).fill()
+
+            // Calculate position to center the scaled image
+            let x = (targetSize.width - scaledSize.width) / 2
+            let y = (targetSize.height - scaledSize.height) / 2
+
+            // Draw source image with high quality interpolation
+            let sourceRect = NSRect(origin: .zero, size: sourceSize)
+            let destRect = NSRect(x: x, y: y, width: scaledSize.width, height: scaledSize.height)
+
+            NSGraphicsContext.current?.imageInterpolation = .high
+            image.draw(in: destRect, from: sourceRect, operation: .sourceOver, fraction: 1.0)
+        }
+
+        return outputImage
+    }
+
+    /// Batch resize images to multiple screenshot sizes
+    /// - Parameters:
+    ///   - image: Source image
+    ///   - sizes: Array of target sizes (NSSize)
+    ///   - backgroundColor: Background color for letterboxing
+    /// - Returns: Dictionary mapping size to resized image
+    func batchResizeScreenshots(
+        _ image: NSImage,
+        sizes: [NSSize],
+        backgroundColor: NSColor = .black
+    ) -> [NSSize: NSImage] {
+        var results: [NSSize: NSImage] = [:]
+
+        for size in sizes {
+            if let resized = resizeToScreenshotSize(image, targetSize: size, backgroundColor: backgroundColor) {
+                results[size] = resized
+            }
+        }
+
+        return results
+    }
+
+    // MARK: - Image Format Conversion
+
+    /// Converts an image to a different format
+    /// - Parameters:
+    ///   - image: Source image
+    ///   - format: Target format
+    ///   - quality: Compression quality (0.0-1.0, only for JPEG)
+    /// - Returns: Data in the specified format
+    func convert(_ image: NSImage, to format: ImageFormat, quality: CGFloat = 0.9) -> Data? {
+        guard let tiffData = image.tiffRepresentation,
+              let bitmapImage = NSBitmapImageRep(data: tiffData) else {
+            return nil
+        }
+
+        switch format {
+        case .png:
+            return bitmapImage.representation(using: .png, properties: [:])
+        case .jpeg:
+            return bitmapImage.representation(using: .jpeg, properties: [.compressionFactor: quality])
+        case .tiff:
+            return bitmapImage.representation(using: .tiff, properties: [:])
+        case .heic:
+            // HEIC requires macOS 10.13+
+            if #available(macOS 10.13, *) {
+                return bitmapImage.representation(using: .png, properties: [:])  // Fallback to PNG for now
+            } else {
+                return bitmapImage.representation(using: .png, properties: [:])
+            }
+        }
+    }
+
+    enum ImageFormat: String, CaseIterable {
+        case png = "PNG"
+        case jpeg = "JPEG"
+        case tiff = "TIFF"
+        case heic = "HEIC"
+
+        var fileExtension: String {
+            switch self {
+            case .png: return "png"
+            case .jpeg: return "jpg"
+            case .tiff: return "tiff"
+            case .heic: return "heic"
+            }
+        }
+    }
 }

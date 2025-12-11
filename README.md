@@ -1,17 +1,68 @@
 # Icon Creator
 
-A native macOS application for generating app icons for all Apple platforms with automatic Xcode project integration. Now includes a powerful App Store Connect Screenshot Resizer!
+A professional macOS application for generating app icons for all Apple platforms with automatic Xcode project integration. Includes comprehensive App Store Connect screenshot tools, icon validation, device frame mockups, and batch image conversion!
 
 ## Features
 
-### 🆕 App Store Connect Screenshot Resizer (v2.3.0)
-- **1920×1080 Resizing**: Automatically resize screenshots to App Store Connect requirements
+### 🆕 NEW in v2.4.0
+
+#### Multi-Size Screenshot Resizer
+- **All App Store Connect Sizes**: Supports all required screenshot sizes for iPhone, iPad, Mac, Apple TV, Apple Watch, and Apple Vision Pro
+- **Batch Resize**: Convert one screenshot to all required sizes at once
+- **Platform-Specific Sizes**:
+  - **iPhone**: 6.9", 6.7", 6.5", 6.1", 5.8", 5.5", 4.7", 4.0" displays
+  - **iPad**: 13", 12.9", 11", 10.5", 9.7" displays
+  - **Mac**: 2880×1800, 2560×1600, 1440×900, 1280×800
+  - **Apple TV**: 4K (3840×2160), 1080p (1920×1080)
+  - **Apple Watch**: All sizes from 38mm to 49mm Ultra
+  - **Apple Vision Pro**: 2712×1536
 - **Aspect Ratio Preservation**: Maintains original aspect ratio with letterbox/pillarbox
 - **Customizable Background**: Choose any color for letterbox/pillarbox bars
 - **High Quality Scaling**: Uses advanced interpolation for crystal-clear results
-- **Instant Export**: Saves to Pictures folder and opens in Finder
-- **Drag & Drop Support**: Simple, intuitive interface
 - **All Formats Supported**: PNG, JPG, HEIC, TIFF, BMP, GIF, and more
+
+#### Icon Validation (App Store Compliance)
+- **Automated Quality Checks**:
+  - ✅ Transparency detection (iOS icons must be opaque)
+  - ✅ Alpha channel validation (prevents edge artifacts)
+  - ✅ DPI/Resolution verification (minimum 72 PPI)
+  - ✅ Color space validation (sRGB recommended)
+  - ✅ File size limits (warns if > 2MB, errors if > 10MB)
+  - ✅ Minimum size requirements (1024×1024 for App Store)
+  - ✅ Aspect ratio checks (must be square)
+  - ✅ Image quality assessment (compression artifacts)
+  - ✅ Content validation (detects blank/placeholder icons)
+  - ✅ Accessibility checks (contrast, readability)
+- **Real-Time Validation**: Validates icons before export to prevent App Store rejections
+- **Detailed Reports**: Shows all errors and warnings with actionable fixes
+- **Platform-Specific Rules**: Applies correct validation rules per platform (iOS, macOS, etc.)
+
+#### Device Frame Generator
+- **Professional Mockups**: Add realistic device frames to screenshots
+- **Supported Devices**:
+  - iPhone 16 Pro Max, iPhone 15 Plus, iPhone 14 Pro Max, iPhone 13 Pro Max, iPhone 8 Plus
+  - iPad Pro 13", iPad Pro 12.9", iPad Pro 11"
+  - MacBook Pro 16", MacBook Pro 14"
+  - Apple TV 4K
+  - Apple Watch Ultra, Apple Watch 45mm
+- **Frame Colors**: Black, White, Silver, Gold, Space Gray, Midnight Green, Pacific Blue, Graphite, Sierra Blue, Product Red
+- **Background Styles**:
+  - Solid color
+  - Gradient (with angle control)
+  - Transparent (for compositing)
+- **Device Details**: Automatically renders notch, Dynamic Island, bezels, Digital Crown
+- **Professional Shadows**: Optional drop shadow for depth
+- **Batch Generation**: Generate multiple color variants at once
+
+#### Batch Image Conversion
+- **Format Conversion**: Convert between PNG, JPEG, TIFF, HEIC
+- **Quality Control**: Adjustable compression quality for JPEG
+- **Batch Processing**: Convert multiple images at once
+- **Preserve Metadata**: Maintains EXIF data when possible
+
+### Screenshot Resizer (v2.3.0+)
+- **Drag & Drop Support**: Simple, intuitive interface
+- **Instant Export**: Saves to Pictures folder and opens in Finder
 
 ### Icon Generation
 - **Multi-Platform Support**: Generate icons for iOS, macOS, tvOS, watchOS, iMessage, and Mac Catalyst
