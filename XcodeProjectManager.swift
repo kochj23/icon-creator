@@ -60,6 +60,9 @@ class XcodeProjectManager: ObservableObject {
     /// List of search directories to scan for Xcode projects
     private var searchDirectories: [URL] = []
 
+    /// Project location manager for configurable sources
+    private lazy var locationManager = ProjectLocationManager()
+
     // MARK: - Initialization
 
     init() {
@@ -180,8 +183,6 @@ class XcodeProjectManager: ObservableObject {
     /// Discovers projects from configured locations in ProjectLocationManager
     ///
     /// **New in v2.5.0**: Uses user-configured locations instead of hardcoded paths
-    /// **Note**: Requires ProjectLocationManager to be added to Xcode project
-    /*
     func discoverProjectsFromConfiguredLocations() {
         Task {
             let projectPaths = await locationManager.scanForProjects()
@@ -212,7 +213,6 @@ class XcodeProjectManager: ObservableObject {
             print("✅ Discovered \(discoveredProjects.count) Xcode projects from configured locations")
         }
     }
-    */
 
     // MARK: - Platform Detection
 

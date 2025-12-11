@@ -460,7 +460,7 @@ class ProjectLocationManager: ObservableObject {
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let data = try encoder.encode(customLocations)
 
-        let documentsURL = FileManager.default.urls(for: .documentsDirectory, in: .userDomainMask)[0]
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let fileURL = documentsURL.appendingPathComponent("IconCreator-Locations.json")
 
         try data.write(to: fileURL)
