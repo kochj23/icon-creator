@@ -1,8 +1,17 @@
 # Icon Creator
 
-A native macOS application for generating app icons for all Apple platforms with automatic Xcode project integration.
+A native macOS application for generating app icons for all Apple platforms with automatic Xcode project integration. Now includes a powerful App Store Connect Screenshot Resizer!
 
 ## Features
+
+### 🆕 App Store Connect Screenshot Resizer (v2.3.0)
+- **1920×1080 Resizing**: Automatically resize screenshots to App Store Connect requirements
+- **Aspect Ratio Preservation**: Maintains original aspect ratio with letterbox/pillarbox
+- **Customizable Background**: Choose any color for letterbox/pillarbox bars
+- **High Quality Scaling**: Uses advanced interpolation for crystal-clear results
+- **Instant Export**: Saves to Pictures folder and opens in Finder
+- **Drag & Drop Support**: Simple, intuitive interface
+- **All Formats Supported**: PNG, JPG, HEIC, TIFF, BMP, GIF, and more
 
 ### Icon Generation
 - **Multi-Platform Support**: Generate icons for iOS, macOS, tvOS, watchOS, iMessage, and Mac Catalyst

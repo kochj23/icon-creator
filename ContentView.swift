@@ -21,6 +21,8 @@ struct ContentView: View {
     @State private var batchModeEnabled = false
     @State private var showingBatchQueue = false
     @State private var showingPresetLibrary = false
+    @State private var screenshotResizerMode = false
+    @State private var resizedScreenshotImage: NSImage? = nil
 
     var body: some View {
         VStack(spacing: 0) {
@@ -43,6 +45,11 @@ struct ContentView: View {
                 HStack(spacing: 15) {
                     Toggle("Batch Mode", isOn: $batchModeEnabled)
                         .toggleStyle(.button)
+                        .disabled(screenshotResizerMode)
+
+                    Toggle("Screenshot Resizer", isOn: $screenshotResizerMode)
+                        .toggleStyle(.button)
+                        .disabled(batchModeEnabled)
 
                     if batchModeEnabled {
                         Button(action: { showingBatchQueue = true }) {
@@ -52,14 +59,16 @@ struct ContentView: View {
 
                     Spacer()
 
-                    Button(action: { showingPresetLibrary = true }) {
-                        Label("Presets", systemImage: "star.fill")
-                    }
+                    if !screenshotResizerMode {
+                        Button(action: { showingPresetLibrary = true }) {
+                            Label("Presets", systemImage: "star.fill")
+                        }
 
-                    if let preset = presetManager.selectedPreset {
-                        Text("• \(preset.name)")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                        if let preset = presetManager.selectedPreset {
+                            Text("• \(preset.name)")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
                 .buttonStyle(.bordered)
@@ -74,21 +83,30 @@ struct ContentView: View {
             // MARK: - Main Content
             ScrollView {
                 VStack(spacing: 30) {
-                    // Drop Zone for image selection
-                    DropZoneView(
-                        iconGenerator: iconGenerator,
-                        validationWarning: $validationWarning,
-                        projectManager: projectManager,
-                        pendingImage: $pendingImage,
-                        showingProjectSelector: $showingProjectSelector,
-                        batchManager: batchManager,
-                        batchModeEnabled: $batchModeEnabled
-                    )
-                    .padding(.horizontal, 40)
-                    .padding(.top, 30)
+                    // Show Screenshot Resizer UI if in screenshot mode
+                    if screenshotResizerMode {
+                        ScreenshotResizerView(
+                            resizedImage: $resizedScreenshotImage
+                        )
+                        .padding(.horizontal, 40)
+                        .padding(.top, 30)
+                    } else {
+                        // Drop Zone for image selection
+                        DropZoneView(
+                            iconGenerator: iconGenerator,
+                            validationWarning: $validationWarning,
+                            projectManager: projectManager,
+                            pendingImage: $pendingImage,
+                            showingProjectSelector: $showingProjectSelector,
+                            batchManager: batchManager,
+                            batchModeEnabled: $batchModeEnabled
+                        )
+                        .padding(.horizontal, 40)
+                        .padding(.top, 30)
+                    }
 
-                    // Show validation warning if present
-                    if let warning = validationWarning {
+                    // Show validation warning if present (only in icon mode)
+                    if !screenshotResizerMode, let warning = validationWarning {
                         HStack {
                             Image(systemName: warning.contains("✂️") ? "scissors" : "exclamationmark.triangle.fill")
                                 .foregroundColor(warning.contains("✂️") ? .blue : .orange)
@@ -111,7 +129,7 @@ struct ContentView: View {
                         .padding(.horizontal, 40)
                     }
 
-                    if iconGenerator.sourceImage != nil {
+                    if !screenshotResizerMode && iconGenerator.sourceImage != nil {
                         // Image adjustment controls
                         ImageEditorView(iconGenerator: iconGenerator)
                             .padding(.horizontal, 40)
@@ -1117,6 +1135,274 @@ struct XcodeProjectSelectionView: View {
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color.gray.opacity(0.05))
         )
+    }
+}
+
+// MARK: - Screenshot Resizer View
+
+/// View for resizing photos to 1920x1080 for App Store Connect
+struct ScreenshotResizerView: View {
+    @Binding var resizedImage: NSImage?
+    @State private var sourceImage: NSImage?
+    @State private var isDragOver = false
+    @State private var isProcessing = false
+    @State private var statusMessage = ""
+    @State private var letterboxColor: Color = .black
+
+    private let imageProcessor = ImageProcessor()
+
+    var body: some View {
+        VStack(spacing: 30) {
+            // Info section
+            VStack(spacing: 8) {
+                Image(systemName: "photo.on.rectangle.angled")
+                    .font(.system(size: 48))
+                    .foregroundColor(.accentColor)
+
+                Text("App Store Connect Screenshot Resizer")
+                    .font(.title2)
+                    .bold()
+
+                Text("Resize any image to 1920×1080 pixels")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+
+                Text("Maintains aspect ratio with letterbox/pillarbox as needed")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .padding(.top, 20)
+
+            // Drop zone
+            VStack(spacing: 20) {
+                if let image = sourceImage {
+                    // Show selected image
+                    VStack(spacing: 15) {
+                        Image(nsImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 400, maxHeight: 300)
+                            .cornerRadius(12)
+                            .shadow(radius: 5)
+
+                        Text("Original: \(Int(image.size.width))×\(Int(image.size.height)) pixels")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                } else {
+                    // Show drop zone placeholder
+                    VStack(spacing: 15) {
+                        Image(systemName: "photo.badge.arrow.down")
+                            .font(.system(size: 60))
+                            .foregroundColor(isDragOver ? .accentColor : .secondary)
+
+                        Text("Drag & Drop Image Here")
+                            .font(.title2)
+                            .foregroundColor(isDragOver ? .accentColor : .primary)
+
+                        Text("Or click to select")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+
+                        Text("Supports: PNG, JPG, HEIC, and more")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 350)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .strokeBorder(style: StrokeStyle(lineWidth: 3, dash: [10]))
+                    .foregroundColor(isDragOver ? .accentColor : .secondary)
+            )
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(isDragOver ? Color.accentColor.opacity(0.1) : Color.gray.opacity(0.05))
+            )
+            .onDrop(of: [.image, .fileURL], isTargeted: $isDragOver) { providers in
+                handleDrop(providers: providers)
+            }
+            .onTapGesture {
+                selectImage()
+            }
+
+            // Letterbox color picker
+            if sourceImage != nil {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Letterbox/Pillarbox Color")
+                        .font(.subheadline)
+                    ColorPicker("", selection: $letterboxColor)
+                        .frame(width: 200)
+                    Text("Background color for bars (if image doesn't match 16:9 aspect ratio)")
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                }
+                .padding(20)
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.gray.opacity(0.05))
+                )
+            }
+
+            // Action buttons
+            if sourceImage != nil {
+                HStack(spacing: 20) {
+                    Button("Clear") {
+                        sourceImage = nil
+                        resizedImage = nil
+                        statusMessage = ""
+                    }
+                    .buttonStyle(.bordered)
+
+                    Button(action: {
+                        Task {
+                            await resizeAndExport()
+                        }
+                    }) {
+                        Label(isProcessing ? "Processing..." : "Resize & Export",
+                              systemImage: isProcessing ? "arrow.triangle.2.circlepath" : "arrow.down.doc.fill")
+                            .frame(minWidth: 180)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(isProcessing)
+                }
+            }
+
+            // Status message
+            if !statusMessage.isEmpty {
+                Text(statusMessage)
+                    .font(.callout)
+                    .foregroundColor(statusMessage.contains("✓") ? .green : .red)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 40)
+            }
+        }
+        .padding(.bottom, 30)
+    }
+
+    // MARK: - Drag & Drop Handling
+
+    private func handleDrop(providers: [NSItemProvider]) -> Bool {
+        guard let provider = providers.first else { return false }
+
+        if provider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
+            provider.loadItem(forTypeIdentifier: UTType.image.identifier, options: nil) { item, error in
+                if let error = error {
+                    print("⚠️ Error loading image: \(error.localizedDescription)")
+                    return
+                }
+
+                if let url = item as? URL {
+                    loadImage(from: url)
+                } else if let data = item as? Data, let image = NSImage(data: data) {
+                    DispatchQueue.main.async {
+                        sourceImage = image
+                    }
+                }
+            }
+            return true
+        }
+
+        if provider.hasItemConformingToTypeIdentifier(UTType.fileURL.identifier) {
+            provider.loadItem(forTypeIdentifier: UTType.fileURL.identifier, options: nil) { item, error in
+                if let error = error {
+                    print("⚠️ Error loading file: \(error.localizedDescription)")
+                    return
+                }
+
+                if let url = item as? URL {
+                    loadImage(from: url)
+                }
+            }
+            return true
+        }
+
+        return false
+    }
+
+    private func loadImage(from url: URL) {
+        guard url.startAccessingSecurityScopedResource() else {
+            print("⚠️ Cannot access file: \(url.path)")
+            return
+        }
+        defer { url.stopAccessingSecurityScopedResource() }
+
+        if let image = NSImage(contentsOf: url) {
+            DispatchQueue.main.async {
+                sourceImage = image
+            }
+        } else {
+            print("⚠️ Failed to load image from: \(url.path)")
+        }
+    }
+
+    private func selectImage() {
+        let panel = NSOpenPanel()
+        panel.allowedContentTypes = [.image, .png, .jpeg, .heic, .tiff, .bmp, .gif]
+        panel.allowsMultipleSelection = false
+        panel.canChooseDirectories = false
+        panel.message = "Select an image to resize to 1920×1080"
+
+        if panel.runModal() == .OK, let url = panel.url {
+            loadImage(from: url)
+        }
+    }
+
+    // MARK: - Resize & Export
+
+    @MainActor
+    private func resizeAndExport() async {
+        guard let source = sourceImage else { return }
+
+        isProcessing = true
+        statusMessage = ""
+
+        do {
+            // Resize image
+            guard let resized = imageProcessor.resizeForAppStore(source, backgroundColor: NSColor(letterboxColor)) else {
+                statusMessage = "✗ Error: Failed to resize image"
+                isProcessing = false
+                return
+            }
+
+            resizedImage = resized
+
+            // Get Pictures directory
+            guard let picturesURL = FileManager.default.urls(for: .picturesDirectory, in: .userDomainMask).first else {
+                statusMessage = "✗ Error: Cannot access Pictures directory"
+                isProcessing = false
+                return
+            }
+
+            // Create filename with timestamp
+            let timestamp = Int(Date().timeIntervalSince1970)
+            let filename = "AppStore_Screenshot_\(timestamp).png"
+            let fileURL = picturesURL.appendingPathComponent(filename)
+
+            // Save the resized image
+            try imageProcessor.saveImageAsPNG(resized, to: fileURL)
+
+            statusMessage = "✓ Success! Saved to: \(fileURL.path)"
+
+            // Open the file in Finder
+            NSWorkspace.shared.activateFileViewerSelecting([fileURL])
+
+            // Clear message after 10 seconds
+            Task {
+                try? await Task.sleep(nanoseconds: 10_000_000_000)
+                await MainActor.run {
+                    statusMessage = ""
+                }
+            }
+
+        } catch {
+            statusMessage = "✗ Error: \(error.localizedDescription)"
+            print("❌ Export failed: \(error)")
+        }
+
+        isProcessing = false
     }
 }
 
