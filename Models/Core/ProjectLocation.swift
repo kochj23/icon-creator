@@ -195,37 +195,45 @@ struct ProjectLocation: Identifiable, Codable, Hashable {
 
 extension ProjectLocation {
     /// Common default locations for Xcode projects
+    /// Uses stable UUIDs so they can be tracked across app launches
     static let defaultLocations: [ProjectLocation] = [
         ProjectLocation(
+            id: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!,
             name: "Desktop Xcode",
             type: .localDirectory,
             path: NSHomeDirectory() + "/Desktop/xcode"
         ),
         ProjectLocation(
+            id: UUID(uuidString: "00000000-0000-0000-0000-000000000002")!,
             name: "Documents Projects",
             type: .localDirectory,
             path: NSHomeDirectory() + "/Documents/Projects"
         ),
         ProjectLocation(
+            id: UUID(uuidString: "00000000-0000-0000-0000-000000000003")!,
             name: "Developer Folder",
             type: .localDirectory,
             path: NSHomeDirectory() + "/Developer"
         ),
         ProjectLocation(
+            id: UUID(uuidString: "00000000-0000-0000-0000-000000000004")!,
             name: "Data Volume Xcode",
             type: .localDirectory,
             path: "/Volumes/Data/xcode"
         ),
         ProjectLocation(
+            id: UUID(uuidString: "00000000-0000-0000-0000-000000000005")!,
             name: "iCloud Drive",
             type: .iCloudDrive
         ),
         ProjectLocation(
+            id: UUID(uuidString: "00000000-0000-0000-0000-000000000006")!,
             name: "Spotlight Search",
             type: .spotlight,
             isEnabled: false  // Disabled by default (can be slow)
         ),
         ProjectLocation(
+            id: UUID(uuidString: "00000000-0000-0000-0000-000000000007")!,
             name: "Xcode Recent Projects",
             type: .xcodeRecents
         )

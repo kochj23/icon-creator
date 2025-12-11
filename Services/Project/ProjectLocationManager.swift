@@ -25,11 +25,13 @@ class ProjectLocationManager: ObservableObject {
     @Published var recentProjects: [String] = []  // Paths
     @Published var isScanning: Bool = false
     @Published var scanProgress: String = ""
+    @Published var disabledDefaultLocationIDs: Set<UUID> = []
 
     // MARK: - Private Properties
 
     private let userDefaultsKey = "com.iconcreator.projectLocations"
     private let recentProjectsKey = "com.iconcreator.recentProjects"
+    private let disabledDefaultsKey = "com.iconcreator.disabledDefaults"
     private let maxRecentProjects = 10
 
     // MARK: - Initialization
@@ -94,20 +96,37 @@ class ProjectLocationManager: ObservableObject {
         return location
     }
 
-    /// Removes a custom location
+    /// Removes a location (custom or default)
     func removeLocation(_ location: ProjectLocation) {
-        customLocations.removeAll { $0.id == location.id }
+        // Check if it's a custom location
+        if let index = customLocations.firstIndex(where: { $0.id == location.id }) {
+            customLocations.remove(at: index)
+        } else {
+            // It's a default location - add to disabled list to hide it
+            disabledDefaultLocationIDs.insert(location.id)
+        }
+
         rebuildLocationsList()
         saveLocations()
     }
 
     /// Toggles a location's enabled state
     func toggleLocation(_ location: ProjectLocation) {
+        // Try to find in custom locations first
         if let index = customLocations.firstIndex(where: { $0.id == location.id }) {
             customLocations[index].isEnabled.toggle()
-            rebuildLocationsList()
+            saveLocations()
+        } else {
+            // It's a default location - toggle via disabled set
+            if disabledDefaultLocationIDs.contains(location.id) {
+                disabledDefaultLocationIDs.remove(location.id)
+            } else {
+                disabledDefaultLocationIDs.insert(location.id)
+            }
             saveLocations()
         }
+
+        rebuildLocationsList()
     }
 
     /// Enables a default location
@@ -373,9 +392,14 @@ class ProjectLocationManager: ObservableObject {
     // MARK: - Persistence
 
     private func saveLocations() {
+        // Save custom locations
         if let encoded = try? JSONEncoder().encode(customLocations) {
             UserDefaults.standard.set(encoded, forKey: userDefaultsKey)
         }
+
+        // Save disabled defaults
+        let disabledArray = Array(disabledDefaultLocationIDs.map { $0.uuidString })
+        UserDefaults.standard.set(disabledArray, forKey: disabledDefaultsKey)
     }
 
     private func loadLocations() {
@@ -385,13 +409,30 @@ class ProjectLocationManager: ObservableObject {
             customLocations = decoded
         }
 
+        // Load disabled defaults
+        if let disabledStrings = UserDefaults.standard.stringArray(forKey: disabledDefaultsKey) {
+            disabledDefaultLocationIDs = Set(disabledStrings.compactMap { UUID(uuidString: $0) })
+        }
+
         // Rebuild combined list
         rebuildLocationsList()
     }
 
     private func rebuildLocationsList() {
-        // Combine default locations + custom locations
+        // Start with default locations
         var combined = ProjectLocation.defaultLocations
+
+        // Filter out disabled defaults
+        combined.removeAll { disabledDefaultLocationIDs.contains($0.id) }
+
+        // Filter out invalid default locations
+        combined = combined.filter { location in
+            // Only keep valid locations or non-filesystem types
+            if location.type == .spotlight || location.type == .xcodeRecents {
+                return true  // These don't require path validation
+            }
+            return location.isValid
+        }
 
         // Check which defaults are overridden by custom
         for custom in customLocations {
@@ -401,7 +442,9 @@ class ProjectLocationManager: ObservableObject {
             }
         }
 
+        // Add custom locations
         combined.append(contentsOf: customLocations)
+
         locations = combined
     }
 
