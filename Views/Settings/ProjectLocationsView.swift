@@ -14,7 +14,7 @@ import SwiftUI
 ///
 /// **Author**: Jordan Koch
 struct ProjectLocationsView: View {
-    @StateObject private var locationManager = ProjectLocationManager()
+    @ObservedObject var locationManager = ProjectLocationManager.shared
     @Environment(\.dismiss) var dismiss
 
     @State private var showingAddDirectory = false
