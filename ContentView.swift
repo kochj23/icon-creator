@@ -1031,6 +1031,8 @@ struct XcodeProjectSelectionView: View {
     @ObservedObject var projectManager: XcodeProjectManager
     @Binding var autoInstallEnabled: Bool
 
+    @State private var showingLocationSettings = false
+
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             // Header
@@ -1040,11 +1042,25 @@ struct XcodeProjectSelectionView: View {
 
                 Spacer()
 
+                // TODO: Add back when ProjectLocationsView is added to Xcode project
+                /*
+                Button(action: { showingLocationSettings = true }) {
+                    Label("Configure Locations", systemImage: "gearshape")
+                }
+                .buttonStyle(.bordered)
+                .help("Configure where to search for Xcode projects")
+                */
+
                 Button("Refresh Projects") {
                     projectManager.discoverProjects()
                 }
                 .buttonStyle(.bordered)
             }
+            /*
+            .sheet(isPresented: $showingLocationSettings) {
+                ProjectLocationsView()
+            }
+            */
 
             // Auto-install toggle
             Toggle("Automatically install icons into selected project", isOn: $autoInstallEnabled)

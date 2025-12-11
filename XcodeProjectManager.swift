@@ -177,6 +177,43 @@ class XcodeProjectManager: ObservableObject {
         }
     }
 
+    /// Discovers projects from configured locations in ProjectLocationManager
+    ///
+    /// **New in v2.5.0**: Uses user-configured locations instead of hardcoded paths
+    /// **Note**: Requires ProjectLocationManager to be added to Xcode project
+    /*
+    func discoverProjectsFromConfiguredLocations() {
+        Task {
+            let projectPaths = await locationManager.scanForProjects()
+
+            var discoveredProjects: [XcodeProject] = []
+
+            for projectPath in projectPaths {
+                let projectURL = URL(fileURLWithPath: projectPath)
+                let platforms = detectPlatforms(in: projectURL)
+
+                let project = XcodeProject(
+                    name: projectURL.lastPathComponent,
+                    path: projectURL,
+                    detectedPlatforms: platforms
+                )
+
+                discoveredProjects.append(project)
+            }
+
+            // Sort projects alphabetically
+            discoveredProjects.sort { $0.displayName.localizedCaseInsensitiveCompare($1.displayName) == .orderedAscending }
+
+            await MainActor.run {
+                self.projects = discoveredProjects
+                self.scannedDirectories = locationManager.locations.filter { $0.isEnabled }.map { $0.displayPath }
+            }
+
+            print("✅ Discovered \(discoveredProjects.count) Xcode projects from configured locations")
+        }
+    }
+    */
+
     // MARK: - Platform Detection
 
     /// Detects the target platforms for an Xcode project by parsing project.pbxproj

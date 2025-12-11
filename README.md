@@ -79,12 +79,17 @@ A professional macOS application for generating app icons for all Apple platform
 
 ### Xcode Project Integration (Enhanced!)
 - **Automatic Asset Catalog Creation**: Creates Assets.xcassets if missing - works with any project!
-- **Intelligent Multi-Location Scanning**: Automatically scans common project locations:
-  - Desktop (~/Desktop/xcode and ~/Desktop)
-  - Documents (~/Documents/Xcode, ~/Documents/Projects, ~/Documents)
-  - Developer folders (~/Developer, ~/Developer/Projects)
-  - Common project directories (~/Projects, ~/Code, ~/Development, ~/workspace)
-  - iCloud Drive project folders
+- **🆕 Configurable Project Locations** (v2.5.0):
+  - **Custom Directories**: Add any folder where you keep Xcode projects
+  - **Git Repository Cloning**: Clone directly from GitHub, GitLab, Bitbucket
+  - **Cloud Storage**: Auto-detect iCloud Drive, Dropbox, Google Drive, OneDrive
+  - **Spotlight Search**: System-wide .xcodeproj discovery
+  - **Xcode Recents**: Import from Xcode's recent projects list
+  - **Network Volumes**: Support for NFS, SMB, AFP mounted drives
+  - **Recent Projects**: Track your 10 most recently used projects
+  - **Import/Export**: Share configurations across machines or team members
+  - **Enable/Disable**: Toggle locations on/off without removing them
+- **Intelligent Multi-Location Scanning**: Scans all enabled locations
 - **Platform Auto-Detection**: Automatically identifies iOS, macOS, tvOS, watchOS projects
 - **One-Click Installation**: Install icons directly into your project's asset catalog
 - **Smart Workflow**: Choose between auto-install or manual export
