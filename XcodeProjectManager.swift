@@ -60,8 +60,8 @@ class XcodeProjectManager: ObservableObject {
     /// List of search directories to scan for Xcode projects
     private var searchDirectories: [URL] = []
 
-    /// Project location manager for configurable sources
-    private lazy var locationManager = ProjectLocationManager()
+    /// Project location manager for configurable sources (shared singleton)
+    private let locationManager = ProjectLocationManager.shared
 
     // MARK: - Initialization
 
@@ -123,8 +123,20 @@ class XcodeProjectManager: ObservableObject {
 
     // MARK: - Project Discovery
 
-    /// Discovers all Xcode projects in all search directories
+    /// Discovers all Xcode projects using configured locations
+    ///
+    /// **v2.5.0**: Now uses ProjectLocationManager for flexible configuration
     func discoverProjects() {
+        print("🔍 discoverProjects() called")
+        print("📊 LocationManager has \(locationManager.locations.count) locations")
+        print("📊 Enabled locations: \(locationManager.locations.filter { $0.isEnabled }.count)")
+
+        // Always use configured locations now
+        discoverProjectsFromConfiguredLocations()
+    }
+
+    /// Legacy discovery method using hardcoded paths
+    private func discoverProjectsLegacy() {
         var discoveredProjects: [XcodeProject] = []
         var scannedPaths: [String] = []
 
@@ -184,8 +196,16 @@ class XcodeProjectManager: ObservableObject {
     ///
     /// **New in v2.5.0**: Uses user-configured locations instead of hardcoded paths
     func discoverProjectsFromConfiguredLocations() {
+        print("📍 Starting discovery from configured locations...")
+
         Task {
+            print("📂 About to scan locations...")
             let projectPaths = await locationManager.scanForProjects()
+            print("📂 Scan returned \(projectPaths.count) project paths")
+
+            for (index, path) in projectPaths.enumerated() {
+                print("   \(index + 1). \(path)")
+            }
 
             var discoveredProjects: [XcodeProject] = []
 
@@ -200,17 +220,20 @@ class XcodeProjectManager: ObservableObject {
                 )
 
                 discoveredProjects.append(project)
+                print("✅ Added project: \(project.displayName)")
             }
 
             // Sort projects alphabetically
             discoveredProjects.sort { $0.displayName.localizedCaseInsensitiveCompare($1.displayName) == .orderedAscending }
 
             await MainActor.run {
+                print("📊 Updating UI with \(discoveredProjects.count) projects")
                 self.projects = discoveredProjects
                 self.scannedDirectories = locationManager.locations.filter { $0.isEnabled }.map { $0.displayPath }
+                print("📊 Projects array now has \(self.projects.count) items")
             }
 
-            print("✅ Discovered \(discoveredProjects.count) Xcode projects from configured locations")
+            print("✅ Discovery complete: \(discoveredProjects.count) Xcode projects from \(locationManager.locations.filter { $0.isEnabled }.count) locations")
         }
     }
 

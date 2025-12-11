@@ -18,6 +18,10 @@ import AppKit
 /// **Author**: Jordan Koch
 class ProjectLocationManager: ObservableObject {
 
+    // MARK: - Singleton
+
+    static let shared = ProjectLocationManager()
+
     // MARK: - Published Properties
 
     @Published var locations: [ProjectLocation] = []
@@ -36,7 +40,7 @@ class ProjectLocationManager: ObservableObject {
 
     // MARK: - Initialization
 
-    init() {
+    private init() {
         loadLocations()
         loadRecentProjects()
     }
@@ -159,6 +163,14 @@ class ProjectLocationManager: ObservableObject {
 
     /// Scans all enabled locations for Xcode projects
     func scanForProjects() async -> [String] {
+        print("🔍 scanForProjects() called")
+        print("📊 Total locations: \(locations.count)")
+        print("📊 Enabled locations: \(locations.filter { $0.isEnabled }.count)")
+
+        for (index, loc) in locations.enumerated() {
+            print("   \(index + 1). [\(loc.isEnabled ? "✅" : "☐")] \(loc.name) - \(loc.displayPath)")
+        }
+
         await MainActor.run {
             isScanning = true
             scanProgress = "Initializing scan..."
@@ -167,11 +179,14 @@ class ProjectLocationManager: ObservableObject {
         var foundProjects: Set<String> = []
 
         for location in locations where location.isEnabled {
+            print("🔎 Scanning location: \(location.name) at \(location.displayPath)")
+
             await MainActor.run {
                 scanProgress = "Scanning: \(location.name)"
             }
 
             let projects = await scanLocation(location)
+            print("   Found \(projects.count) projects in \(location.name)")
             foundProjects.formUnion(projects)
         }
 
@@ -180,6 +195,7 @@ class ProjectLocationManager: ObservableObject {
             scanProgress = ""
         }
 
+        print("✅ Total projects found: \(foundProjects.count)")
         return Array(foundProjects)
     }
 
@@ -214,14 +230,24 @@ class ProjectLocationManager: ObservableObject {
 
     /// Finds .xcodeproj files in a directory
     private func findXcodeProjects(in directory: String, recursive: Bool, maxDepth: Int) -> Set<String> {
+        print("      🔍 findXcodeProjects in: \(directory)")
+
         var projects: Set<String> = []
         let fileManager = FileManager.default
+
+        // Check if directory exists
+        var isDir: ObjCBool = false
+        guard fileManager.fileExists(atPath: directory, isDirectory: &isDir), isDir.boolValue else {
+            print("      ⚠️ Directory doesn't exist or is not a directory: \(directory)")
+            return projects
+        }
 
         guard let enumerator = fileManager.enumerator(
             at: URL(fileURLWithPath: directory),
             includingPropertiesForKeys: [.isDirectoryKey],
             options: [.skipsHiddenFiles]
         ) else {
+            print("      ⚠️ Failed to create enumerator for: \(directory)")
             return projects
         }
 
@@ -235,6 +261,7 @@ class ProjectLocationManager: ObservableObject {
 
             // Check if it's an .xcodeproj
             if fileURL.pathExtension == "xcodeproj" {
+                print("      ✅ Found: \(fileURL.lastPathComponent)")
                 projects.insert(fileURL.path)
 
                 // Don't descend into .xcodeproj bundles
@@ -242,6 +269,7 @@ class ProjectLocationManager: ObservableObject {
             }
         }
 
+        print("      📊 Found \(projects.count) projects in \(directory)")
         return projects
     }
 
