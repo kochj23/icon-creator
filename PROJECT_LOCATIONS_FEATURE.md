@@ -688,5 +688,5 @@ class ProjectLocationManager: ObservableObject {
 
 ---
 
-*Created with Claude Code*
+*Created by Jordan Koch*
 *December 11, 2025*

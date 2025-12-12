@@ -1,6 +1,6 @@
 # Code Evaluation Report - Icon Creator
 **Date**: November 13, 2025
-**Evaluator**: Claude Code
+**Evaluator**: Jordan Koch
 **Project**: Icon Creator - macOS App Icon Generator
 
 ---
