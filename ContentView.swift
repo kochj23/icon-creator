@@ -1100,9 +1100,16 @@ struct XcodeProjectSelectionView: View {
                     HStack {
                         Image(systemName: "exclamationmark.triangle")
                             .foregroundColor(.orange)
-                        Text("No Xcode projects found in /Users/kochj/Desktop/xcode/")
-                            .font(.caption)
-                            .foregroundColor(.orange)
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("No Xcode projects found")
+                                .font(.caption)
+                                .foregroundColor(.orange)
+                            if !projectManager.scannedDirectories.isEmpty {
+                                Text("Scanned: \(projectManager.scannedDirectories.joined(separator: ", "))")
+                                    .font(.caption2)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
                     }
                 } else {
                     HStack {
