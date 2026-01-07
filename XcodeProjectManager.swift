@@ -66,14 +66,19 @@ class XcodeProjectManager: ObservableObject {
     // MARK: - Initialization
 
     init() {
-        self.searchDirectories = Self.getCommonProjectLocations()
+        // Use configurable locations from ProjectLocationManager instead of hardcoded paths
         discoverProjects()
     }
 
-    // MARK: - Common Project Locations
+    // MARK: - Common Project Locations (DEPRECATED - Use ProjectLocationManager)
 
     /// Returns common locations where Xcode projects are typically stored
+    /// DEPRECATED: This method is no longer used. Use ProjectLocationManager.shared.getEnabledPaths() instead.
     private static func getCommonProjectLocations() -> [URL] {
+        // DEPRECATED: Use ProjectLocationManager for configurable locations
+        return []
+
+        /* ORIGINAL HARDCODED IMPLEMENTATION (DEPRECATED):
         var locations: [URL] = []
         let fileManager = FileManager.default
         let homeDirectory = fileManager.homeDirectoryForCurrentUser
@@ -112,13 +117,10 @@ class XcodeProjectManager: ObservableObject {
                 locations.append(location)
             }
         }
+        */
 
-        print("📁 Found \(locations.count) potential project directories:")
-        for location in locations {
-            print("   - \(location.path)")
-        }
-
-        return locations
+        // This method is deprecated - use ProjectLocationManager.shared.getEnabledPaths() instead
+        return []
     }
 
     // MARK: - Project Discovery

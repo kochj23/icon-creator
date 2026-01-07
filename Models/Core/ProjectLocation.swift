@@ -201,30 +201,35 @@ extension ProjectLocation {
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!,
             name: "Desktop Xcode",
             type: .localDirectory,
-            path: NSHomeDirectory() + "/Desktop/xcode"
+            path: NSHomeDirectory() + "/Desktop/xcode",
+            isEnabled: false  // Disabled by default - user should use Data Volume
         ),
         ProjectLocation(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000002")!,
             name: "Documents Projects",
             type: .localDirectory,
-            path: NSHomeDirectory() + "/Documents/Projects"
+            path: NSHomeDirectory() + "/Documents/Projects",
+            isEnabled: false  // Disabled by default
         ),
         ProjectLocation(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000003")!,
             name: "Developer Folder",
             type: .localDirectory,
-            path: NSHomeDirectory() + "/Developer"
+            path: NSHomeDirectory() + "/Developer",
+            isEnabled: false  // Disabled by default
         ),
         ProjectLocation(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000004")!,
             name: "Data Volume Xcode",
             type: .localDirectory,
-            path: "/Volumes/Data/xcode"
+            path: "/Volumes/Data/xcode",
+            isEnabled: true  // PRIMARY LOCATION - Always enabled
         ),
         ProjectLocation(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000005")!,
             name: "iCloud Drive",
-            type: .iCloudDrive
+            type: .iCloudDrive,
+            isEnabled: false  // Disabled by default
         ),
         ProjectLocation(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000006")!,
@@ -235,7 +240,8 @@ extension ProjectLocation {
         ProjectLocation(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000007")!,
             name: "Xcode Recent Projects",
-            type: .xcodeRecents
+            type: .xcodeRecents,
+            isEnabled: false  // Disabled by default - only use configured locations
         )
     ]
 
