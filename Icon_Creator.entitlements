@@ -14,6 +14,7 @@
 	<true/>
 	<key>com.apple.security.temporary-exception.files.absolute-path.read-write</key>
 	<array>
+		<string>/Volumes/Data/xcode/</string>
 		<string>/Users/kochj/Desktop/</string>
 		<string>/Users/kochj/Documents/</string>
 		<string>/Users/kochj/Developer/</string>
