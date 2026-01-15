@@ -96,11 +96,7 @@ class IconGenerator: ObservableObject {
     @Published var autoCropToSquare: Bool = true
 
     /// Image effects configuration
-    @Published var effects: ImageEffects = ImageEffects() {
-        didSet {
-            clearCache()
-        }
-    }
+    @Published var effects: ImageEffects = ImageEffects()
 
     /// Stores the original image before cropping (if cropped)
     private var originalImage: NSImage?
