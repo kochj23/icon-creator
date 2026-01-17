@@ -25,21 +25,24 @@ struct ContentView: View {
     @State private var resizedScreenshotImage: NSImage? = nil
 
     var body: some View {
-        VStack(spacing: 0) {
-            // MARK: - Header Section
-            VStack(spacing: 12) {
-                HStack {
-                    Spacer()
-                    VStack(spacing: 8) {
-                        Text("Icon Creator")
-                            .font(.largeTitle)
-                            .bold()
-                        Text("Create app icons for all Apple platforms")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+        ZStack {
+            // Glassmorphic background
+            GlassmorphicBackground()
+
+            VStack(spacing: 0) {
+                // MARK: - Header Section
+                VStack(spacing: 12) {
+                    HStack {
+                        Spacer()
+                        VStack(spacing: 8) {
+                            Text("Icon Creator")
+                                .modernHeader(size: .large)
+                            Text("Create app icons for all Apple platforms")
+                                .font(.subheadline)
+                                .foregroundColor(ModernColors.textSecondary)
+                        }
+                        Spacer()
                     }
-                    Spacer()
-                }
 
                 // Toolbar
                 HStack(spacing: 15) {
@@ -207,6 +210,7 @@ struct ContentView: View {
                     }
                 }
                 .padding(.bottom, 30)
+            }
             }
         }
         .frame(minWidth: 800, minHeight: 700)
@@ -640,10 +644,7 @@ struct ImageEditorView: View {
             .buttonStyle(.bordered)
         }
         .padding(20)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color.gray.opacity(0.05))
-        )
+        .glassCard()
     }
 }
 
@@ -1149,10 +1150,7 @@ struct XcodeProjectSelectionView: View {
             }
         }
         .padding(20)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color.gray.opacity(0.05))
-        )
+        .glassCard()
     }
 }
 
@@ -1258,10 +1256,7 @@ struct ScreenshotResizerView: View {
                         .foregroundColor(.secondary)
                 }
                 .padding(20)
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.gray.opacity(0.05))
-                )
+                .glassCard()
             }
 
             // Action buttons

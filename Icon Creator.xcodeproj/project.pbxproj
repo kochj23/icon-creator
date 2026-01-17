@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8785EDA89DA441E3B6F09897 /* ModernDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E15AC838D4F4993358424 /* ModernDesign.swift */; };
 		B384AEC64EDA321487698F5A /* ProjectLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877DFE19E0558F887CFA4757 /* ProjectLocationsView.swift */; };
 		F92DB3944D1698FA73B317F2 /* ProjectLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471818FFC28716DA7A66F21E /* ProjectLocationManager.swift */; };
 		4E7D04D35A10089EE07144BA /* ProjectLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA184F04F959E419C97A4E8 /* ProjectLocation.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		874E15AC838D4F4993358424 /* ModernDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernDesign.swift; sourceTree = "<group>"; };
 		877DFE19E0558F887CFA4757 /* ProjectLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Settings/ProjectLocationsView.swift; sourceTree = "<group>"; };
 		471818FFC28716DA7A66F21E /* ProjectLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Project/ProjectLocationManager.swift; sourceTree = "<group>"; };
 		1AA184F04F959E419C97A4E8 /* ProjectLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/ProjectLocation.swift; sourceTree = "<group>"; };
@@ -355,7 +357,8 @@
 				CBC053553120B88224BD1150 /* XcodeProjectManager.swift in Sources */,
 				96AD0F8F5D76201AC709FFF0 /* XcodeProjectManager.swift in Sources */,
 				DD993E0BFC4545A615D750BD /* XcodeProjectManager.swift in Sources */,
-			);
+			
+				8785EDA89DA441E3B6F09897 /* ModernDesign.swift in Sources */,);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
