@@ -1,10 +1,48 @@
 # Icon Creator
 
-A professional macOS application for generating app icons for all Apple platforms with automatic Xcode project integration. Includes comprehensive App Store Connect screenshot tools, icon validation, device frame mockups, and batch image conversion!
+A professional macOS application for generating app icons for all Apple platforms with automatic Xcode project integration. Includes comprehensive App Store Connect screenshot tools, icon validation, device frame mockups, and batch image conversion! **Now with AI-powered design assistance!**
 
 ## Features
 
-### 🆕 NEW in v2.4.0
+### 🤖 AI Design Assistant (NEW in v2.5.0)
+
+Icon Creator now includes **4 AI-powered features** to help you design better icons:
+
+#### 1. AI Icon Concept Generation 💡
+- Describe your app and get 3 professional icon design concepts
+- Each concept includes visual elements, color schemes, and rationale
+- Example: "A fitness app with blue gradient" → 3 unique concepts with colors and layouts
+
+#### 2. AI Color Palette Suggestions 🎨
+- Get 4 harmonious color palettes for your icon
+- Includes psychology and emotional impact of each palette
+- Platform-appropriate colors (iOS blues, professional tones, etc.)
+
+#### 3. AI Design Feedback ✍️
+- Analyze your icon and get expert feedback
+- Score 0-100 with strengths and weaknesses
+- Specific recommendations to improve design
+- App Store readiness assessment
+
+#### 4. AI App Store Compliance Check ✅
+- Verify icon meets Apple's App Store guidelines
+- Platform-specific rules (iOS transparency, size requirements)
+- Detailed fix recommendations
+- Prevent App Store rejections
+
+#### AI Backend Support
+Choose from 3 AI backends:
+- **Ollama** - Fast GPU-accelerated (localhost:11434)
+- **TinyLLM** by Jason Cox - Lightweight Docker (localhost:8000)
+- **MLX Toolkit** - Python-based Apple Silicon optimization
+
+**Setup:** See AI_FEATURES_PLAN.md for complete documentation
+
+**Third-Party:** TinyLLM by Jason Cox (https://github.com/jasonacox/TinyLLM)
+
+---
+
+### 🆕 v2.4.0
 
 #### Multi-Size Screenshot Resizer
 - **All App Store Connect Sizes**: Supports all required screenshot sizes for iPhone, iPad, Mac, Apple TV, Apple Watch, and Apple Vision Pro
