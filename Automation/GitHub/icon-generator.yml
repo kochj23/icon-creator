@@ -1,0 +1,124 @@
+# GitHub Actions Workflow for Icon Creator
+# Automatically generates app icons on push or pull request
+# Author: Jordan Koch
+
+name: Generate App Icons
+
+on:
+  push:
+    paths:
+      - 'assets/icon-source.png'
+      - 'assets/app-icon.png'
+      - '.github/workflows/icon-generator.yml'
+  pull_request:
+    paths:
+      - 'assets/icon-source.png'
+      - 'assets/app-icon.png'
+  workflow_dispatch:
+    inputs:
+      platforms:
+        description: 'Platforms to generate (comma-separated: iOS,macOS,watchOS,tvOS)'
+        required: false
+        default: 'iOS,macOS'
+      optimize:
+        description: 'Optimize generated icons'
+        required: false
+        default: 'true'
+
+jobs:
+  generate-icons:
+    name: Generate Icons
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Icon Creator CLI
+        run: |
+          # Download and setup Icon Creator CLI
+          curl -L https://github.com/kochj23/icon-creator/releases/latest/download/icon-creator-cli -o /usr/local/bin/icon-creator
+          chmod +x /usr/local/bin/icon-creator
+          icon-creator version
+
+      - name: Generate Icons
+        run: |
+          PLATFORMS="${{ github.event.inputs.platforms || 'iOS,macOS' }}"
+
+          icon-creator generate \
+            --input assets/icon-source.png \
+            --output ./generated-icons \
+            --platforms $PLATFORMS \
+            --verbose
+
+      - name: Optimize Icons
+        if: ${{ github.event.inputs.optimize == 'true' || github.event_name != 'workflow_dispatch' }}
+        run: |
+          icon-creator optimize \
+            --input ./generated-icons \
+            --aggressive \
+            --verbose
+
+      - name: Analyze Icon Performance
+        id: analyze
+        run: |
+          icon-creator analyze \
+            --input ./generated-icons \
+            --format json > analysis.json
+
+          cat analysis.json
+
+      - name: Upload Analysis Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: icon-analysis
+          path: analysis.json
+
+      - name: Upload Generated Icons
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-icons
+          path: generated-icons/
+
+      - name: Create Pull Request Comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const analysis = JSON.parse(fs.readFileSync('analysis.json', 'utf8'));
+
+            const body = `## 🎨 Icon Generation Report
+
+            **Status:** ✅ Success
+
+            ### 📊 Statistics
+            - **Total Files:** ${analysis.totalFiles}
+            - **Total Size:** ${(analysis.totalSize / 1024).toFixed(2)} KB
+            - **Average Size:** ${(analysis.averageSize / 1024).toFixed(2)} KB
+            - **Has Transparency:** ${analysis.hasTransparency ? '✅ Yes' : '❌ No'}
+            - **Potential Savings:** ${(analysis.potentialSavings / 1024).toFixed(2)} KB
+
+            ${analysis.issues.length > 0 ? `### ⚠️ Issues\n${analysis.issues.map(i => `- ${i}`).join('\n')}` : '### ✅ No Issues Found'}
+
+            Download generated icons from the artifacts section.`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+      - name: Commit Generated Icons
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          # Copy generated icons to project
+          cp -R generated-icons/* ./Assets.xcassets/ || true
+
+          git add ./Assets.xcassets/
+          git diff --staged --quiet || git commit -m "chore: Update generated app icons [skip ci]"
+          git push
