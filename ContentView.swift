@@ -23,6 +23,8 @@ struct ContentView: View {
     @State private var showingPresetLibrary = false
     @State private var screenshotResizerMode = false
     @State private var resizedScreenshotImage: NSImage? = nil
+    @State private var keywordGeneratorMode = false
+    @State private var showingAISettings = false
 
     var body: some View {
         ZStack {
@@ -48,11 +50,15 @@ struct ContentView: View {
                 HStack(spacing: 15) {
                     Toggle("Batch Mode", isOn: $batchModeEnabled)
                         .toggleStyle(.button)
-                        .disabled(screenshotResizerMode)
+                        .disabled(screenshotResizerMode || keywordGeneratorMode)
 
                     Toggle("Screenshot Resizer", isOn: $screenshotResizerMode)
                         .toggleStyle(.button)
-                        .disabled(batchModeEnabled)
+                        .disabled(batchModeEnabled || keywordGeneratorMode)
+
+                    Toggle("Keyword Generator", isOn: $keywordGeneratorMode)
+                        .toggleStyle(.button)
+                        .disabled(batchModeEnabled || screenshotResizerMode)
 
                     if batchModeEnabled {
                         Button(action: { showingBatchQueue = true }) {
@@ -62,7 +68,12 @@ struct ContentView: View {
 
                     Spacer()
 
-                    if !screenshotResizerMode {
+                    // Always show AI Config button
+                    Button(action: { showingAISettings = true }) {
+                        Label("AI Config", systemImage: "cpu")
+                    }
+
+                    if !screenshotResizerMode && !keywordGeneratorMode {
                         Button(action: { showingPresetLibrary = true }) {
                             Label("Presets", systemImage: "star.fill")
                         }
@@ -86,8 +97,14 @@ struct ContentView: View {
             // MARK: - Main Content
             ScrollView {
                 VStack(spacing: 30) {
+                    // Show Keyword Generator if in keyword mode
+                    if keywordGeneratorMode {
+                        KeywordIconGeneratorView()
+                            .padding(.horizontal, 40)
+                            .padding(.top, 30)
+                    }
                     // Show Screenshot Resizer UI if in screenshot mode
-                    if screenshotResizerMode {
+                    else if screenshotResizerMode {
                         ScreenshotResizerView(
                             resizedImage: $resizedScreenshotImage
                         )
@@ -225,6 +242,9 @@ struct ContentView: View {
         .sheet(isPresented: $showingPresetLibrary) {
             PresetLibraryView(presetManager: presetManager, iconGenerator: iconGenerator)
         }
+        .sheet(isPresented: $showingAISettings) {
+            AIBackendSettingsView()
+        }
         .sheet(isPresented: $showingProjectSelector) {
             ProjectSelectorSheet(
                 projectManager: projectManager,
@@ -258,6 +278,12 @@ struct ContentView: View {
                 validationWarning = validation.error
             } else {
                 validationWarning = nil
+            }
+        }
+        .onAppear {
+            // Initialize AI backend on launch
+            Task {
+                await AIBackendManager.shared.checkBackendAvailability()
             }
         }
     }
@@ -1163,7 +1189,7 @@ struct ScreenshotResizerView: View {
     @State private var isDragOver = false
     @State private var isProcessing = false
     @State private var statusMessage = ""
-    @State private var letterboxColor: Color = .black
+    @State private var letterboxColor: NSColor = .black
 
     private let imageProcessor = ImageProcessor()
 
@@ -1249,7 +1275,12 @@ struct ScreenshotResizerView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Letterbox/Pillarbox Color")
                         .font(.subheadline)
-                    ColorPicker("", selection: $letterboxColor)
+                    ColorPicker("", selection: Binding(
+                        get: { Color(nsColor: letterboxColor) },
+                        set: { newColor in
+                            letterboxColor = NSColor(newColor)
+                        }
+                    ))
                         .frame(width: 200)
                     Text("Background color for bars (if image doesn't match 16:9 aspect ratio)")
                         .font(.caption2)
@@ -1374,7 +1405,7 @@ struct ScreenshotResizerView: View {
 
         do {
             // Resize image
-            guard let resized = imageProcessor.resizeForAppStore(source, backgroundColor: NSColor(letterboxColor)) else {
+            guard let resized = imageProcessor.resizeForAppStore(source, backgroundColor: letterboxColor) else {
                 statusMessage = "✗ Error: Failed to resize image"
                 isProcessing = false
                 return
