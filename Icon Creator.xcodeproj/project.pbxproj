@@ -13,65 +13,24 @@
 		4E7D04D35A10089EE07144BA /* ProjectLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA184F04F959E419C97A4E8 /* ProjectLocation.swift */; };
 		045EB692EDFD4BA59009AE6E /* BatchQueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CCC0EBD79D4911AF6612E4 /* BatchQueueView.swift */; };
 		04BCBA2F03074F2593485553 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0C9891CEB48C5812B7246 /* ImageProcessor.swift */; };
-		11DD1E2FC0CA41A484DC3D9A /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDDFC51D7FE4AB29ADA682B /* BatchItem.swift */; };
-		1D659626AB9B48EBA485616F /* BatchProcessingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A29B84BE1441F89B33029 /* BatchProcessingManager.swift */; };
-		2A7130E08D6B4A418F11780C /* ContextPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31A972EF8224FC4BC1B6F02 /* ContextPreviewView.swift */; };
-		2C4943D49D544E3FBA8261E6 /* ContextPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7594BD322A224B91AC818DEB /* ContextPreviewView.swift */; };
 		37B2D2E86555447D888CC65F /* PresetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1174F6707545D0B04E1B91 /* PresetManager.swift */; };
 		3BB252A5B61A447F964A5234 /* ContextPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530324F4956A43B7820360B3 /* ContextPreviewView.swift */; };
-		3DFC88B229F7A43594174405 /* XcodeProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD221481B8CEB2F28F9229 /* XcodeProjectManager.swift */; };
-		4B438BE8ACE84A97AB57657B /* BatchQueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18F0EBB1CA496786BC73BE /* BatchQueueView.swift */; };
-		4CADCFA61FB741E98FE39440 /* PresetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34B19A5877940DF8D0B0D48 /* PresetManager.swift */; };
-		59B23E1A51A240A5B591DDB6 /* BatchProcessingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A04825E09E43F494D22B39 /* BatchProcessingManager.swift */; };
 		5A79B8EA60E04F5584A7E558 /* IconSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B80FCB91441869DACE085 /* IconSettings.swift */; };
-		6672776F2EB849E0B5BA3FA7 /* IconSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09A684ABAB46C8A4821F82 /* IconSettings.swift */; };
-		6760C9C056DE4D79BD45B4DA /* PresetLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B17D98925484A8D8536E8 /* PresetLibraryView.swift */; };
 		69BEE07DB5EF4109A0FB1166 /* IconPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E201EB4BC84BBBA2035027 /* IconPreset.swift */; };
 		6A3D6D5DCE834004A60DEB71 /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7F6114F9344E54AB437A36 /* BatchItem.swift */; };
-		6BDA3C9E6F4341EC9680101C /* ImageEffectsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF7078B5A4B5582C41D63 /* ImageEffectsPanel.swift */; };
-		6D88219340A442AFABA7B4BD /* ContextPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921519EF07844BEBC77B086 /* ContextPreviewView.swift */; };
-		734317D3998344BB993DB034 /* ImageEffectsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A31A0D638641C5A859C0AF /* ImageEffectsPanel.swift */; };
-		7587DF1CF31A4F4AB166365B /* IconSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32EDF2A7B1A4F21B6E3819F /* IconSettings.swift */; };
-		7EA1DC8DEB3E4C83B1F65F28 /* PresetLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCFA61CE34543AA9628601A /* PresetLibraryView.swift */; };
-		7FA73DDC36CE4151A5EE0247 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98144648A0347D48020C405 /* ImageProcessor.swift */; };
 		805024CE227B4FB68B303270 /* BatchProcessingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53509EC0A1794AAA9C801A0D /* BatchProcessingManager.swift */; };
-		8E7190CD1A894806A1E05C21 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5000BBBF5C24D67A5D7511E /* ImageProcessor.swift */; };
-		96391CE552ED4C40A5F14F01 /* BatchQueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D953EEF70343454BB3B54FE0 /* BatchQueueView.swift */; };
 		96AD0F8F5D76201AC709FFF0 /* XcodeProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A302B925E3E22B8975891 /* XcodeProjectManager.swift */; };
-		A11FE7156CB24F22B6B2CCCF /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE242590753244FBB26E5FB8 /* BatchItem.swift */; };
-		A4CBC14CB17746E5B6E73375 /* PresetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186F5350135544E893ED9877 /* PresetManager.swift */; };
-		A607C076D0D04C97A797ADC0 /* BatchQueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9D9605638E4ACF94CB0B92 /* BatchQueueView.swift */; };
-		AC9ECED61559427A85B59F09 /* IconPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFE5EC094A496FA5AD590C /* IconPreset.swift */; };
-		AE95641EDA2241108D99E49A /* IconPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6D36D0BA44E44AEC6405F /* IconPreset.swift */; };
-		B32F633FDC194C858A30DA57 /* ImageEffectsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BED675CB8482D8963F6FA /* ImageEffectsPanel.swift */; };
-		C1605C81C4C04CA1A978B78E /* IconPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39C661AC2A64A9682524C37 /* IconPreset.swift */; };
-		C714AC677D704B8D8B2B991F /* PresetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510D1E19ECF4711A19F1680 /* PresetManager.swift */; };
-		CBC053553120B88224BD1150 /* XcodeProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211526C40053E1C4D2B962A /* XcodeProjectManager.swift */; };
-		D05AE2152EB1869500E93E77 /* XcodeProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AE2142EB1869500E93E77 /* XcodeProjectManager.swift */; };
-		D3DFEA2F0AF746FC9B08632F /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111D3319A7F54DDE877B1010 /* ImageProcessor.swift */; };
-		DD993E0BFC4545A615D750BD /* XcodeProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D0DFB8A477679CC3B127CF /* XcodeProjectManager.swift */; };
-		E2AA3D8949BB4A86BA027646 /* BatchProcessingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9474B20DC1CC41D7A06266A1 /* BatchProcessingManager.swift */; };
-		E37F729D0B32FBC1094D0CB4 /* XcodeProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAE03B673318E4C37733B7 /* XcodeProjectManager.swift */; };
-		F560C9BEE57041879070C2F9 /* PresetLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6640731F83412D876702B5 /* PresetLibraryView.swift */; };
 		F6CC418FF06B4607A27C3D0F /* PresetLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8A1449440439EAF435A42 /* PresetLibraryView.swift */; };
 		F95DFA9EF90B40F496B99D0B /* ImageEffectsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D4BA202DE4D1D804F95B7 /* ImageEffectsPanel.swift */; };
-		FED53A03E2F34F41AD381E22 /* IconSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F24E390A8A41D08B5B69D8 /* IconSettings.swift */; };
-		FF5416921793465F899DD2EC /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344CE748A424A0B98EBA7BD /* BatchItem.swift */; };
 		IC0000010000000000000001 /* IconCreatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = IC0000020000000000000001 /* IconCreatorApp.swift */; };
 		IC0000030000000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = IC0000040000000000000001 /* ContentView.swift */; };
 		IC0000050000000000000001 /* IconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = IC0000060000000000000001 /* IconGenerator.swift */; };
 		IC0000070000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = IC0000080000000000000001 /* Assets.xcassets */; };
-		ECE6180CFADA4140BAD4385D /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77189718263948159C3CF83F /* BatchItem.swift */; };
-		FC2EF330BCF44B81A8E32144 /* IconPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78D31A63A2D4723A061C2D0 /* IconPreset.swift */; };
-		F61AF0D511344E48A7BB0353 /* IconSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A40F49B58BF4C3C9F3198B3 /* IconSettings.swift */; };
-		0058C3A3A21246CB96CB6F4A /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216946328264480CB00A0F2C /* ImageProcessor.swift */; };
-		D1E438ED07014835BDB36A88 /* BatchProcessingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846D87A6C5E4520A3BFF933 /* BatchProcessingManager.swift */; };
-		8D3DEB589DD241A9B9EC383F /* PresetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5192D8B9FE4D3095DCF3A5 /* PresetManager.swift */; };
-		BF38DFE862E8479E8A84EE40 /* BatchQueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEBD87DD3614B5C91DFDCFC /* BatchQueueView.swift */; };
-		CB6545C9CAC847508229F83F /* ImageEffectsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8CDA47FD82451582AF0551 /* ImageEffectsPanel.swift */; };
-		610AD4BDB73E40E98ED103AC /* PresetLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052C396D012422E9E615FB9 /* PresetLibraryView.swift */; };
-		312B0B5DB7C04B1DBB009294 /* ContextPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951FCAB8BFDB44E89BEA370B /* ContextPreviewView.swift */; };
-/* End PBXBuildFile section */
+		4C00916DE0234B2790332129 /* AIBackendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B852A9B894909B32D6CB3 /* AIBackendManager.swift */; };
+				AE4D30AACFCF4ACE8AF68E8C /* KeywordIconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DEC4EC8D1415D81BE53D4 /* KeywordIconGenerator.swift */; };
+				DCE9DB088BD7455D9E351AD9 /* KeywordIconGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBAA95D994947E79783C133 /* KeywordIconGeneratorView.swift */; };
+				06BC87E3ED16425591380E74 /* XcodeProjectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BF13EEF8E475A9FF25F92 /* XcodeProjectPickerView.swift */; };
+		/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		874E15AC838D4F4993358424 /* ModernDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernDesign.swift; sourceTree = "<group>"; };
@@ -81,49 +40,14 @@
 		00A0C9891CEB48C5812B7246 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/ImageProcessing/ImageProcessor.swift; sourceTree = "<group>"; };
 		0C1174F6707545D0B04E1B91 /* PresetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels/PresetManager.swift; sourceTree = "<group>"; };
 		107B80FCB91441869DACE085 /* IconSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/IconSettings.swift; sourceTree = "<group>"; };
-		111D3319A7F54DDE877B1010 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/ImageProcessing/ImageProcessor.swift; sourceTree = "<group>"; };
 		17E201EB4BC84BBBA2035027 /* IconPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/IconPreset.swift; sourceTree = "<group>"; };
-		186F5350135544E893ED9877 /* PresetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels/PresetManager.swift; sourceTree = "<group>"; };
 		1BE8A1449440439EAF435A42 /* PresetLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Presets/PresetLibraryView.swift; sourceTree = "<group>"; };
 		282D4BA202DE4D1D804F95B7 /* ImageEffectsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Effects/ImageEffectsPanel.swift; sourceTree = "<group>"; };
-		29F24E390A8A41D08B5B69D8 /* IconSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/IconSettings.swift; sourceTree = "<group>"; };
-		32A31A0D638641C5A859C0AF /* ImageEffectsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Effects/ImageEffectsPanel.swift; sourceTree = "<group>"; };
 		3A3A302B925E3E22B8975891 /* XcodeProjectManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XcodeProjectManager.swift; sourceTree = "<group>"; };
 		47CCC0EBD79D4911AF6612E4 /* BatchQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Batch/BatchQueueView.swift; sourceTree = "<group>"; };
-		4DCD221481B8CEB2F28F9229 /* XcodeProjectManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XcodeProjectManager.swift; sourceTree = "<group>"; };
 		530324F4956A43B7820360B3 /* ContextPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Preview/ContextPreviewView.swift; sourceTree = "<group>"; };
 		53509EC0A1794AAA9C801A0D /* BatchProcessingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels/BatchProcessingManager.swift; sourceTree = "<group>"; };
-		57A04825E09E43F494D22B39 /* BatchProcessingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels/BatchProcessingManager.swift; sourceTree = "<group>"; };
 		5D7F6114F9344E54AB437A36 /* BatchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Batch/BatchItem.swift; sourceTree = "<group>"; };
-		6344CE748A424A0B98EBA7BD /* BatchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Batch/BatchItem.swift; sourceTree = "<group>"; };
-		6A9D9605638E4ACF94CB0B92 /* BatchQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Batch/BatchQueueView.swift; sourceTree = "<group>"; };
-		7594BD322A224B91AC818DEB /* ContextPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Preview/ContextPreviewView.swift; sourceTree = "<group>"; };
-		839A29B84BE1441F89B33029 /* BatchProcessingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels/BatchProcessingManager.swift; sourceTree = "<group>"; };
-		86C6D36D0BA44E44AEC6405F /* IconPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/IconPreset.swift; sourceTree = "<group>"; };
-		8B1B17D98925484A8D8536E8 /* PresetLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Presets/PresetLibraryView.swift; sourceTree = "<group>"; };
-		9474B20DC1CC41D7A06266A1 /* BatchProcessingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels/BatchProcessingManager.swift; sourceTree = "<group>"; };
-		A3EEF7078B5A4B5582C41D63 /* ImageEffectsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Effects/ImageEffectsPanel.swift; sourceTree = "<group>"; };
-		A4DAE03B673318E4C37733B7 /* XcodeProjectManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XcodeProjectManager.swift; sourceTree = "<group>"; };
-		A921519EF07844BEBC77B086 /* ContextPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Preview/ContextPreviewView.swift; sourceTree = "<group>"; };
-		B510D1E19ECF4711A19F1680 /* PresetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels/PresetManager.swift; sourceTree = "<group>"; };
-		C32EDF2A7B1A4F21B6E3819F /* IconSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/IconSettings.swift; sourceTree = "<group>"; };
-		CA09A684ABAB46C8A4821F82 /* IconSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/IconSettings.swift; sourceTree = "<group>"; };
-		CA6640731F83412D876702B5 /* PresetLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Presets/PresetLibraryView.swift; sourceTree = "<group>"; };
-		D05AE2142EB1869500E93E77 /* XcodeProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeProjectManager.swift; sourceTree = "<group>"; };
-		D211526C40053E1C4D2B962A /* XcodeProjectManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XcodeProjectManager.swift; sourceTree = "<group>"; };
-		D31A972EF8224FC4BC1B6F02 /* ContextPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Preview/ContextPreviewView.swift; sourceTree = "<group>"; };
-		D34B19A5877940DF8D0B0D48 /* PresetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels/PresetManager.swift; sourceTree = "<group>"; };
-		D5000BBBF5C24D67A5D7511E /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/ImageProcessing/ImageProcessor.swift; sourceTree = "<group>"; };
-		D85BED675CB8482D8963F6FA /* ImageEffectsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Effects/ImageEffectsPanel.swift; sourceTree = "<group>"; };
-		D8AFE5EC094A496FA5AD590C /* IconPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/IconPreset.swift; sourceTree = "<group>"; };
-		D8D0DFB8A477679CC3B127CF /* XcodeProjectManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XcodeProjectManager.swift; sourceTree = "<group>"; };
-		D953EEF70343454BB3B54FE0 /* BatchQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Batch/BatchQueueView.swift; sourceTree = "<group>"; };
-		DE242590753244FBB26E5FB8 /* BatchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Batch/BatchItem.swift; sourceTree = "<group>"; };
-		E39C661AC2A64A9682524C37 /* IconPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/IconPreset.swift; sourceTree = "<group>"; };
-		EB18F0EBB1CA496786BC73BE /* BatchQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Batch/BatchQueueView.swift; sourceTree = "<group>"; };
-		F98144648A0347D48020C405 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/ImageProcessing/ImageProcessor.swift; sourceTree = "<group>"; };
-		FCCFA61CE34543AA9628601A /* PresetLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Presets/PresetLibraryView.swift; sourceTree = "<group>"; };
-		FDDDFC51D7FE4AB29ADA682B /* BatchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Batch/BatchItem.swift; sourceTree = "<group>"; };
 		IC0000020000000000000001 /* IconCreatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCreatorApp.swift; sourceTree = "<group>"; };
 		IC0000040000000000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		IC0000060000000000000001 /* IconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconGenerator.swift; sourceTree = "<group>"; };
@@ -131,17 +55,11 @@
 		IC0000110000000000000001 /* Icon Creator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Icon Creator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		IC0000120000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		IC0000130000000000000001 /* Icon_Creator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Icon_Creator.entitlements; sourceTree = "<group>"; };
-		77189718263948159C3CF83F /* BatchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Batch/BatchItem.swift"; sourceTree = "<group>"; };
-		D78D31A63A2D4723A061C2D0 /* IconPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Core/IconPreset.swift"; sourceTree = "<group>"; };
-		3A40F49B58BF4C3C9F3198B3 /* IconSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Core/IconSettings.swift"; sourceTree = "<group>"; };
-		216946328264480CB00A0F2C /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/ImageProcessing/ImageProcessor.swift"; sourceTree = "<group>"; };
-		4846D87A6C5E4520A3BFF933 /* BatchProcessingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/BatchProcessingManager.swift"; sourceTree = "<group>"; };
-		FB5192D8B9FE4D3095DCF3A5 /* PresetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/PresetManager.swift"; sourceTree = "<group>"; };
-		9FEBD87DD3614B5C91DFDCFC /* BatchQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Batch/BatchQueueView.swift"; sourceTree = "<group>"; };
-		EB8CDA47FD82451582AF0551 /* ImageEffectsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Effects/ImageEffectsPanel.swift"; sourceTree = "<group>"; };
-		1052C396D012422E9E615FB9 /* PresetLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Presets/PresetLibraryView.swift"; sourceTree = "<group>"; };
-		951FCAB8BFDB44E89BEA370B /* ContextPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Preview/ContextPreviewView.swift"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
+		8F6B852A9B894909B32D6CB3 /* AIBackendManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIBackendManager.swift; sourceTree = "<group>"; };
+				9D0DEC4EC8D1415D81BE53D4 /* KeywordIconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordIconGenerator.swift; sourceTree = "<group>"; };
+				DCBAA95D994947E79783C133 /* KeywordIconGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordIconGeneratorView.swift; sourceTree = "<group>"; };
+				F47BF13EEF8E475A9FF25F92 /* XcodeProjectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeProjectPickerView.swift; sourceTree = "<group>"; };
+		/* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		IC0000140000000000000001 /* Frameworks */ = {
@@ -157,57 +75,16 @@
 		IC0000150000000000000001 = {
 			isa = PBXGroup;
 			children = (
-				77189718263948159C3CF83F /* BatchItem.swift */,
-				D78D31A63A2D4723A061C2D0 /* IconPreset.swift */,
-				3A40F49B58BF4C3C9F3198B3 /* IconSettings.swift */,
-				216946328264480CB00A0F2C /* ImageProcessor.swift */,
-				4846D87A6C5E4520A3BFF933 /* BatchProcessingManager.swift */,
-				FB5192D8B9FE4D3095DCF3A5 /* PresetManager.swift */,
-				9FEBD87DD3614B5C91DFDCFC /* BatchQueueView.swift */,
-				EB8CDA47FD82451582AF0551 /* ImageEffectsPanel.swift */,
-				1052C396D012422E9E615FB9 /* PresetLibraryView.swift */,
-				951FCAB8BFDB44E89BEA370B /* ContextPreviewView.swift */,
 				5D7F6114F9344E54AB437A36 /* BatchItem.swift */,
-				D8AFE5EC094A496FA5AD590C /* IconPreset.swift */,
 				107B80FCB91441869DACE085 /* IconSettings.swift */,
 				00A0C9891CEB48C5812B7246 /* ImageProcessor.swift */,
-				839A29B84BE1441F89B33029 /* BatchProcessingManager.swift */,
-				D34B19A5877940DF8D0B0D48 /* PresetManager.swift */,
-				6A9D9605638E4ACF94CB0B92 /* BatchQueueView.swift */,
-				A3EEF7078B5A4B5582C41D63 /* ImageEffectsPanel.swift */,
-				CA6640731F83412D876702B5 /* PresetLibraryView.swift */,
-				A921519EF07844BEBC77B086 /* ContextPreviewView.swift */,
-				6344CE748A424A0B98EBA7BD /* BatchItem.swift */,
-				E39C661AC2A64A9682524C37 /* IconPreset.swift */,
-				C32EDF2A7B1A4F21B6E3819F /* IconSettings.swift */,
-				F98144648A0347D48020C405 /* ImageProcessor.swift */,
-				57A04825E09E43F494D22B39 /* BatchProcessingManager.swift */,
-				B510D1E19ECF4711A19F1680 /* PresetManager.swift */,
 				47CCC0EBD79D4911AF6612E4 /* BatchQueueView.swift */,
-				D85BED675CB8482D8963F6FA /* ImageEffectsPanel.swift */,
-				8B1B17D98925484A8D8536E8 /* PresetLibraryView.swift */,
 				530324F4956A43B7820360B3 /* ContextPreviewView.swift */,
-				DE242590753244FBB26E5FB8 /* BatchItem.swift */,
-				86C6D36D0BA44E44AEC6405F /* IconPreset.swift */,
-				CA09A684ABAB46C8A4821F82 /* IconSettings.swift */,
-				111D3319A7F54DDE877B1010 /* ImageProcessor.swift */,
-				9474B20DC1CC41D7A06266A1 /* BatchProcessingManager.swift */,
-				186F5350135544E893ED9877 /* PresetManager.swift */,
-				D953EEF70343454BB3B54FE0 /* BatchQueueView.swift */,
 				282D4BA202DE4D1D804F95B7 /* ImageEffectsPanel.swift */,
 				1BE8A1449440439EAF435A42 /* PresetLibraryView.swift */,
-				D31A972EF8224FC4BC1B6F02 /* ContextPreviewView.swift */,
-				FDDDFC51D7FE4AB29ADA682B /* BatchItem.swift */,
 				17E201EB4BC84BBBA2035027 /* IconPreset.swift */,
-				29F24E390A8A41D08B5B69D8 /* IconSettings.swift */,
-				D5000BBBF5C24D67A5D7511E /* ImageProcessor.swift */,
 				53509EC0A1794AAA9C801A0D /* BatchProcessingManager.swift */,
 				0C1174F6707545D0B04E1B91 /* PresetManager.swift */,
-				EB18F0EBB1CA496786BC73BE /* BatchQueueView.swift */,
-				32A31A0D638641C5A859C0AF /* ImageEffectsPanel.swift */,
-				FCCFA61CE34543AA9628601A /* PresetLibraryView.swift */,
-				7594BD322A224B91AC818DEB /* ContextPreviewView.swift */,
-				D05AE2142EB1869500E93E77 /* XcodeProjectManager.swift */,
 				IC0000020000000000000001 /* IconCreatorApp.swift */,
 				IC0000040000000000000001 /* ContentView.swift */,
 				IC0000060000000000000001 /* IconGenerator.swift */,
@@ -215,11 +92,7 @@
 				IC0000120000000000000001 /* Info.plist */,
 				IC0000130000000000000001 /* Icon_Creator.entitlements */,
 				IC0000160000000000000001 /* Products */,
-				4DCD221481B8CEB2F28F9229 /* XcodeProjectManager.swift */,
-				A4DAE03B673318E4C37733B7 /* XcodeProjectManager.swift */,
-				D211526C40053E1C4D2B962A /* XcodeProjectManager.swift */,
 				3A3A302B925E3E22B8975891 /* XcodeProjectManager.swift */,
-				D8D0DFB8A477679CC3B127CF /* XcodeProjectManager.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -358,7 +231,11 @@
 				96AD0F8F5D76201AC709FFF0 /* XcodeProjectManager.swift in Sources */,
 				DD993E0BFC4545A615D750BD /* XcodeProjectManager.swift in Sources */,
 			
-				8785EDA89DA441E3B6F09897 /* ModernDesign.swift in Sources */,);
+				8785EDA89DA441E3B6F09897 /* ModernDesign.swift in Sources */,
+				4C00916DE0234B2790332129 /* AIBackendManager.swift in Sources */,
+				AE4D30AACFCF4ACE8AF68E8C /* KeywordIconGenerator.swift in Sources */,
+				DCE9DB088BD7455D9E351AD9 /* KeywordIconGeneratorView.swift in Sources */,
+				06BC87E3ED16425591380E74 /* XcodeProjectPickerView.swift in Sources */,);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
@@ -493,7 +370,7 @@
 				CODE_SIGN_ENTITLEMENTS = Icon_Creator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -526,7 +403,7 @@
 				CODE_SIGN_ENTITLEMENTS = Icon_Creator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
