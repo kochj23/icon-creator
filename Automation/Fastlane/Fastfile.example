@@ -1,0 +1,244 @@
+# Fastfile Example for Icon Creator
+# Demonstrates integration of Icon Creator in Fastlane workflows
+# Author: Jordan Koch
+
+default_platform(:ios)
+
+# Import Icon Creator plugin
+# Add to your Gemfile: gem 'fastlane-plugin-icon-creator'
+# Or install manually: fastlane add_plugin icon_creator
+
+platform :ios do
+
+  # ===================================================================
+  # LANE: Generate App Icons
+  # ===================================================================
+  desc "Generate all app icons from source"
+  lane :generate_icons do
+    generate_app_icons(
+      source: "./assets/app-icon-source.png",
+      output: "./AppName/Assets.xcassets/AppIcon.appiconset",
+      platforms: ["iOS"],
+      optimize: true
+    )
+  end
+
+  # ===================================================================
+  # LANE: Full Build with Icon Generation
+  # ===================================================================
+  desc "Complete build pipeline with icons"
+  lane :build_with_icons do
+    # 1. Generate fresh icons
+    analysis = generate_app_icons(
+      source: ENV["ICON_SOURCE_PATH"],
+      platforms: ["iOS", "macOS"],
+      optimize: true
+    )
+
+    # 2. Increment build number
+    increment_build_number
+
+    # 3. Build app
+    gym(
+      scheme: "AppName",
+      configuration: "Release",
+      export_method: "app-store"
+    )
+
+    # 4. Upload to TestFlight
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true
+    )
+
+    # 5. Send Slack notification with icon stats
+    slack(
+      message: "✅ Build complete!",
+      payload: {
+        "Icon Files": analysis["totalFiles"],
+        "Total Size": "#{analysis['totalSize'] / 1024} KB",
+        "Build Number": lane_context[SharedValues::BUILD_NUMBER]
+      }
+    )
+  end
+
+  # ===================================================================
+  # LANE: A/B Testing Icon Variants
+  # ===================================================================
+  desc "Generate icon variants for A/B testing"
+  lane :ab_test_icons do
+    # Generate 5 different icon styles
+    catalog = generate_icon_variants(
+      source: "./assets/app-icon-source.png",
+      output: "./icon-variants",
+      count: 5,
+      styles: ["original", "gradient", "shadow", "rounded", "vibrant"]
+    )
+
+    # Upload each variant to Firebase Remote Config
+    catalog["variants"].each do |variant|
+      variant_id = variant["id"]
+      icon_path = "./icon-variants/#{variant_id}/icon.png"
+
+      # Upload to Firebase Storage
+      sh("firebase storage:upload #{icon_path} variants/#{variant_id}/icon.png")
+
+      UI.message("✅ Uploaded variant: #{variant_id} (#{variant['style']})")
+    end
+
+    # Update Remote Config with variant metadata
+    sh("firebase deploy --only remoteconfig")
+
+    UI.success("🎉 All variants deployed for A/B testing!")
+  end
+
+  # ===================================================================
+  # LANE: Nightly Build with Icon Optimization
+  # ===================================================================
+  desc "Nightly build with icon optimization check"
+  lane :nightly do
+    # Check icon performance
+    icon_path = "./AppName/Assets.xcassets"
+
+    # Run analysis
+    sh("icon-creator analyze --input '#{icon_path}' --format json > icon-analysis.json")
+
+    analysis = JSON.parse(File.read("icon-analysis.json"))
+
+    # Alert if icons are too large
+    if analysis["totalSize"] > 500_000 # 500KB
+      slack(
+        message: "⚠️ App icons are large: #{analysis['totalSize'] / 1024}KB",
+        success: false
+      )
+
+      # Auto-optimize
+      sh("icon-creator optimize --input '#{icon_path}' --aggressive")
+
+      slack(message: "✅ Icons optimized automatically")
+    end
+
+    # Continue with regular build
+    build_app(scheme: "AppName")
+  end
+
+  # ===================================================================
+  # LANE: Watch Mode (Development)
+  # ===================================================================
+  desc "Watch icon source folder and regenerate on changes"
+  lane :watch_icons do
+    UI.message("👁️  Watching for icon changes...")
+    UI.message("Press Ctrl+C to stop")
+
+    sh("icon-creator watch \
+        --input ./assets \
+        --output ./AppName/Assets.xcassets \
+        --debounce 3")
+  end
+
+  # ===================================================================
+  # LANE: Pre-Submit Validation
+  # ===================================================================
+  desc "Validate icons before App Store submission"
+  lane :validate_icons do
+    icon_path = "./AppName/Assets.xcassets/AppIcon.appiconset"
+
+    # Run comprehensive analysis
+    sh("icon-creator analyze --input '#{icon_path}' --format json > validation.json")
+
+    analysis = JSON.parse(File.read("validation.json"))
+
+    # Check for issues
+    if analysis["issues"].any?
+      UI.error("❌ Icon validation failed!")
+
+      analysis["issues"].each do |issue|
+        UI.important("  • #{issue}")
+      end
+
+      UI.user_error!("Fix icon issues before submitting to App Store")
+    else
+      UI.success("✅ All icons pass validation!")
+    end
+
+    # Check file sizes
+    if analysis["averageSize"] > 50_000 # 50KB per icon
+      UI.important("⚠️  Icons are larger than recommended")
+      UI.message("Consider running: fastlane optimize_icons")
+    end
+  end
+
+  # ===================================================================
+  # LANE: Optimize Existing Icons
+  # ===================================================================
+  desc "Optimize existing icons for smaller file size"
+  lane :optimize_icons do
+    icon_path = "./AppName/Assets.xcassets"
+
+    # Get before size
+    before = JSON.parse(`icon-creator analyze --input '#{icon_path}' --format json`)
+
+    # Optimize
+    sh("icon-creator optimize --input '#{icon_path}' --aggressive")
+
+    # Get after size
+    after = JSON.parse(`icon-creator analyze --input '#{icon_path}' --format json`)
+
+    # Calculate savings
+    savings = before["totalSize"] - after["totalSize"]
+    percent = (savings.to_f / before["totalSize"] * 100).round(1)
+
+    UI.success("✅ Optimization complete!")
+    UI.message("💾 Saved: #{savings / 1024}KB (#{percent}%)")
+  end
+
+  # ===================================================================
+  # LANE: Seasonal Icon Update
+  # ===================================================================
+  desc "Generate seasonal icon variant (holiday, summer, etc.)"
+  lane :seasonal_icon do |options|
+    season = options[:season] || "winter"
+
+    UI.message("🎄 Generating #{season} icon variant...")
+
+    # Generate seasonal variant
+    generate_icon_variants(
+      source: "./assets/app-icon-source.png",
+      output: "./seasonal-icons",
+      count: 1,
+      styles: [season]
+    )
+
+    # Copy to app
+    sh("cp -R ./seasonal-icons/variant_01/* ./AppName/Assets.xcassets/AppIcon.appiconset/")
+
+    UI.success("✅ Seasonal icon deployed!")
+  end
+end
+
+# ===================================================================
+# PLATFORM: macOS
+# ===================================================================
+platform :mac do
+  desc "Generate macOS app icons"
+  lane :generate_icons do
+    generate_app_icons(
+      source: "./assets/mac-icon-source.png",
+      output: "./MacApp/Assets.xcassets/AppIcon.appiconset",
+      platforms: ["macOS"],
+      optimize: true
+    )
+  end
+end
+
+# ===================================================================
+# ERROR HANDLING
+# ===================================================================
+error do |lane, exception|
+  slack(
+    message: "❌ Lane #{lane} failed!",
+    payload: {
+      "Error": exception.message
+    },
+    success: false
+  )
+end
