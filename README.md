@@ -11,9 +11,29 @@
 
 ---
 
-## ✨ Latest Update: January 26, 2026
+## ✨ Latest Update: January 27, 2026 - v1.1.0
 
 ### 🎉 Major Enhancements:
+
+#### 🎙️ Voice Capabilities (NEW in v1.1.0)
+- **Text-to-Speech** - macOS NSSpeechSynthesizer integration
+- **Audio Briefings** - Generate audio summaries of content
+- **Voice Selection** - Support for all system voices
+- **AIFF Output** - Standard audio format for compatibility
+- **Async Processing** - Non-blocking speech synthesis
+- **Memory Safe** - Proper temporary file cleanup
+
+#### 🧠 Analysis Capabilities (NEW in v1.1.0)
+- **Summarization** - AI-powered content summarization via Ollama
+- **Fact Checking** - Identify false or misleading claims
+- **Bias Detection** - Analyze for political/cultural/ideological bias
+- **Sentiment Analysis** - Classify content sentiment (positive/negative/neutral/mixed)
+- **AI Backend Integration** - Routes to existing AIBackendManager
+- **Specialized Prompts** - Optimized system prompts for each analysis type
+
+#### 🔒 Security Update (v1.1.0)
+- **Removed SecurityCapabilities** - Attack orchestration and exploit generation features removed per security policy
+- **Ethical Focus** - Maintains defensive security analysis only
 
 #### ☁️ Cloud AI Integration (5 Providers)
 - **OpenAI API** - GPT-4o for advanced capabilities
