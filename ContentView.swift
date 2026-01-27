@@ -243,7 +243,7 @@ struct ContentView: View {
             PresetLibraryView(presetManager: presetManager, iconGenerator: iconGenerator)
         }
         .sheet(isPresented: $showingAISettings) {
-            AIBackendSettingsView()
+            AIBackendSelectionView()
         }
         .sheet(isPresented: $showingProjectSelector) {
             ProjectSelectorSheet(
@@ -283,7 +283,7 @@ struct ContentView: View {
         .onAppear {
             // Initialize AI backend on launch
             Task {
-                await AIBackendManager.shared.checkBackendAvailability()
+                await AIBackendManager.shared.refreshAllBackends()
             }
         }
     }

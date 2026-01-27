@@ -1,0 +1,37 @@
+{
+  "": {
+    "dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/RoutingKit.d",
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/RoutingKit.o",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/master.swiftdeps"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/routing-kit/Sources/RoutingKit/AnyRouter.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/AnyRouter.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/AnyRouter~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/AnyRouter.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/AnyRouter.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/routing-kit/Sources/RoutingKit/Parameters.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/Parameters.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/Parameters~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/Parameters.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/Parameters.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/routing-kit/Sources/RoutingKit/PathComponent.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/PathComponent.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/PathComponent~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/PathComponent.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/PathComponent.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/routing-kit/Sources/RoutingKit/Router.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/Router.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/Router~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/Router.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/Router.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/routing-kit/Sources/RoutingKit/TrieRouter.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/TrieRouter.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/TrieRouter~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/TrieRouter.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RoutingKit.build/TrieRouter.dia"
+  }
+}

@@ -1,0 +1,3 @@
+module NIOSOCKS {
+    header "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOSOCKS.build/include/NIOSOCKS-Swift.h"
+}
