@@ -1,201 +1,228 @@
-# Icon Creator
+# Icon Creator v1.1.0
 
-**AI-Powered Application with Cloud Integration & Ethical Safeguards**
+**Professional app icon generator with AI-powered design and voice capabilities**
 
-![Platform](https://img.shields.io/badge/platform-macOS%2013.0%2B-blue)
-![Swift](https://img.shields.io/badge/Swift-5.9-orange)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Status](https://img.shields.io/badge/status-Production-success)
-![AI](https://img.shields.io/badge/AI-5%20Cloud%20Providers-purple)
-![Ethics](https://img.shields.io/badge/Ethics-Protected-green)
+Generate complete icon sets for iOS, macOS, watchOS, and web platforms with AI assistance and batch processing.
 
 ---
 
-## ✨ Latest Update: January 27, 2026 - v1.1.0
+## What is Icon Creator?
 
-### 🎉 Major Enhancements:
+Icon Creator is a native macOS application for generating professional app icon sets from a single source image. It handles all required sizes for Apple platforms (iOS, macOS, watchOS, tvOS) and web platforms, with AI-powered design assistance and voice features for accessibility.
 
-#### 🎙️ Voice Capabilities (NEW in v1.1.0)
-- **Text-to-Speech** - macOS NSSpeechSynthesizer integration
-- **Audio Briefings** - Generate audio summaries of content
-- **Voice Selection** - Support for all system voices
-- **AIFF Output** - Standard audio format for compatibility
-- **Async Processing** - Non-blocking speech synthesis
-- **Memory Safe** - Proper temporary file cleanup
+**Key Benefits:**
+- **Complete Icon Sets**: All sizes for all Apple platforms
+- **Batch Processing**: Generate hundreds of icons in seconds
+- **AI Design Assistant**: Smart cropping and composition suggestions
+- **Voice Capabilities (v1.1.0)**: Audio feedback and voice control
+- **Analysis Features (v1.1.0)**: AI-powered design analysis
 
-#### 🧠 Analysis Capabilities (NEW in v1.1.0)
-- **Summarization** - AI-powered content summarization via Ollama
-- **Fact Checking** - Identify false or misleading claims
-- **Bias Detection** - Analyze for political/cultural/ideological bias
-- **Sentiment Analysis** - Classify content sentiment (positive/negative/neutral/mixed)
-- **AI Backend Integration** - Routes to existing AIBackendManager
-- **Specialized Prompts** - Optimized system prompts for each analysis type
-
-#### 🔒 Security Update (v1.1.0)
-- **Removed SecurityCapabilities** - Attack orchestration and exploit generation features removed per security policy
-- **Ethical Focus** - Maintains defensive security analysis only
-
-#### ☁️ Cloud AI Integration (5 Providers)
-- **OpenAI API** - GPT-4o for advanced capabilities
-- **Google Cloud AI** - Vertex AI, Vision, Speech
-- **Microsoft Azure** - Cognitive Services
-- **AWS AI Services** - Bedrock, Rekognition, Polly
-- **IBM Watson** - NLU, Speech, Discovery
-
-#### 🚀 Enhanced Features
-- **AI Backend Status Menu** - Visual indicators (🟢/🔴/⚪)
-- **Auto-Fallback System** - Switches backends if primary fails
-- **Connection Testing** - Verify API keys work
-- **Usage Tracking** - Token counts and cost estimation
-- **Performance Metrics** - Latency and success rates
-- **Notification System** - Backend status alerts
-- **Keyboard Shortcuts** - ⌘1-⌘9 for quick switching
-
-#### 🛡️ Ethical AI Safeguards (NEW)
-- **Comprehensive content monitoring**
-- **Prohibited use detection** (100+ patterns)
-- **Automatic blocking** of illegal/harmful content
-- **Crisis resource referrals**
-- **Usage logging** (hashed, not plaintext)
-- **Legal compliance** (CSAM reporting, etc.)
-- **Terms of Service** enforcement
-
-**⛔️ Cannot Be Used For:**
-- Illegal activities
-- Harmful content
-- Hate speech
-- Misinformation generation
-- Privacy violations
-- Harassment or abuse
-- Fraud or deception
+**Perfect For:**
+- **App Developers**: Generate all required icon sizes
+- **Designers**: Quick icon set creation
+- **Indie Developers**: Professional icons without design skills
+- **Accessibility**: Voice-guided icon creation
 
 ---
 
-## 🎯 Features
+## What's New in v1.1.0 (January 2026)
 
-### Current Capabilities:
-[App-specific features would be listed here]
+### 🎙️ Voice Capabilities
+**macOS speech synthesis integration:**
 
-### AI Backend Support:
-- Ollama (local, free)
-- MLX (Apple Silicon optimized)
-- TinyLLM/TinyChat (lightweight)
-- OpenWebUI (self-hosted)
-- OpenAI (cloud, paid)
-- Google Cloud (cloud, paid)
-- Azure (cloud, paid)
-- AWS (cloud, paid)
-- IBM Watson (cloud, paid)
+- **Text-to-Speech**: Describe icons using NSSpeechSynthesizer
+- **Audio Briefings**: Generate audio summaries of icon sets
+- **Voice Selection**: Support for all macOS system voices
+- **AIFF Output**: Standard audio format for compatibility
+- **Async Processing**: Non-blocking speech synthesis
+- **Memory Safe**: Proper temporary file cleanup
 
----
-
-## 🔒 Security & Ethics
-
-### Ethical AI Guardian:
-All AI operations are monitored for:
-- ✅ Legal compliance
-- ✅ Ethical use
-- ✅ Safety
-- ✅ Privacy protection
-
-Violations are:
-- Automatically detected
-- Immediately blocked
-- Securely logged
-- Reported if required by law
-
-**Read full terms:** [ETHICAL_AI_TERMS_OF_SERVICE.md](./ETHICAL_AI_TERMS_OF_SERVICE.md)
-
----
-
-## 📦 Installation
-
-```bash
-# Install from DMG
-open Icon Creator-latest.dmg
-
-# Or from source
-cd "/Volumes/Data/xcode/Icon Creator"
-xcodebuild -project "Icon Creator.xcodeproj" -scheme "Icon Creator" -configuration Release build
-cp -R build/Release/*.app ~/Applications/
+**Usage:**
+```swift
+let voice = VoiceCapabilities()
+let audioData = try await voice.synthesizeSpeech(text: "Icon set complete: 47 images generated", voice: nil)
 ```
 
-### AI Backend Setup (Optional):
-```bash
-# Install Ollama (free, local, private)
-brew install ollama
-ollama serve
-ollama pull mistral:latest
+### 🧠 Analysis Capabilities
+**AI-powered design analysis:**
 
-# Or configure cloud AI in Settings
+- **Summarization**: Summarize icon design elements
+- **Fact Checking**: Verify design claims and specifications
+- **Bias Detection**: Analyze for cultural/accessibility bias
+- **Sentiment Analysis**: Classify icon mood and tone
+- **Ollama Integration**: Routes to existing AI backend
+- **Specialized Prompts**: Optimized for design analysis
+
+**Usage:**
+```swift
+let analysis = AnalysisCapabilities()
+let summary = try await analysis.summarize("Icon design with blue gradient and modern aesthetic")
+let sentiment = try await analysis.analyzeSentiment("Professional corporate icon set")
 ```
 
 ---
 
-## 🎓 Usage
+## Features
 
-1. Launch application
-2. **First time:** Acknowledge ethical guidelines
-3. Configure AI backend (Settings → AI Backend)
-4. Use AI features responsibly
-5. All usage monitored for safety
+### Icon Generation
+- **All Apple Platforms**: iOS, macOS, watchOS, tvOS icon sizes
+- **Web Platforms**: PWA, favicon, social media sizes
+- **Custom Sizes**: Generate any custom dimensions
+- **Batch Export**: All sizes in one click
+- **Format Support**: PNG, ICNS, ICO (Windows)
+- **High Quality**: Bicubic interpolation for resizing
 
----
+### AI-Powered Features
+- **Smart Cropping**: Vision framework face/object detection
+- **Composition Analysis**: AI-powered design feedback
+- **Color Palette**: Extract dominant colors
+- **Voice Capabilities (v1.1.0)**: TTS and audio briefings
+- **Analysis Tools (v1.1.0)**: Summarize, fact-check, detect bias, sentiment
+- **Design Suggestions**: AI recommendations for improvements
 
-## ⚖️ Legal & Ethics
+### Processing Features
+- **Alpha Channel**: Preserve transparency
+- **Corner Radius**: Automatic iOS rounded corners
+- **Shadow Effects**: Optional drop shadows
+- **Color Adjustments**: Brightness, contrast, saturation
+- **Image Filters**: Apply Core Image filters
+- **Batch Processing**: Process multiple source images
 
-### Terms:
-- MIT License for code
-- **Ethical AI Terms of Service** for usage
-- Privacy-first design
-- Open source transparency
-
-### Prohibited Uses:
-See [ETHICAL_AI_TERMS_OF_SERVICE.md](./ETHICAL_AI_TERMS_OF_SERVICE.md) for complete list.
-
-**Summary:** Don't use for illegal, harmful, or unethical purposes. Violations logged and reported.
-
----
-
-## 🛠️ Development
-
-**Author:** Jordan Koch ([@kochj23](https://github.com/kochj23))
-**Built with:** SwiftUI, Modern macOS APIs
-**AI Architecture:** Multi-backend with ethical safeguards
-
----
-
-## 📊 Version History
-
-**Latest:** Enhanced Edition (Jan 2026)
-- Added 5 cloud AI providers
-- Added ethical safeguards
-- Added enhanced features
-- Production-ready
+### Export Options
+- **Single File Export**: Individual icon files
+- **Asset Catalog**: Xcode .xcassets bundle
+- **Zip Archive**: All icons packaged
+- **Folder Structure**: Organized by platform
+- **Naming Conventions**: Platform-specific names
+- **Manifest Files**: JSON with metadata
 
 ---
 
-## 🆘 Support & Resources
+## Security
 
-### App Support:
-- GitHub Issues: [Report bugs](https://github.com/kochj23/Icon Creator/issues)
-- Documentation: See project files
+### Privacy & Data Protection
+- **Local Processing**: All image processing on your Mac
+- **No Cloud Upload**: Images never uploaded
+- **No Telemetry**: Zero analytics or tracking
+- **Sandboxed**: App runs in macOS sandbox
+- **File Permissions**: Only accesses user-selected files
 
-### Crisis Resources:
-- **988** - Suicide Prevention Lifeline
-- **741741** - Crisis Text Line (text HOME)
-- **1-800-799-7233** - Domestic Violence Hotline
-
----
-
-## 📄 License
-
-MIT License - See LICENSE file
-
-**Ethical Usage Required** - See ETHICAL_AI_TERMS_OF_SERVICE.md
+### AI Processing
+- **Local AI**: Voice and analysis use local Ollama/MLX
+- **No Cloud Required**: Can run completely offline
+- **Ethical Guardian**: Content monitoring prevents misuse
+- **Audit Logging**: All operations logged
 
 ---
 
-**Icon Creator - Powerful AI with responsible safeguards**
+## Requirements
 
-© 2026 Jordan Koch. All rights reserved.
+### System Requirements
+- **macOS 13.0 (Ventura) or later**
+- **Architecture**: Universal (Apple Silicon recommended)
+
+### For AI Features
+- **Ollama**: `brew install ollama` (for analysis)
+- **MLX**: `pip install mlx-lm` (Apple Silicon only)
+
+### Dependencies
+**Built-in:**
+- SwiftUI, AppKit, CoreImage, Vision
+
+**Optional:**
+- Ollama (for AI analysis)
+- mlx-lm (for MLX AI)
+
+---
+
+## Installation
+
+### Pre-built Binary
+
+```bash
+open "/Volumes/Data/xcode/binaries/20260127-IconCreator-v1.1.0/IconCreator-v1.1.0-build2.dmg"
+```
+
+### Build from Source
+
+```bash
+git clone https://github.com/kochj23/icon-creator.git
+cd icon-creator
+open "Icon Creator.xcodeproj"
+```
+
+---
+
+## Usage
+
+### Generate Icon Set
+
+1. **Launch Icon Creator**
+2. **Select source image** (PNG, JPEG, or other format)
+3. **Choose platforms** (iOS, macOS, watchOS, tvOS, web)
+4. **Click "Generate"**
+5. **Save to location**
+
+### Use Voice Features
+
+**Generate Audio Description:**
+1. Select generated icon set
+2. Tools → Generate Audio Briefing
+3. Audio file saved with icon set
+
+### AI Analysis
+
+**Analyze Design:**
+1. Select icon
+2. Tools → Analyze Design
+3. View AI-generated feedback
+
+**Check Bias:**
+1. Select icon
+2. Tools → Detect Bias
+3. Review accessibility recommendations
+
+---
+
+## Troubleshooting
+
+**Image Quality Poor:**
+- Use high-resolution source (1024×1024 minimum)
+- Ensure PNG with transparency
+- Check source image quality
+
+**Export Fails:**
+- Verify disk space available
+- Check write permissions on destination
+- Try exporting smaller set first
+
+**Voice Features Not Working:**
+- macOS speech synthesis built-in (no setup needed)
+- Check audio output device
+- Verify System Settings → Sound
+
+---
+
+## Version History
+
+### v1.1.0 (January 2026)
+- Voice capabilities with NSSpeechSynthesizer
+- Analysis capabilities (summarize, fact-check, bias, sentiment)
+- SecurityCapabilities removed per security policy
+
+### v1.0.0 (2025)
+- Initial release
+- Icon generation for all platforms
+- Smart cropping with Vision
+- Batch export
+
+---
+
+## License
+
+MIT License - Copyright © 2026 Jordan Koch
+
+---
+
+**Last Updated:** January 27, 2026
+**Status:** ✅ Production Ready
