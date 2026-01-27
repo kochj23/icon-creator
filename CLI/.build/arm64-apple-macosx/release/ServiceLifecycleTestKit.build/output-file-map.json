@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycleTestKit.build/ServiceLifecycleTestKit.d",
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycleTestKit.build/ServiceLifecycleTestKit.o",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycleTestKit.build/master.swiftdeps"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-service-lifecycle/Sources/ServiceLifecycleTestKit/GracefulShutdown.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycleTestKit.build/GracefulShutdown.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycleTestKit.build/GracefulShutdown~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycleTestKit.build/GracefulShutdown.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycleTestKit.build/GracefulShutdown.dia"
+  }
+}

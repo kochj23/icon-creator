@@ -1,0 +1,25 @@
+{
+  "": {
+    "dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/_NIODataStructures.d",
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/_NIODataStructures.o",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/master.swiftdeps"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-nio/Sources/_NIODataStructures/Heap.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/Heap.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/Heap~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/Heap.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/Heap.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-nio/Sources/_NIODataStructures/PriorityQueue.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/PriorityQueue.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/PriorityQueue~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/PriorityQueue.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/PriorityQueue.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-nio/Sources/_NIODataStructures/_TinyArray.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/_TinyArray.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/_TinyArray~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/_TinyArray.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/_NIODataStructures.build/_TinyArray.dia"
+  }
+}

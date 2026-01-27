@@ -1,0 +1,19 @@
+{
+  "": {
+    "dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateReloading.build/NIOCertificateReloading.d",
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateReloading.build/NIOCertificateReloading.o",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateReloading.build/master.swiftdeps"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-nio-extras/Sources/NIOCertificateReloading/CertificateReloader.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateReloading.build/CertificateReloader.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateReloading.build/CertificateReloader~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateReloading.build/CertificateReloader.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateReloading.build/CertificateReloader.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-nio-extras/Sources/NIOCertificateReloading/TimedCertificateReloader.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateReloading.build/TimedCertificateReloader.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateReloading.build/TimedCertificateReloader~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateReloading.build/TimedCertificateReloader.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateReloading.build/TimedCertificateReloader.dia"
+  }
+}

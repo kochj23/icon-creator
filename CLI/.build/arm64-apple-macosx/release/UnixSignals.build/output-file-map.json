@@ -1,0 +1,19 @@
+{
+  "": {
+    "dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/UnixSignals.build/UnixSignals.d",
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/UnixSignals.build/UnixSignals.o",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/UnixSignals.build/master.swiftdeps"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-service-lifecycle/Sources/UnixSignals/UnixSignal.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/UnixSignals.build/UnixSignal.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/UnixSignals.build/UnixSignal~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/UnixSignals.build/UnixSignal.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/UnixSignals.build/UnixSignal.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-service-lifecycle/Sources/UnixSignals/UnixSignalsSequence.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/UnixSignals.build/UnixSignalsSequence.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/UnixSignals.build/UnixSignalsSequence~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/UnixSignals.build/UnixSignalsSequence.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/UnixSignals.build/UnixSignalsSequence.dia"
+  }
+}

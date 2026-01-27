@@ -1,0 +1,49 @@
+{
+  "": {
+    "dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTVapor.d",
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTVapor.o",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/master.swiftdeps"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/vapor/Sources/XCTVapor/+Application.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/+Application.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/+Application~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/+Application.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/+Application.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/vapor/Sources/XCTVapor/+XCTHTTPResponse.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/+XCTHTTPResponse.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/+XCTHTTPResponse~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/+XCTHTTPResponse.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/+XCTHTTPResponse.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/vapor/Sources/XCTVapor/Exports.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/Exports.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/Exports~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/Exports.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/Exports.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/vapor/Sources/XCTVapor/XCTApplicationTester.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTApplicationTester.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTApplicationTester~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTApplicationTester.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTApplicationTester.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/vapor/Sources/XCTVapor/XCTVaporContext.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTVaporContext.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTVaporContext~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTVaporContext.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTVaporContext.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/vapor/Sources/XCTVapor/XCTVaporTests.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTVaporTests.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTVaporTests~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTVaporTests.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/XCTVaporTests.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/vapor/Sources/XCTVapor/typealiases.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/typealiases.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/typealiases~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/typealiases.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/XCTVapor.build/typealiases.dia"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "": {
+    "dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/NIOHTTPTypesHTTP2.d",
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/NIOHTTPTypesHTTP2.o",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/master.swiftdeps"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-nio-extras/Sources/NIOHTTPTypesHTTP2/HTTP2HeadersStateMachine.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTP2HeadersStateMachine.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTP2HeadersStateMachine~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTP2HeadersStateMachine.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTP2HeadersStateMachine.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-nio-extras/Sources/NIOHTTPTypesHTTP2/HTTP2ToHTTPCodec.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTP2ToHTTPCodec.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTP2ToHTTPCodec~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTP2ToHTTPCodec.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTP2ToHTTPCodec.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-nio-extras/Sources/NIOHTTPTypesHTTP2/HTTPTypeConversion.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTPTypeConversion.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTPTypeConversion~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTPTypeConversion.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOHTTPTypesHTTP2.build/HTTPTypeConversion.dia"
+  }
+}

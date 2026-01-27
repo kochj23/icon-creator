@@ -1,0 +1,73 @@
+{
+  "": {
+    "dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/RealModule.d",
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/RealModule.o",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/master.swiftdeps"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-numerics/Sources/RealModule/AlgebraicField.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/AlgebraicField.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/AlgebraicField~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/AlgebraicField.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/AlgebraicField.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-numerics/Sources/RealModule/ApproximateEquality.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/ApproximateEquality.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/ApproximateEquality~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/ApproximateEquality.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/ApproximateEquality.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-numerics/Sources/RealModule/AugmentedArithmetic.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/AugmentedArithmetic.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/AugmentedArithmetic~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/AugmentedArithmetic.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/AugmentedArithmetic.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-numerics/Sources/RealModule/Double+Real.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Double+Real.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Double+Real~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Double+Real.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Double+Real.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-numerics/Sources/RealModule/ElementaryFunctions.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/ElementaryFunctions.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/ElementaryFunctions~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/ElementaryFunctions.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/ElementaryFunctions.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-numerics/Sources/RealModule/Float+Real.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float+Real.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float+Real~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float+Real.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float+Real.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-numerics/Sources/RealModule/Float16+Real.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float16+Real.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float16+Real~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float16+Real.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float16+Real.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-numerics/Sources/RealModule/Float80+Real.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float80+Real.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float80+Real~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float80+Real.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Float80+Real.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-numerics/Sources/RealModule/Real.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Real.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Real~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Real.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/Real.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-numerics/Sources/RealModule/RealFunctions.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/RealFunctions.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/RealFunctions~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/RealFunctions.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/RealFunctions.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-numerics/Sources/RealModule/RelaxedArithmetic.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/RelaxedArithmetic.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/RelaxedArithmetic~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/RelaxedArithmetic.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/RealModule.build/RelaxedArithmetic.dia"
+  }
+}

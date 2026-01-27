@@ -1,0 +1,175 @@
+{
+  "": {
+    "dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleKitTerminal.d",
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleKitTerminal.o",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/master.swiftdeps"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Activity/ActivityBar.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityBar.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityBar~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityBar.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityBar.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Activity/ActivityIndicator.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicator.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicator~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicator.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicator.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Activity/ActivityIndicatorRenderer.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicatorRenderer.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicatorRenderer~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicatorRenderer.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicatorRenderer.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Activity/ActivityIndicatorState.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicatorState.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicatorState~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicatorState.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ActivityIndicatorState.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Activity/CustomActivity.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/CustomActivity.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/CustomActivity~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/CustomActivity.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/CustomActivity.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Activity/LoadingBar.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/LoadingBar.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/LoadingBar~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/LoadingBar.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/LoadingBar.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Activity/ProgressBar.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ProgressBar.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ProgressBar~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ProgressBar.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ProgressBar.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Clear/Console+Clear.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Clear.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Clear~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Clear.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Clear.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Clear/Console+Ephemeral.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Ephemeral.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Ephemeral~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Ephemeral.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Ephemeral.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Clear/ConsoleClear.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleClear.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleClear~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleClear.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleClear.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Input/Console+Ask.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Ask.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Ask~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Ask.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Ask.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Input/Console+Choose.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Choose.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Choose~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Choose.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Choose.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Input/Console+Confirm.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Confirm.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Confirm~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Confirm.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Confirm.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Input/Console+Input.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Input.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Input~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Input.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Input.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Output/Console+Center.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Center.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Center~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Center.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Center.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Output/Console+Output.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Output.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Output~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Output.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Output.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Output/Console+Wait.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Wait.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Wait~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Wait.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console+Wait.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Output/ConsoleColor.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleColor.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleColor~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleColor.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleColor.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Output/ConsoleStyle.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleStyle.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleStyle~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleStyle.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleStyle.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Output/ConsoleText.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleText.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleText~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleText.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleText.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Output/ConsoleTextFragment.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleTextFragment.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleTextFragment~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleTextFragment.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleTextFragment.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Terminal/ANSI.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ANSI.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ANSI~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ANSI.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ANSI.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Terminal/Console.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Console.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Terminal/Terminal.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Terminal.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Terminal~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Terminal.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/Terminal.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Terminal/readpassphrase_linux.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/readpassphrase_linux.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/readpassphrase_linux~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/readpassphrase_linux.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/readpassphrase_linux.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Utilities/AnySendableHashable.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/AnySendableHashable.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/AnySendableHashable~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/AnySendableHashable.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/AnySendableHashable.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Utilities/ConsoleLogger.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleLogger.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleLogger~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleLogger.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/ConsoleLogger.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/console-kit/Sources/ConsoleKitTerminal/Utilities/LoggerFragment.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/LoggerFragment.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/LoggerFragment~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/LoggerFragment.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ConsoleKitTerminal.build/LoggerFragment.dia"
+  }
+}

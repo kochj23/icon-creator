@@ -1,0 +1,55 @@
+{
+  "": {
+    "dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceLifecycle.d",
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceLifecycle.o",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/master.swiftdeps"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-service-lifecycle/Sources/ServiceLifecycle/AsyncCancelOnGracefulShutdownSequence.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/AsyncCancelOnGracefulShutdownSequence.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/AsyncCancelOnGracefulShutdownSequence~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/AsyncCancelOnGracefulShutdownSequence.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/AsyncCancelOnGracefulShutdownSequence.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-service-lifecycle/Sources/ServiceLifecycle/AsyncGracefulShutdownSequence.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/AsyncGracefulShutdownSequence.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/AsyncGracefulShutdownSequence~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/AsyncGracefulShutdownSequence.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/AsyncGracefulShutdownSequence.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-service-lifecycle/Sources/ServiceLifecycle/CancellationWaiter.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/CancellationWaiter.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/CancellationWaiter~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/CancellationWaiter.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/CancellationWaiter.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-service-lifecycle/Sources/ServiceLifecycle/GracefulShutdown.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/GracefulShutdown.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/GracefulShutdown~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/GracefulShutdown.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/GracefulShutdown.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-service-lifecycle/Sources/ServiceLifecycle/Service.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/Service.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/Service~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/Service.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/Service.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-service-lifecycle/Sources/ServiceLifecycle/ServiceGroup.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceGroup.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceGroup~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceGroup.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceGroup.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-service-lifecycle/Sources/ServiceLifecycle/ServiceGroupConfiguration.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceGroupConfiguration.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceGroupConfiguration~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceGroupConfiguration.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceGroupConfiguration.dia"
+  },
+  "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-service-lifecycle/Sources/ServiceLifecycle/ServiceRunnerError.swift": {
+    "object": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceRunnerError.swift.o",
+    "swiftmodule": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceRunnerError~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceRunnerError.swiftdeps",
+    "diagnostics": "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/ServiceRunnerError.dia"
+  }
+}
