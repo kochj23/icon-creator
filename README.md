@@ -245,3 +245,7 @@ MIT License - Copyright © 2026 Jordan Koch
 | [MLXCode](https://github.com/kochj23/MLXCode) | Local AI coding assistant for Apple Silicon |
 
 > **[View all projects](https://github.com/kochj23?tab=repositories)**
+
+---
+
+> **Disclaimer:** This is a personal project created on my own time. It is not affiliated with, endorsed by, or representative of my employer.
