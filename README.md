@@ -1,5 +1,7 @@
 # Icon Creator v1.1.0
 
+![Build](https://github.com/kochj23/icon-creator/actions/workflows/build.yml/badge.svg)
+
 **Professional app icon generator with AI-powered design and voice capabilities**
 
 Generate complete icon sets for iOS, macOS, watchOS, and web platforms with AI assistance and batch processing.
