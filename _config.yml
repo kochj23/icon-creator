@@ -1,0 +1,3 @@
+theme: jekyll-theme-cayman
+title: "icon-creator"
+description: "macOS app for generating app icons for all Apple platforms — automatic Xcode asset catalog creation for iOS, macOS, tvOS, and watchOS. Built with Swift and SwiftUI."
