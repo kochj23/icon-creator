@@ -229,3 +229,17 @@ MIT License - Copyright © 2026 Jordan Koch
 
 **Last Updated:** January 27, 2026
 **Status:** ✅ Production Ready
+
+---
+
+## More Apps by Jordan Koch
+
+| App | Description |
+|-----|-------------|
+| [ExcelExplorer](https://github.com/kochj23/ExcelExplorer) | Native macOS Excel/CSV file viewer |
+| [TopGUI](https://github.com/kochj23/TopGUI) | macOS system monitor with real-time metrics |
+| [RsyncGUI](https://github.com/kochj23/RsyncGUI) | Native macOS GUI for rsync file synchronization |
+| [MBox-Explorer](https://github.com/kochj23/MBox-Explorer) | macOS mbox email archive viewer |
+| [MLXCode](https://github.com/kochj23/MLXCode) | Local AI coding assistant for Apple Silicon |
+
+> **[View all projects](https://github.com/kochj23?tab=repositories)**
