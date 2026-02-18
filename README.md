@@ -6,6 +6,9 @@ Generate complete icon sets for iOS, macOS, watchOS, and web platforms with AI a
 
 ---
 
+![Icon Creator](Screenshots/main-window.png)
+
+
 ## What is Icon Creator?
 
 Icon Creator is a native macOS application for generating professional app icon sets from a single source image. It handles all required sizes for Apple platforms (iOS, macOS, watchOS, tvOS) and web platforms, with AI-powered design assistance and voice features for accessibility.
