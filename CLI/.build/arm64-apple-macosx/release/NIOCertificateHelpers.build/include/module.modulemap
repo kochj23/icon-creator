@@ -1,3 +1,0 @@
-module NIOCertificateHelpers {
-    header "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/NIOCertificateHelpers.build/include/NIOCertificateHelpers-Swift.h"
-}

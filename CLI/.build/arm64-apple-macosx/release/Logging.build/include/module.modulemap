@@ -1,3 +1,0 @@
-module Logging {
-    header "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/Logging.build/include/Logging-Swift.h"
-}

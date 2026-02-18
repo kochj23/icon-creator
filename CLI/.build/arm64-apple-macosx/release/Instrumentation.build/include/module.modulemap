@@ -1,3 +1,0 @@
-module Instrumentation {
-    header "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/Instrumentation.build/include/Instrumentation-Swift.h"
-}

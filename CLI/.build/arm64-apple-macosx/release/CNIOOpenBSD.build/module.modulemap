@@ -1,4 +1,0 @@
-module CNIOOpenBSD {
-    umbrella header "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-nio/Sources/CNIOOpenBSD/include/CNIOOpenBSD.h"
-    export *
-}

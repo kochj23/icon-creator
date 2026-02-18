@@ -1,4 +1,0 @@
-module CNIOLLHTTP {
-    umbrella header "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-nio/Sources/CNIOLLHTTP/include/CNIOLLHTTP.h"
-    export *
-}

@@ -1,3 +1,0 @@
-module AsyncHTTPClient {
-    header "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/AsyncHTTPClient.build/include/AsyncHTTPClient-Swift.h"
-}

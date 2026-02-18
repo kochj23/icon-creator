@@ -1,3 +1,0 @@
-module Metrics {
-    header "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/Metrics.build/include/Metrics-Swift.h"
-}

@@ -1,3 +1,0 @@
-module ServiceLifecycle {
-    header "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/ServiceLifecycle.build/include/ServiceLifecycle-Swift.h"
-}

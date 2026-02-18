@@ -1,3 +1,0 @@
-module X509 {
-    header "/Volumes/Data/xcode/Icon Creator/CLI/.build/arm64-apple-macosx/release/X509.build/include/X509-Swift.h"
-}

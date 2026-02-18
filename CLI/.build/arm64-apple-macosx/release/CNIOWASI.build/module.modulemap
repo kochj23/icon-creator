@@ -1,4 +1,0 @@
-module CNIOWASI {
-    umbrella header "/Volumes/Data/xcode/Icon Creator/CLI/.build/checkouts/swift-nio/Sources/CNIOWASI/include/CNIOWASI.h"
-    export *
-}

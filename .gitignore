@@ -27,3 +27,7 @@ add_file_to_project.rb
 # Temporary files
 *.swp
 *~.nib
+
+# Swift Package Manager build directory
+.build/
+CLI/.build/
