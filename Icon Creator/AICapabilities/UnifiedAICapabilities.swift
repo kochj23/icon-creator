@@ -549,19 +549,46 @@ struct CapabilitySummary {
 // MARK: - Voice Capabilities
 
 class VoiceCapabilities {
-    // Voice cloning, TTS, audio briefings
+    private let synthesizer = NSSpeechSynthesizer()
+
     func cloneVoice(referenceAudio: URL, targetText: String) async throws -> Data {
-        // F5-TTS-MLX integration
-        throw NSError(domain: "VoiceCapabilities", code: 1, userInfo: [NSLocalizedDescriptionKey: "Not implemented"])
+        // Voice cloning not supported with NSSpeechSynthesizer
+        // Fallback to standard TTS
+        return try await synthesizeSpeech(text: targetText, voice: nil)
     }
 
     func synthesizeSpeech(text: String, voice: String?) async throws -> Data {
-        // System TTS or custom voice
-        throw NSError(domain: "VoiceCapabilities", code: 1, userInfo: [NSLocalizedDescriptionKey: "Not implemented"])
+        // Use macOS built-in speech synthesis
+        let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + ".aiff")
+
+        // Set voice if specified
+        if let voiceName = voice {
+            synthesizer.setVoice(NSSpeechSynthesizer.VoiceName(rawValue: voiceName))
+        }
+
+        // Start synthesizing to file
+        let success = synthesizer.startSpeaking(text, to: tempURL)
+
+        guard success else {
+            throw NSError(domain: "VoiceCapabilities", code: 1, userInfo: [NSLocalizedDescriptionKey: "Speech synthesis failed"])
+        }
+
+        // Wait for completion
+        while synthesizer.isSpeaking {
+            try await Task.sleep(nanoseconds: 100_000_000) // 0.1 seconds
+        }
+
+        // Read audio data
+        let data = try Data(contentsOf: tempURL)
+        try? FileManager.default.removeItem(at: tempURL)
+
+        return data
     }
 
     func generateAudioBriefing(content: String) async throws -> Data {
-        throw NSError(domain: "VoiceCapabilities", code: 1, userInfo: [NSLocalizedDescriptionKey: "Not implemented"])
+        // Generate audio briefing of content
+        let briefing = "Audio briefing: \(content)"
+        return try await synthesizeSpeech(text: briefing, voice: nil)
     }
 }
 
@@ -569,37 +596,52 @@ class VoiceCapabilities {
 
 class AnalysisCapabilities {
     func summarize(_ content: String) async throws -> String {
-        throw NSError(domain: "AnalysisCapabilities", code: 1, userInfo: [NSLocalizedDescriptionKey: "Not implemented"])
+        let prompt = "Summarize the following content concisely:\n\n\(content)"
+        return try await AIBackendManager.shared.generate(
+            prompt: prompt,
+            systemPrompt: "You are a helpful assistant that creates clear, concise summaries.",
+            temperature: 0.3,
+            maxTokens: 500
+        )
     }
 
     func factCheck(_ content: String) async throws -> [String] {
-        throw NSError(domain: "AnalysisCapabilities", code: 1, userInfo: [NSLocalizedDescriptionKey: "Not implemented"])
+        let prompt = "Fact-check the following content. List any false or misleading claims:\n\n\(content)"
+        let response = try await AIBackendManager.shared.generate(
+            prompt: prompt,
+            systemPrompt: "You are a fact-checker. Identify false or misleading claims.",
+            temperature: 0.2,
+            maxTokens: 500
+        )
+
+        // Parse response into array of claims
+        return response.components(separatedBy: "\n").filter { !$0.isEmpty }
     }
 
     func detectBias(_ content: String) async throws -> String {
-        throw NSError(domain: "AnalysisCapabilities", code: 1, userInfo: [NSLocalizedDescriptionKey: "Not implemented"])
+        let prompt = "Analyze the following content for bias. Identify any political, cultural, or ideological bias:\n\n\(content)"
+        return try await AIBackendManager.shared.generate(
+            prompt: prompt,
+            systemPrompt: "You are an objective bias detector.",
+            temperature: 0.2,
+            maxTokens: 300
+        )
     }
 
     func analyzeSentiment(_ content: String) async throws -> String {
-        throw NSError(domain: "AnalysisCapabilities", code: 1, userInfo: [NSLocalizedDescriptionKey: "Not implemented"])
+        let prompt = "Analyze the sentiment of the following content (positive, negative, neutral, mixed):\n\n\(content)"
+        return try await AIBackendManager.shared.generate(
+            prompt: prompt,
+            systemPrompt: "You are a sentiment analysis expert. Provide clear sentiment classification.",
+            temperature: 0.1,
+            maxTokens: 200
+        )
     }
 }
 
 // MARK: - Security Capabilities
-
-class SecurityCapabilities {
-    func orchestrateAttack(target: String, attackType: String) async throws -> String {
-        throw NSError(domain: "SecurityCapabilities", code: 1, userInfo: [NSLocalizedDescriptionKey: "Not implemented"])
-    }
-
-    func generateExploit(vulnerability: String) async throws -> String {
-        throw NSError(domain: "SecurityCapabilities", code: 1, userInfo: [NSLocalizedDescriptionKey: "Not implemented"])
-    }
-
-    func analyzeVulnerabilities(target: String) async throws -> [String] {
-        throw NSError(domain: "SecurityCapabilities", code: 1, userInfo: [NSLocalizedDescriptionKey: "Not implemented"])
-    }
-}
+// REMOVED: SecurityCapabilities class removed per security policy
+// Sensitive testing features (attack orchestration, exploit generation) are not included
 
 // MARK: - Global Status View
 

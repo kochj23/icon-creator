@@ -1,10 +1,16 @@
-# Icon Creator v1.1.0
+# Icon Creator v2.6.0
 
+<<<<<<< Updated upstream
 ![Build](https://github.com/kochj23/icon-creator/actions/workflows/build.yml/badge.svg)
 
 **Professional app icon generator with AI-powered design and voice capabilities**
+||||||| Stash base
+**Professional app icon generator with AI-powered design and voice capabilities**
+=======
+**Professional app icon generator with AI-powered design, voice capabilities, and WidgetKit integration**
+>>>>>>> Stashed changes
 
-Generate complete icon sets for iOS, macOS, watchOS, and web platforms with AI assistance and batch processing.
+Generate complete icon sets for iOS, macOS, watchOS, and web platforms with AI assistance, batch processing, and macOS widgets.
 
 ---
 
@@ -30,6 +36,35 @@ Icon Creator is a native macOS application for generating professional app icon 
 
 ---
 
+## What's New in v2.6.0 (February 2026)
+
+### WidgetKit Integration
+**macOS Notification Center widgets for quick access:**
+
+- **Small Widget**: Quick create from last image, recent project access
+- **Medium Widget**: Recent projects list, generation status, quick create
+- **Large Widget**: Full dashboard with presets, projects, and status
+
+**Widget Features:**
+- **Recent Projects**: View and open recent icon generation projects
+- **Generation Status**: Real-time progress during icon generation
+- **Quick Create**: One-tap icon creation from last used image
+- **Preset Shortcuts**: Quick access to favorite presets (Minimalist, Full Bleed, Rounded, etc.)
+- **Deep Linking**: Tap to open specific projects or start new generations
+
+**App Group Data Sharing:**
+- Uses `group.com.jkoch.iconcreator` for data sync
+- Automatic widget timeline updates on project changes
+- Thumbnail generation for project previews
+
+**Usage:**
+1. Build and run Icon Creator
+2. Add widget from Notification Center (Edit Widgets)
+3. Choose Small, Medium, or Large size
+4. Widget shows recent projects and quick actions
+
+---
+
 ## What's New in v1.1.0 (January 2026)
 
 ### 🎙️ Voice Capabilities
@@ -38,7 +73,7 @@ Icon Creator is a native macOS application for generating professional app icon 
 - **Text-to-Speech**: Describe icons using NSSpeechSynthesizer
 - **Audio Briefings**: Generate audio summaries of icon sets
 - **Voice Selection**: Support for all macOS system voices
-- **AIFF Output**: Standard audio format for compatibility
+- **AIFF (Audio Interchange File Format) Output**: Standard audio format for compatibility
 - **Async Processing**: Non-blocking speech synthesis
 - **Memory Safe**: Proper temporary file cleanup
 
@@ -71,17 +106,17 @@ let sentiment = try await analysis.analyzeSentiment("Professional corporate icon
 
 ### Icon Generation
 - **All Apple Platforms**: iOS, macOS, watchOS, tvOS icon sizes
-- **Web Platforms**: PWA, favicon, social media sizes
+- **Web Platforms**: PWA (Progressive Web App), favicon, social media sizes
 - **Custom Sizes**: Generate any custom dimensions
 - **Batch Export**: All sizes in one click
-- **Format Support**: PNG, ICNS, ICO (Windows)
+- **Format Support**: PNG (Portable Network Graphics), ICNS (Icon Suite), ICO (Windows)
 - **High Quality**: Bicubic interpolation for resizing
 
 ### AI-Powered Features
 - **Smart Cropping**: Vision framework face/object detection
 - **Composition Analysis**: AI-powered design feedback
 - **Color Palette**: Extract dominant colors
-- **Voice Capabilities (v1.1.0)**: TTS and audio briefings
+- **Voice Capabilities (v1.1.0)**: TTS (Text-to-Speech) and audio briefings
 - **Analysis Tools (v1.1.0)**: Summarize, fact-check, detect bias, sentiment
 - **Design Suggestions**: AI recommendations for improvements
 
@@ -113,7 +148,7 @@ let sentiment = try await analysis.analyzeSentiment("Professional corporate icon
 - **File Permissions**: Only accesses user-selected files
 
 ### AI Processing
-- **Local AI**: Voice and analysis use local Ollama/MLX
+- **Local AI**: Voice and analysis use local Ollama/MLX (Machine Learning eXtensions)
 - **No Cloud Required**: Can run completely offline
 - **Ethical Guardian**: Content monitoring prevents misuse
 - **Audit Logging**: All operations logged
@@ -210,6 +245,15 @@ open "Icon Creator.xcodeproj"
 
 ## Version History
 
+### v2.6.0 (February 2026)
+- WidgetKit integration with Small, Medium, Large widgets
+- Recent projects widget view
+- Generation status in real-time
+- Quick create from last image
+- Preset shortcuts from widget
+- App Group data sharing (group.com.jkoch.iconcreator)
+- Deep linking support (iconcreator:// URL scheme)
+
 ### v1.1.0 (January 2026)
 - Voice capabilities with NSSpeechSynthesizer
 - Analysis capabilities (summarize, fact-check, bias, sentiment)
@@ -229,6 +273,7 @@ MIT License - Copyright © 2026 Jordan Koch
 
 ---
 
+<<<<<<< Updated upstream
 **Last Updated:** January 27, 2026
 **Status:** ✅ Production Ready
 
@@ -249,3 +294,10 @@ MIT License - Copyright © 2026 Jordan Koch
 ---
 
 > **Disclaimer:** This is a personal project created on my own time. It is not affiliated with, endorsed by, or representative of my employer.
+||||||| Stash base
+**Last Updated:** January 27, 2026
+**Status:** ✅ Production Ready
+=======
+**Last Updated:** February 4, 2026
+**Status:** Production Ready
+>>>>>>> Stashed changes
