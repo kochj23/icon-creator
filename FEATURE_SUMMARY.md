@@ -54,7 +54,7 @@ The app automatically checks these locations (if they exist):
 ## Benefits
 
 ### For You Specifically
-Your projects in `/Users/kochj/Desktop/xcode/` will still be found, plus:
+Your projects in `~/Desktop/xcode/` will still be found, plus:
 - Any projects you move to `~/Documents`
 - Any projects in `~/Developer`
 - Any projects in other common locations
@@ -123,11 +123,11 @@ Your projects in `/Users/kochj/Desktop/xcode/` will still be found, plus:
 
 ```
 📁 Found 5 potential project directories:
-   - /Users/kochj/Desktop
-   - /Users/kochj/Desktop/xcode
-   - /Users/kochj/Documents
-   - /Users/kochj/Developer
-   - /Users/kochj/Projects
+   - ~/Desktop
+   - ~/Desktop/xcode
+   - ~/Documents
+   - ~/Developer
+   - ~/Projects
 
 🔍 Scanning for Xcode projects in 5 locations...
 
@@ -151,11 +151,11 @@ After:
 ```
 11 Xcode projects available
 ▶ Scanned 5 locations
-    • /Users/kochj/Desktop
-    • /Users/kochj/Desktop/xcode
-    • /Users/kochj/Documents
-    • /Users/kochj/Developer
-    • /Users/kochj/Projects
+    • ~/Desktop
+    • ~/Desktop/xcode
+    • ~/Documents
+    • ~/Developer
+    • ~/Projects
 ```
 
 ### Project Selector Dialog
@@ -189,14 +189,14 @@ Scanned 5 locations
 ```xml
 <key>com.apple.security.temporary-exception.files.absolute-path.read-write</key>
 <array>
-    <string>/Users/kochj/Desktop/</string>
-    <string>/Users/kochj/Documents/</string>
-    <string>/Users/kochj/Developer/</string>
-    <string>/Users/kochj/Projects/</string>
-    <string>/Users/kochj/Code/</string>
-    <string>/Users/kochj/Development/</string>
-    <string>/Users/kochj/workspace/</string>
-    <string>/Users/kochj/Workspace/</string>
+    <string>~/Desktop/</string>
+    <string>~/Documents/</string>
+    <string>~/Developer/</string>
+    <string>~/Projects/</string>
+    <string>~/Code/</string>
+    <string>~/Development/</string>
+    <string>~/workspace/</string>
+    <string>~/Workspace/</string>
 </array>
 ```
 
@@ -230,7 +230,7 @@ Added automatic multi-location discovery
 ## Impact
 
 ### Before (v1.1.0)
-- Only found projects in `/Users/kochj/Desktop/xcode/`
+- Only found projects in `~/Desktop/xcode/`
 - Required all projects in one location
 - Manual path if projects elsewhere
 

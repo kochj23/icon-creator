@@ -20,18 +20,6 @@
 	<true/>
 	<key>com.apple.security.assets.pictures.read-write</key>
 	<true/>
-	<key>com.apple.security.temporary-exception.files.absolute-path.read-write</key>
-	<array>
-		<string>/Volumes/Data/xcode/</string>
-		<string>/Users/kochj/Desktop/</string>
-		<string>/Users/kochj/Documents/</string>
-		<string>/Users/kochj/Developer/</string>
-		<string>/Users/kochj/Projects/</string>
-		<string>/Users/kochj/Code/</string>
-		<string>/Users/kochj/Development/</string>
-		<string>/Users/kochj/workspace/</string>
-		<string>/Users/kochj/Workspace/</string>
-	</array>
 	<key>com.apple.security.files.user-selected.read-only</key>
 	<true/>
 </dict>

@@ -230,7 +230,7 @@ Benefits:
 
 ### Current Limitations
 1. **Single Platform Installation**: Only installs first selected platform when auto-install is enabled
-2. **Fixed Project Directory**: Only scans `/Users/kochj/Desktop/xcode/`
+2. **Fixed Project Directory**: Only scans `~/Desktop/xcode/`
 3. **No Project Backup**: Overwrites existing icons without backup
 
 ### Potential Edge Cases

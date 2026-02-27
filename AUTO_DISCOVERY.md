@@ -183,11 +183,11 @@ The app provides detailed console output for debugging:
 
 ```
 📁 Found 5 potential project directories:
-   - /Users/kochj/Desktop
-   - /Users/kochj/Desktop/xcode
-   - /Users/kochj/Documents
-   - /Users/kochj/Developer
-   - /Users/kochj/Projects
+   - ~/Desktop
+   - ~/Desktop/xcode
+   - ~/Documents
+   - ~/Developer
+   - ~/Projects
 
 🔍 Scanning for Xcode projects in 5 locations...
 
@@ -201,8 +201,8 @@ The app provides detailed console output for debugging:
 If no projects found:
 ```
 ⚠️ No projects found. Scanned locations:
-   - /Users/kochj/Desktop
-   - /Users/kochj/Documents
+   - ~/Desktop
+   - ~/Documents
    ...
 ```
 
@@ -225,7 +225,7 @@ static func getCommonProjectLocations() -> [URL]  // Returns scan locations
 ## Comparison: v1.0 vs v1.1+
 
 ### v1.0 (Single Location)
-- Hardcoded to `/Users/kochj/Desktop/xcode/`
+- Hardcoded to `~/Desktop/xcode/`
 - Required all projects in one location
 - No flexibility
 
@@ -266,7 +266,7 @@ static func getCommonProjectLocations() -> [URL]  // Returns scan locations
 - Enhanced console logging
 
 ### v1.0.0 (2025-10-28)
-Single location scanning (`/Users/kochj/Desktop/xcode/`)
+Single location scanning (`~/Desktop/xcode/`)
 
 ## Tips & Best Practices
 

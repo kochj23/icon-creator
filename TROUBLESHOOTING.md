@@ -2,7 +2,7 @@
 
 ## Common Issues and Solutions
 
-### Issue: "No Xcode projects found in /Users/kochj/Desktop/xcode"
+### Issue: "No Xcode projects found in ~/Desktop/xcode"
 
 This is the most common issue and is caused by macOS sandboxing preventing the app from accessing your Desktop folder.
 
@@ -27,8 +27,8 @@ The app is sandboxed for security, and macOS restricts access to certain folders
    ```xml
    <key>com.apple.security.temporary-exception.files.absolute-path.read-write</key>
    <array>
-       <string>/Users/kochj/Desktop/</string>
-       <string>/Users/kochj/Desktop/xcode/</string>
+       <string>~/Desktop/</string>
+       <string>~/Desktop/xcode/</string>
    </array>
    ```
 2. Rebuild the app: `xcodebuild -project "Icon Creator.xcodeproj" clean build`
@@ -178,7 +178,7 @@ App doesn't have permission to write to Pictures folder.
 1. **Check macOS version**: Requires macOS 12.0+
 2. **Rebuild from scratch**:
    ```bash
-   cd "/Users/kochj/Desktop/xcode/Icon Creator"
+   cd "~/Desktop/xcode/Icon Creator"
    xcodebuild clean
    xcodebuild build
    ```
@@ -219,10 +219,10 @@ The app prints helpful debug information to the console:
 ### Check File Permissions
 ```bash
 # Verify Desktop folder exists and is readable
-ls -la /Users/kochj/Desktop/xcode/
+ls -la ~/Desktop/xcode/
 
 # Check for .xcodeproj bundles
-find /Users/kochj/Desktop/xcode -name "*.xcodeproj" -type d
+find ~/Desktop/xcode -name "*.xcodeproj" -type d
 
 # Verify app has correct entitlements
 codesign -d --entitlements :- "/path/to/Icon Creator.app"
@@ -231,10 +231,10 @@ codesign -d --entitlements :- "/path/to/Icon Creator.app"
 ### Test Project Detection Manually
 ```bash
 # See what the app should detect
-find /Users/kochj/Desktop/xcode -name "*.xcodeproj" -maxdepth 2
+find ~/Desktop/xcode -name "*.xcodeproj" -maxdepth 2
 
 # Check a specific project's platform
-grep SDKROOT "/Users/kochj/Desktop/xcode/HomeKitTV/HomeKitTV.xcodeproj/project.pbxproj"
+grep SDKROOT "~/Desktop/xcode/HomeKitTV/HomeKitTV.xcodeproj/project.pbxproj"
 ```
 
 ---
@@ -244,7 +244,7 @@ grep SDKROOT "/Users/kochj/Desktop/xcode/HomeKitTV/HomeKitTV.xcodeproj/project.p
 ### Before Reporting Issues
 1. ✅ Run from Xcode (not double-clicking app bundle)
 2. ✅ Check Console.app for error messages
-3. ✅ Verify projects exist in `/Users/kochj/Desktop/xcode/`
+3. ✅ Verify projects exist in `~/Desktop/xcode/`
 4. ✅ Try the "Refresh Projects" button
 5. ✅ Restart the app
 
@@ -257,7 +257,7 @@ When reporting issues, include:
 - Steps to reproduce
 
 ### Known Limitations
-- Only scans `/Users/kochj/Desktop/xcode/` (not configurable yet)
+- Only scans `~/Desktop/xcode/` (not configurable yet)
 - Single platform installation when auto-install enabled
 - No backup of existing icons before overwrite
 - Requires asset catalog in target project
@@ -301,7 +301,7 @@ rm -rf "/Applications/Icon Creator.app"
 rm -rf ~/Library/Developer/Xcode/DerivedData/Icon_Creator-*
 
 # Rebuild from scratch
-cd "/Users/kochj/Desktop/xcode/Icon Creator"
+cd "~/Desktop/xcode/Icon Creator"
 xcodebuild clean build
 ```
 
@@ -323,13 +323,13 @@ codesign -d --entitlements - "/path/to/Icon Creator.app/Contents/MacOS/Icon Crea
 ## FAQ
 
 **Q: Why does the app need Desktop access?**
-A: To automatically discover your Xcode projects in `/Users/kochj/Desktop/xcode/`.
+A: To automatically discover your Xcode projects in `~/Desktop/xcode/`.
 
 **Q: Is my data safe?**
 A: Yes. The app only reads project files and writes to asset catalogs. It's sandboxed and can't access files outside permitted locations.
 
 **Q: Can I change the project directory?**
-A: Not yet. Currently hardcoded to `/Users/kochj/Desktop/xcode/`. Configurable paths are planned for v1.2.
+A: Not yet. Currently hardcoded to `~/Desktop/xcode/`. Configurable paths are planned for v1.2.
 
 **Q: Why do I need to run from Xcode?**
 A: Running from Xcode properly signs the app with entitlements. Double-clicking the .app bundle may not apply entitlements correctly.

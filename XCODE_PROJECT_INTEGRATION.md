@@ -7,7 +7,7 @@ The Icon Creator app now includes automatic Xcode project integration, allowing 
 ## Features
 
 ### Automatic Project Discovery
-- Scans `/Users/kochj/Desktop/xcode/` for all Xcode projects
+- Scans `~/Desktop/xcode/` for all Xcode projects
 - Automatically detects platform type for each project (iOS, macOS, tvOS, watchOS)
 - Displays projects in an easy-to-use dropdown menu and modal selector
 - Refresh button to re-scan for new projects
@@ -123,7 +123,7 @@ Icon Creator/
 ## Technical Details
 
 ### Project Discovery Algorithm
-1. Enumerates all directories in `/Users/kochj/Desktop/xcode/`
+1. Enumerates all directories in `~/Desktop/xcode/`
 2. Identifies directories with `.xcodeproj` extension
 3. Creates `XcodeProject` model with name and path
 4. Sorts alphabetically by display name
@@ -157,14 +157,14 @@ Icon Creator/
 
 - macOS 12.0 or later
 - SwiftUI
-- File system access to `/Users/kochj/Desktop/xcode/`
+- File system access to `~/Desktop/xcode/`
 - Xcode projects must contain an `Assets.xcassets` folder
 
 ## Known Limitations
 
 1. **Single Platform Installation**: Currently only installs the first selected platform when auto-install is enabled
 2. **Asset Catalog Required**: Projects must have an existing `Assets.xcassets` folder
-3. **Fixed Base Directory**: Scans only `/Users/kochj/Desktop/xcode/` (could be made configurable)
+3. **Fixed Base Directory**: Scans only `~/Desktop/xcode/` (could be made configurable)
 4. **No Undo**: Overwrites existing `AppIcon.appiconset` without backup
 
 ## Future Enhancements
@@ -182,7 +182,7 @@ Possible improvements:
 ## Troubleshooting
 
 ### "No Xcode projects found"
-- Verify projects exist in `/Users/kochj/Desktop/xcode/`
+- Verify projects exist in `~/Desktop/xcode/`
 - Click "Refresh Projects" button
 - Check that directories have `.xcodeproj` extension
 

@@ -146,7 +146,7 @@ All notable changes to the Icon Creator project are documented in this file.
 
 ### Changed
 - `XcodeProjectManager` now scans multiple locations instead of single directory
-- Removed hardcoded `/Users/kochj/Desktop/xcode/` requirement
+- Removed hardcoded `~/Desktop/xcode/` requirement
 - Projects can now be anywhere in common locations
 
 ### Performance
