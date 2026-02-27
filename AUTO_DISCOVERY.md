@@ -193,7 +193,7 @@ The app provides detailed console output for debugging:
 
 ✅ Detected platforms for HomeKitTV.xcodeproj: tvOS
 ✅ Detected platforms for Site Rotator 2.0.xcodeproj: macOS
-✅ Detected platforms for com.kochj23.app: iOS
+✅ Detected platforms for [PrivateProject].xcodeproj: iOS
 
 ✅ Discovered 11 Xcode projects across 5 directories
 ```

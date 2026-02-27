@@ -177,7 +177,7 @@ Benefits:
 - **Expected:**
   - HomeKitTV → tvOS
   - Site Rotator 2.0 → macOS
-  - REMOVED → iOS (if iOS app)
+  - [PrivateProject] → iOS (if iOS app)
 
 #### Test 2: Project Selection Dialog
 - **Goal:** Verify dialog appears and works correctly

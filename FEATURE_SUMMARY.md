@@ -133,7 +133,7 @@ Your projects in `~/Desktop/xcode/` will still be found, plus:
 
 ✅ Detected platforms for HomeKitTV.xcodeproj: tvOS
 ✅ Detected platforms for Site Rotator 2.0.xcodeproj: macOS
-✅ Detected platforms for com.kochj23.app: iOS
+✅ Detected platforms for [PrivateProject].xcodeproj: iOS
 ... (more projects)
 
 ✅ Discovered 11 Xcode projects across 5 directories

@@ -72,13 +72,13 @@ The Icon Creator app now includes automatic Xcode project integration, allowing 
 
 The app currently discovers these projects:
 - RTSP Rotator
-- REMOVED
+- [PrivateProject]
 - MboxChatCLI
 - Icon Creator
 - Site Rotator 2.0
 - SiteRotator
 - HomeKitAssistant
-- REMOVED
+- [PrivateProject Monitor]
 - AppDelegate
 - Site ScreenSaver 2.0
 - HomeKitTV
