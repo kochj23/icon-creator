@@ -301,3 +301,37 @@ MIT License - Copyright © 2026 Jordan Koch
 **Last Updated:** February 4, 2026
 **Status:** Production Ready
 >>>>>>> Stashed changes
+
+## Nova / Claude API Integration
+
+This app exposes a local HTTP API on port **37435** for integration with [Nova](https://github.com/kochj23) (OpenClaw AI) and Claude Code.
+
+**Platform:** macOS  
+**Auth:** None (loopback only — macOS apps bind to 127.0.0.1)
+
+### Standard Endpoints
+
+```bash
+curl http://127.0.0.1:37435/api/status   # App status + uptime
+curl http://127.0.0.1:37435/api/ping     # Health check
+```
+
+### App-Specific Endpoints
+
+```
+/api/status
+/api/ping
+```
+
+### Usage Example
+
+```bash
+# Check if running
+curl -s http://127.0.0.1:37435/api/status | python3 -m json.tool
+
+# From Nova (OpenClaw TUI)
+# Nova has this pre-authorized and will use these endpoints automatically
+```
+
+The API server starts automatically when the app launches and binds to loopback only — no external network exposure.
+
