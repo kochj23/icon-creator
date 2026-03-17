@@ -22,6 +22,7 @@
 		732B3B09C1C55A740753E80B /* AIBackendStatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DBEA2D75DF8E5E1A21559 /* AIBackendStatusMenu.swift */; };
 		767D7527D0223AF894778985 /* AIBackendManager+Enhanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680BD51D63EC60FBC582C50 /* AIBackendManager+Enhanced.swift */; };
 		7D2E652FFBDCFD1B8DB01C9D /* AIBackendManager+Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF843DA5BCB3DB84ABC7F2FD /* AIBackendManager+Generation.swift */; };
+		7E9A73EBA8F9C3A443B5B8A0 /* NovaAPIServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED97BDEFBC913D2931D13EAF /* NovaAPIServer.swift */; };
 		805024CE227B4FB68B303270 /* BatchProcessingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53509EC0A1794AAA9C801A0D /* BatchProcessingManager.swift */; };
 		8785EDA89DA441E3B6F09897 /* ModernDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E15AC838D4F4993358424 /* ModernDesign.swift */; };
 		96AD0F8F5D76201AC709FFF0 /* XcodeProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A302B925E3E22B8975891 /* XcodeProjectManager.swift */; };
@@ -100,6 +101,7 @@
 		BF843DA5BCB3DB84ABC7F2FD /* AIBackendManager+Generation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AIBackendManager+Generation.swift"; sourceTree = "<group>"; };
 		C73492503E76B1884BF9BC8B /* AnalysisUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnalysisUnified.swift; path = "Icon Creator/AICapabilities/AnalysisUnified.swift"; sourceTree = "<group>"; };
 		DCBAA95D994947E79783C133 /* KeywordIconGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordIconGeneratorView.swift; sourceTree = "<group>"; };
+		ED97BDEFBC913D2931D13EAF /* NovaAPIServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NovaAPIServer.swift; sourceTree = "<absolute>"; };
 		EFF164E75FFF884220B09136 /* UnifiedAICapabilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnifiedAICapabilities.swift; path = "Icon Creator/AICapabilities/UnifiedAICapabilities.swift"; sourceTree = "<group>"; };
 		F47BF13EEF8E475A9FF25F92 /* XcodeProjectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeProjectPickerView.swift; sourceTree = "<group>"; };
 		IC0000020000000000000001 /* IconCreatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCreatorApp.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				4984102460BBF438384E73BC /* AICapabilities */,
+				ED97BDEFBC913D2931D13EAF /* NovaAPIServer.swift */,
 			);
 			name = "Icon Creator";
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				7D2E652FFBDCFD1B8DB01C9D /* AIBackendManager+Generation.swift in Sources */,
 				767D7527D0223AF894778985 /* AIBackendManager+Enhanced.swift in Sources */,
 				732B3B09C1C55A740753E80B /* AIBackendStatusMenu.swift in Sources */,
+				7E9A73EBA8F9C3A443B5B8A0 /* NovaAPIServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
