@@ -156,6 +156,12 @@ class AIBackendManager: ObservableObject {
     @Published var isAWSAvailable = false
     @Published var isIBMWatsonAvailable = false
 
+    // Enhanced: Connection testing, usage stats, performance (moved from extension)
+    @Published var connectionTestResults: [AIBackend: ConnectionTestResult] = [:]
+    @Published var usageStats: [AIBackend: UsageStats] = [:]
+    @Published var performanceMetrics: [AIBackend: PerformanceMetrics] = [:]
+    var monitoringTimer: Timer?
+
     // MARK: - Private Properties
 
     private let userDefaults = UserDefaults.standard

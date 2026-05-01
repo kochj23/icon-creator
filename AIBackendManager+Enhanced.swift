@@ -92,12 +92,11 @@ extension AIBackendManager {
         case .azureCognitive: return isAzureAvailable
         case .awsAI: return isAWSAvailable
         case .ibmWatson: return isIBMWatsonAvailable
+        case .auto: return true
         }
     }
 
     // MARK: - Connection Testing
-
-    @Published var connectionTestResults: [AIBackend: ConnectionTestResult] = [:]
 
     struct ConnectionTestResult {
         let success: Bool
@@ -164,8 +163,6 @@ extension AIBackendManager {
 
     // MARK: - Usage Tracking
 
-    @Published var usageStats: [AIBackend: UsageStats] = [:]
-
     struct UsageStats: Codable {
         var totalTokens: Int = 0
         var totalRequests: Int = 0
@@ -205,7 +202,7 @@ extension AIBackendManager {
             case .azureCognitive: return 10.0
             case .awsAI: return 8.0
             case .ibmWatson: return 12.0
-            case .ollama, .mlx, .tinyLLM, .tinyChat, .openWebUI: return 0.0 // Free/local
+            case .ollama, .mlx, .tinyLLM, .tinyChat, .openWebUI, .auto: return 0.0 // Free/local
             }
         }()
 
@@ -227,8 +224,6 @@ extension AIBackendManager {
     }
 
     // MARK: - Performance Metrics
-
-    @Published var performanceMetrics: [AIBackend: PerformanceMetrics] = [:]
 
     struct PerformanceMetrics {
         var averageLatency: TimeInterval = 0.0
@@ -293,8 +288,6 @@ extension AIBackendManager {
     }
 
     // MARK: - Background Monitoring
-
-    private var monitoringTimer: Timer?
 
     func startBackgroundMonitoring(interval: TimeInterval = 60.0) {
         stopBackgroundMonitoring()

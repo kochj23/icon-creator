@@ -77,6 +77,12 @@ extension AIBackendManager {
 
         case .ibmWatson:
             throw AIError.mlxNotImplemented
+
+        case .auto:
+            throw AIError.noBackendAvailable
+
+        case .none:
+            throw AIError.noBackendAvailable
         }
     }
 
@@ -89,7 +95,7 @@ extension AIBackendManager {
         maxTokens: Int
     ) async throws -> String {
 
-        guard let url = URL(string: "\(ollamaServerURL)/api/generate") else {
+        guard let url = URL(string: "http://localhost:11434/api/generate") else {
             throw AIError.invalidURL
         }
 

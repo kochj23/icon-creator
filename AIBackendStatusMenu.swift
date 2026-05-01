@@ -122,7 +122,7 @@ struct AIBackendStatusMenu: View {
 
     private var backendSelector: some View {
         Menu {
-            ForEach(AIBackendManager.AIBackend.allCases, id: \.self) { backend in
+            ForEach(AIBackend.allCases, id: \.self) { backend in
                 Button(action: {
                     manager.activeBackend = backend
                     manager.saveConfiguration()
@@ -235,7 +235,7 @@ struct AIBackendStatusMenu: View {
 
     // MARK: - Helper Functions
 
-    private func backendIcon(_ backend: AIBackendManager.AIBackend) -> String {
+    private func backendIcon(_ backend: AIBackend) -> String {
         switch backend {
         case .ollama: return "network"
         case .mlx: return "cpu"
@@ -247,10 +247,11 @@ struct AIBackendStatusMenu: View {
         case .azureCognitive: return "cloud.fill"
         case .awsAI: return "server.rack"
         case .ibmWatson: return "atom"
+        case .auto: return "sparkles"
         }
     }
 
-    private func isBackendAvailable(_ backend: AIBackendManager.AIBackend) -> Bool {
+    private func isBackendAvailable(_ backend: AIBackend) -> Bool {
         switch backend {
         case .ollama: return manager.isOllamaAvailable
         case .mlx: return manager.isMLXAvailable
@@ -262,12 +263,13 @@ struct AIBackendStatusMenu: View {
         case .azureCognitive: return manager.isAzureAvailable
         case .awsAI: return manager.isAWSAvailable
         case .ibmWatson: return manager.isIBMWatsonAvailable
+        case .auto: return true
         }
     }
 
-    private func isBackendConfigured(_ backend: AIBackendManager.AIBackend) -> Bool {
+    private func isBackendConfigured(_ backend: AIBackend) -> Bool {
         switch backend {
-        case .ollama, .mlx, .tinyLLM, .tinyChat, .openWebUI:
+        case .ollama, .mlx, .tinyLLM, .tinyChat, .openWebUI, .auto:
             return true // Local backends don't need configuration
         case .openAI: return !manager.openAIAPIKey.isEmpty
         case .googleCloud: return !manager.googleCloudAPIKey.isEmpty
@@ -279,7 +281,7 @@ struct AIBackendStatusMenu: View {
 
     private func truncateModelName(_ name: String) -> String {
         let parts = name.split(separator: ":")
-        return String(parts.first ?? name)
+        return String(parts.first ?? Substring(name))
     }
 }
 

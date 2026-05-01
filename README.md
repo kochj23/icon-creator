@@ -1,14 +1,11 @@
 # Icon Creator v2.6.0
 
-<<<<<<< Updated upstream
 ![Build](https://github.com/kochj23/icon-creator/actions/workflows/build.yml/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Platform](https://img.shields.io/badge/platform-macOS-blue)
+![Language](https://img.shields.io/badge/language-Swift-orange)
 
-**Professional app icon generator with AI-powered design and voice capabilities**
-||||||| Stash base
-**Professional app icon generator with AI-powered design and voice capabilities**
-=======
 **Professional app icon generator with AI-powered design, voice capabilities, and WidgetKit integration**
->>>>>>> Stashed changes
 
 Generate complete icon sets for iOS, macOS, watchOS, and web platforms with AI assistance, batch processing, and macOS widgets.
 
@@ -273,9 +270,63 @@ MIT License - Copyright © 2026 Jordan Koch
 
 ---
 
-<<<<<<< Updated upstream
-**Last Updated:** January 27, 2026
-**Status:** ✅ Production Ready
+**Last Updated:** May 1, 2026
+**Status:** Production Ready
+
+---
+
+## Architecture
+
+```mermaid
+graph TD
+    A[Source Image] --> B[IconGenerator]
+    B --> C{Effects Enabled?}
+    C -->|Yes| D[ImageProcessor]
+    C -->|No| E[Direct Render]
+    D --> F[Apply Effects]
+    F --> G[Generate Icons]
+    E --> G
+    G --> H{Export Format}
+    H --> I[PNG Files]
+    H --> J[Asset Catalog]
+    H --> K[ICNS Bundle]
+    
+    L[Keywords] --> M[KeywordIconGenerator]
+    M --> N{AI Provider}
+    N --> O[ComfyUI]
+    N --> P[SwarmUI]
+    N --> Q[Automatic1111]
+    N --> R[OpenAI DALL-E]
+    O --> S[Generated Icons]
+    P --> S
+    Q --> S
+    R --> S
+    
+    T[AIBackendManager] --> U[Ollama]
+    T --> V[MLX]
+    T --> W[TinyLLM]
+    T --> X[OpenWebUI]
+    T --> Y[Cloud APIs]
+    
+    Z[ColorAnalyzer] --> AA[K-Means Clustering]
+    AA --> AB[Dominant Colors]
+    AB --> AC[Palette + Suggestions]
+```
+
+## Test Coverage
+
+| Category | Tests | Description |
+|----------|-------|-------------|
+| Platform | 12 | Icon sizes, idioms, folder names for all platforms |
+| IconSettings | 4 | Validation, codable, equatable, defaults |
+| ColorComponents | 4 | Init, codable, NSColor conversion, equatable |
+| ImageEffects | 2 | Defaults, codable round-trip |
+| IconGenerator | 14 | Settings, clamping, validation, export, caching |
+| ContentsJSON | 3 | Init, add image, JSON encoding |
+| Error Handling | 4 | All error types have descriptions |
+| KeywordGenerator | 5 | Providers, categories, filenames |
+| Security | 5 | API keys, localhost, path traversal, PNG integrity |
+| **Total** | **53** | |
 
 ---
 
@@ -294,13 +345,6 @@ MIT License - Copyright © 2026 Jordan Koch
 ---
 
 > **Disclaimer:** This is a personal project created on my own time. It is not affiliated with, endorsed by, or representative of my employer.
-||||||| Stash base
-**Last Updated:** January 27, 2026
-**Status:** ✅ Production Ready
-=======
-**Last Updated:** February 4, 2026
-**Status:** Production Ready
->>>>>>> Stashed changes
 
 ## Nova / Claude API Integration
 
