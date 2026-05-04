@@ -25,26 +25,49 @@ enum Platform: String, CaseIterable, Hashable {
         }
     }
 
-    /// Required icon sizes in points for this platform
-    /// Note: These sizes may need @2x and @3x variants
+    /// Required icon sizes in points for this platform.
+    /// Checks for a user-configurable JSON file first (IconSizes.json in Application Support),
+    /// falling back to hardcoded defaults. This allows updating sizes without recompiling.
     var iconSizes: [Int] {
+        // Check for user-configurable overrides from JSON
+        if let overrides = Platform.loadIconSizeOverrides(), let sizes = overrides[self.rawValue], !sizes.isEmpty {
+            return sizes
+        }
+
+        // Hardcoded defaults
         switch self {
         case .iOS, .macCatalyst:
-            // iPhone/iPad icon sizes: notification, settings, spotlight, app icon, App Store
             return [20, 29, 40, 58, 60, 76, 80, 87, 120, 152, 167, 180, 1024]
         case .macOS:
-            // macOS icon sizes for different display densities
             return [16, 32, 64, 128, 256, 512, 1024]
         case .tvOS:
-            // Apple TV icon sizes: home screen and App Store
             return [400, 1280]
         case .watchOS:
-            // Apple Watch icon sizes: notification, companion, home screen, App Store
             return [24, 27, 29, 40, 44, 50, 51, 86, 98, 108, 117, 129, 1024]
         case .iMessage:
-            // iMessage app icon sizes
             return [60, 67, 74, 81, 120, 134, 148, 180, 1024]
         }
+    }
+
+    /// Loads platform icon size overrides from an optional JSON configuration file.
+    /// File location: ~/Library/Application Support/Icon Creator/IconSizes.json
+    /// Format: { "watchOS": [24, 27, 29, ...], "iOS": [20, 29, ...] }
+    private static func loadIconSizeOverrides() -> [String: [Int]]? {
+        guard let appSupport = FileManager.default.urls(
+            for: .applicationSupportDirectory, in: .userDomainMask
+        ).first else { return nil }
+
+        let configURL = appSupport
+            .appendingPathComponent("Icon Creator", isDirectory: true)
+            .appendingPathComponent("IconSizes.json")
+
+        guard FileManager.default.fileExists(atPath: configURL.path),
+              let data = try? Data(contentsOf: configURL),
+              let dict = try? JSONDecoder().decode([String: [Int]].self, from: data) else {
+            return nil
+        }
+
+        return dict
     }
 
     /// Folder name for export (removes spaces)
@@ -120,8 +143,14 @@ class IconGenerator: ObservableObject {
 
     // MARK: - Image Cache
 
-    /// Cache for generated previews to avoid redundant rendering
-    private var previewCache: [String: NSImage] = [:]
+    /// NSCache-backed preview cache with automatic eviction under memory pressure.
+    /// More efficient than a plain dictionary — the system can purge entries when needed.
+    private let previewCache: NSCache<NSString, NSImage> = {
+        let cache = NSCache<NSString, NSImage>()
+        cache.countLimit = 100   // Max 100 cached previews
+        cache.totalCostLimit = 200 * 1024 * 1024  // ~200 MB limit
+        return cache
+    }()
 
     // MARK: - Public Methods
 
@@ -131,12 +160,12 @@ class IconGenerator: ObservableObject {
         padding = 10.0
         backgroundColor = .white
         effects = ImageEffects()
-        previewCache.removeAll()
+        previewCache.removeAllObjects()
     }
 
     /// Clears the preview cache
     func clearCache() {
-        previewCache.removeAll()
+        previewCache.removeAllObjects()
     }
 
     /// Gets current settings as IconSettings struct
@@ -159,7 +188,8 @@ class IconGenerator: ObservableObject {
         effects = settings.effects
     }
 
-    /// Automatically crops an image to square by trimming edges
+    /// Automatically crops an image to square by trimming edges.
+    /// Uses CGContext instead of the deprecated lockFocus()/unlockFocus() pattern.
     /// - Parameter image: The image to crop
     /// - Returns: Square-cropped image, or original if already square
     func autoCropImageToSquare(_ image: NSImage) -> NSImage {
@@ -178,24 +208,28 @@ class IconGenerator: ObservableObject {
         let xOffset = (size.width - cropSize) / 2
         let yOffset = (size.height - cropSize) / 2
 
-        // Create cropped image
-        let croppedImage = NSImage(size: NSSize(width: cropSize, height: cropSize))
-        croppedImage.lockFocus()
-        defer { croppedImage.unlockFocus() }  // Ensure unlock even if error occurs
-
-        // Draw the cropped portion
-        if let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
-            let sourceRect = CGRect(x: xOffset, y: yOffset, width: cropSize, height: cropSize)
-
-            if let croppedCGImage = cgImage.cropping(to: sourceRect) {
-                let nsImage = NSImage(cgImage: croppedCGImage, size: NSSize(width: cropSize, height: cropSize))
-                nsImage.draw(in: NSRect(x: 0, y: 0, width: cropSize, height: cropSize))
-            }
+        // Use CGImage cropping — no lockFocus needed
+        guard let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
+            return image
         }
 
-        print("✂️ Auto-cropped image from \(Int(size.width))×\(Int(size.height)) to \(Int(cropSize))×\(Int(cropSize))")
+        // CGImage coordinates may differ from NSImage coordinates due to scale
+        let scaleX = CGFloat(cgImage.width) / size.width
+        let scaleY = CGFloat(cgImage.height) / size.height
+        let cropRect = CGRect(
+            x: xOffset * scaleX,
+            y: yOffset * scaleY,
+            width: cropSize * scaleX,
+            height: cropSize * scaleY
+        )
 
-        return croppedImage
+        guard let croppedCGImage = cgImage.cropping(to: cropRect) else {
+            return image
+        }
+
+        let result = NSImage(cgImage: croppedCGImage, size: NSSize(width: cropSize, height: cropSize))
+        print("Auto-cropped image from \(Int(size.width))x\(Int(size.height)) to \(Int(cropSize))x\(Int(cropSize))")
+        return result
     }
 
     /// Validates the source image for icon generation
@@ -265,10 +299,10 @@ class IconGenerator: ObservableObject {
         guard let source = sourceImage else { return nil }
 
         // Generate cache key based on current settings
-        let cacheKey = "\(size)_\(scale)_\(padding)_\(backgroundColor.description)"
+        let cacheKey = "\(size)_\(scale)_\(padding)_\(backgroundColor.description)" as NSString
 
         // Return cached image if available
-        if let cached = previewCache[cacheKey] {
+        if let cached = previewCache.object(forKey: cacheKey) {
             return cached
         }
 
@@ -277,8 +311,9 @@ class IconGenerator: ObservableObject {
             return nil
         }
 
-        // Cache the result
-        previewCache[cacheKey] = icon
+        // Cache the result with approximate cost in bytes
+        let estimatedCost = size * size * 4  // RGBA, 4 bytes per pixel
+        previewCache.setObject(icon, forKey: cacheKey, cost: estimatedCost)
 
         return icon
     }
@@ -300,7 +335,7 @@ class IconGenerator: ObservableObject {
             return imageProcessor.processImage(image, with: currentSettings, targetSize: size)
         }
 
-        // Otherwise use the original fast path
+        // Otherwise use the CGContext fast path (avoids deprecated lockFocus)
         let targetSize = CGFloat(size)
 
         // Calculate padding amount in pixels
@@ -312,17 +347,34 @@ class IconGenerator: ObservableObject {
 
         // Validate that scaled size fits within bounds
         guard scaledSize > 0 && scaledSize <= targetSize else {
-            print("⚠️ Invalid scaled size: \(scaledSize) for target: \(targetSize)")
+            print("Invalid scaled size: \(scaledSize) for target: \(targetSize)")
             return nil
         }
 
-        // Create output image
-        let outputImage = NSImage(size: NSSize(width: targetSize, height: targetSize))
+        let pixelWidth = Int(targetSize)
+        let pixelHeight = Int(targetSize)
 
-        // Use autoreleasepool to prevent memory buildup
-        autoreleasepool {
-            outputImage.lockFocus()
-            defer { outputImage.unlockFocus() }  // Ensure unlock even if error occurs
+        // Use NSBitmapImageRep + NSGraphicsContext instead of lockFocus/unlockFocus
+        guard let bitmapRep = NSBitmapImageRep(
+            bitmapDataPlanes: nil,
+            pixelsWide: pixelWidth,
+            pixelsHigh: pixelHeight,
+            bitsPerSample: 8,
+            samplesPerPixel: 4,
+            hasAlpha: true,
+            isPlanar: false,
+            colorSpaceName: .deviceRGB,
+            bytesPerRow: 0,
+            bitsPerPixel: 0
+        ) else { return nil }
+
+        let outputImage: NSImage = autoreleasepool {
+            guard let context = NSGraphicsContext(bitmapImageRep: bitmapRep) else {
+                return NSImage()
+            }
+            NSGraphicsContext.saveGraphicsState()
+            NSGraphicsContext.current = context
+            context.imageInterpolation = .high
 
             // Draw background color
             let nsColor = NSColor(backgroundColor)
@@ -333,12 +385,16 @@ class IconGenerator: ObservableObject {
             let x = (targetSize - scaledSize) / 2
             let y = (targetSize - scaledSize) / 2
 
-            // Draw source image with high quality interpolation
+            // Draw source image
             let sourceRect = NSRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
             let destRect = NSRect(x: x, y: y, width: scaledSize, height: scaledSize)
-
-            NSGraphicsContext.current?.imageInterpolation = .high
             image.draw(in: destRect, from: sourceRect, operation: .sourceOver, fraction: 1.0)
+
+            NSGraphicsContext.restoreGraphicsState()
+
+            let result = NSImage(size: NSSize(width: targetSize, height: targetSize))
+            result.addRepresentation(bitmapRep)
+            return result
         }
 
         return outputImage
