@@ -1,277 +1,16 @@
-# Icon Creator v2.6.0
+# Icon Creator
 
 ![Build](https://github.com/kochj23/icon-creator/actions/workflows/build.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-![Platform](https://img.shields.io/badge/platform-macOS-blue)
-![Language](https://img.shields.io/badge/language-Swift-orange)
+![Platform](https://img.shields.io/badge/platform-macOS%2013.0%2B-blue)
+![Swift](https://img.shields.io/badge/Swift-SwiftUI-orange)
+![Tests](https://img.shields.io/badge/tests-154-brightgreen)
 
-**Professional app icon generator with AI-powered design, voice capabilities, and WidgetKit integration**
+**App icon generator for all Apple platforms with AI-powered keyword generation, batch processing, and color analysis.**
 
-Generate complete icon sets for iOS, macOS, watchOS, and web platforms with AI assistance, batch processing, and macOS widgets.
+Icon Creator generates complete icon sets from a single source image for iOS, macOS, watchOS, tvOS, iMessage, and Mac Catalyst. It also supports AI-driven icon generation from text keywords via SwarmUI, ComfyUI, Automatic1111, or OpenAI DALL-E.
 
----
-
-![Icon Creator](Screenshots/main-window.png)
-
-
-## What is Icon Creator?
-
-Icon Creator is a native macOS application for generating professional app icon sets from a single source image. It handles all required sizes for Apple platforms (iOS, macOS, watchOS, tvOS) and web platforms, with AI-powered design assistance and voice features for accessibility.
-
-**Key Benefits:**
-- **Complete Icon Sets**: All sizes for all Apple platforms
-- **Batch Processing**: Generate hundreds of icons in seconds
-- **AI Design Assistant**: Smart cropping and composition suggestions
-- **Voice Capabilities (v1.1.0)**: Audio feedback and voice control
-- **Analysis Features (v1.1.0)**: AI-powered design analysis
-
-**Perfect For:**
-- **App Developers**: Generate all required icon sizes
-- **Designers**: Quick icon set creation
-- **Indie Developers**: Professional icons without design skills
-- **Accessibility**: Voice-guided icon creation
-
----
-
-## What's New in v2.6.0 (February 2026)
-
-### WidgetKit Integration
-**macOS Notification Center widgets for quick access:**
-
-- **Small Widget**: Quick create from last image, recent project access
-- **Medium Widget**: Recent projects list, generation status, quick create
-- **Large Widget**: Full dashboard with presets, projects, and status
-
-**Widget Features:**
-- **Recent Projects**: View and open recent icon generation projects
-- **Generation Status**: Real-time progress during icon generation
-- **Quick Create**: One-tap icon creation from last used image
-- **Preset Shortcuts**: Quick access to favorite presets (Minimalist, Full Bleed, Rounded, etc.)
-- **Deep Linking**: Tap to open specific projects or start new generations
-
-**App Group Data Sharing:**
-- Uses `group.com.jkoch.iconcreator` for data sync
-- Automatic widget timeline updates on project changes
-- Thumbnail generation for project previews
-
-**Usage:**
-1. Build and run Icon Creator
-2. Add widget from Notification Center (Edit Widgets)
-3. Choose Small, Medium, or Large size
-4. Widget shows recent projects and quick actions
-
----
-
-## What's New in v1.1.0 (January 2026)
-
-### 🎙️ Voice Capabilities
-**macOS speech synthesis integration:**
-
-- **Text-to-Speech**: Describe icons using NSSpeechSynthesizer
-- **Audio Briefings**: Generate audio summaries of icon sets
-- **Voice Selection**: Support for all macOS system voices
-- **AIFF (Audio Interchange File Format) Output**: Standard audio format for compatibility
-- **Async Processing**: Non-blocking speech synthesis
-- **Memory Safe**: Proper temporary file cleanup
-
-**Usage:**
-```swift
-let voice = VoiceCapabilities()
-let audioData = try await voice.synthesizeSpeech(text: "Icon set complete: 47 images generated", voice: nil)
-```
-
-### 🧠 Analysis Capabilities
-**AI-powered design analysis:**
-
-- **Summarization**: Summarize icon design elements
-- **Fact Checking**: Verify design claims and specifications
-- **Bias Detection**: Analyze for cultural/accessibility bias
-- **Sentiment Analysis**: Classify icon mood and tone
-- **Ollama Integration**: Routes to existing AI backend
-- **Specialized Prompts**: Optimized for design analysis
-
-**Usage:**
-```swift
-let analysis = AnalysisCapabilities()
-let summary = try await analysis.summarize("Icon design with blue gradient and modern aesthetic")
-let sentiment = try await analysis.analyzeSentiment("Professional corporate icon set")
-```
-
----
-
-## Features
-
-### Icon Generation
-- **All Apple Platforms**: iOS, macOS, watchOS, tvOS icon sizes
-- **Web Platforms**: PWA (Progressive Web App), favicon, social media sizes
-- **Custom Sizes**: Generate any custom dimensions
-- **Batch Export**: All sizes in one click
-- **Format Support**: PNG (Portable Network Graphics), ICNS (Icon Suite), ICO (Windows)
-- **High Quality**: Bicubic interpolation for resizing
-
-### AI-Powered Features
-- **Smart Cropping**: Vision framework face/object detection
-- **Composition Analysis**: AI-powered design feedback
-- **Color Palette**: Extract dominant colors
-- **Voice Capabilities (v1.1.0)**: TTS (Text-to-Speech) and audio briefings
-- **Analysis Tools (v1.1.0)**: Summarize, fact-check, detect bias, sentiment
-- **Design Suggestions**: AI recommendations for improvements
-
-### Processing Features
-- **Alpha Channel**: Preserve transparency
-- **Corner Radius**: Automatic iOS rounded corners
-- **Shadow Effects**: Optional drop shadows
-- **Color Adjustments**: Brightness, contrast, saturation
-- **Image Filters**: Apply Core Image filters
-- **Batch Processing**: Process multiple source images
-
-### Export Options
-- **Single File Export**: Individual icon files
-- **Asset Catalog**: Xcode .xcassets bundle
-- **Zip Archive**: All icons packaged
-- **Folder Structure**: Organized by platform
-- **Naming Conventions**: Platform-specific names
-- **Manifest Files**: JSON with metadata
-
----
-
-## Security
-
-### Privacy & Data Protection
-- **Local Processing**: All image processing on your Mac
-- **No Cloud Upload**: Images never uploaded
-- **No Telemetry**: Zero analytics or tracking
-- **Sandboxed**: App runs in macOS sandbox
-- **File Permissions**: Only accesses user-selected files
-
-### AI Processing
-- **Local AI**: Voice and analysis use local Ollama/MLX (Machine Learning eXtensions)
-- **No Cloud Required**: Can run completely offline
-- **Ethical Guardian**: Content monitoring prevents misuse
-- **Audit Logging**: All operations logged
-
----
-
-## Requirements
-
-### System Requirements
-- **macOS 13.0 (Ventura) or later**
-- **Architecture**: Universal (Apple Silicon recommended)
-
-### For AI Features
-- **Ollama**: `brew install ollama` (for analysis)
-- **MLX**: `pip install mlx-lm` (Apple Silicon only)
-
-### Dependencies
-**Built-in:**
-- SwiftUI, AppKit, CoreImage, Vision
-
-**Optional:**
-- Ollama (for AI analysis)
-- mlx-lm (for MLX AI)
-
----
-
-## Installation
-
-### Pre-built Binary
-
-```bash
-open "/Volumes/Data/xcode/binaries/20260127-IconCreator-v1.1.0/IconCreator-v1.1.0-build2.dmg"
-```
-
-### Build from Source
-
-```bash
-git clone https://github.com/kochj23/icon-creator.git
-cd icon-creator
-open "Icon Creator.xcodeproj"
-```
-
----
-
-## Usage
-
-### Generate Icon Set
-
-1. **Launch Icon Creator**
-2. **Select source image** (PNG, JPEG, or other format)
-3. **Choose platforms** (iOS, macOS, watchOS, tvOS, web)
-4. **Click "Generate"**
-5. **Save to location**
-
-### Use Voice Features
-
-**Generate Audio Description:**
-1. Select generated icon set
-2. Tools → Generate Audio Briefing
-3. Audio file saved with icon set
-
-### AI Analysis
-
-**Analyze Design:**
-1. Select icon
-2. Tools → Analyze Design
-3. View AI-generated feedback
-
-**Check Bias:**
-1. Select icon
-2. Tools → Detect Bias
-3. Review accessibility recommendations
-
----
-
-## Troubleshooting
-
-**Image Quality Poor:**
-- Use high-resolution source (1024×1024 minimum)
-- Ensure PNG with transparency
-- Check source image quality
-
-**Export Fails:**
-- Verify disk space available
-- Check write permissions on destination
-- Try exporting smaller set first
-
-**Voice Features Not Working:**
-- macOS speech synthesis built-in (no setup needed)
-- Check audio output device
-- Verify System Settings → Sound
-
----
-
-## Version History
-
-### v2.6.0 (February 2026)
-- WidgetKit integration with Small, Medium, Large widgets
-- Recent projects widget view
-- Generation status in real-time
-- Quick create from last image
-- Preset shortcuts from widget
-- App Group data sharing (group.com.jkoch.iconcreator)
-- Deep linking support (iconcreator:// URL scheme)
-
-### v1.1.0 (January 2026)
-- Voice capabilities with NSSpeechSynthesizer
-- Analysis capabilities (summarize, fact-check, bias, sentiment)
-- SecurityCapabilities removed per security policy
-
-### v1.0.0 (2025)
-- Initial release
-- Icon generation for all platforms
-- Smart cropping with Vision
-- Batch export
-
----
-
-## License
-
-MIT License - Copyright © 2026 Jordan Koch
-
----
-
-**Last Updated:** May 1, 2026
-**Status:** Production Ready
+Written by Jordan Koch.
 
 ---
 
@@ -279,103 +18,247 @@ MIT License - Copyright © 2026 Jordan Koch
 
 ```mermaid
 graph TD
-    A[Source Image] --> B[IconGenerator]
-    B --> C{Effects Enabled?}
-    C -->|Yes| D[ImageProcessor]
-    C -->|No| E[Direct Render]
-    D --> F[Apply Effects]
-    F --> G[Generate Icons]
-    E --> G
-    G --> H{Export Format}
-    H --> I[PNG Files]
-    H --> J[Asset Catalog]
-    H --> K[ICNS Bundle]
-    
-    L[Keywords] --> M[KeywordIconGenerator]
-    M --> N{AI Provider}
-    N --> O[ComfyUI]
-    N --> P[SwarmUI]
-    N --> Q[Automatic1111]
-    N --> R[OpenAI DALL-E]
-    O --> S[Generated Icons]
-    P --> S
-    Q --> S
-    R --> S
-    
-    T[AIBackendManager] --> U[Ollama]
-    T --> V[MLX]
-    T --> W[TinyLLM]
-    T --> X[OpenWebUI]
-    T --> Y[Cloud APIs]
-    
-    Z[ColorAnalyzer] --> AA[K-Means Clustering]
-    AA --> AB[Dominant Colors]
-    AB --> AC[Palette + Suggestions]
+    subgraph Input
+        A[Source Image] --> B[IconGenerator]
+        C[Keywords] --> D[KeywordIconGenerator]
+    end
+
+    subgraph Processing
+        B --> E{Effects?}
+        E -->|Yes| F[ImageProcessor - CoreImage]
+        E -->|No| G[Direct Render]
+        F --> H[Generate All Sizes]
+        G --> H
+        D --> I{AI Provider}
+        I --> J[ComfyUI :8188]
+        I --> K[SwarmUI :7801]
+        I --> L[A1111 :7860]
+        I --> M[OpenAI DALL-E]
+    end
+
+    subgraph Export
+        H --> N{Format}
+        N --> O[PNG Files by Platform]
+        N --> P[Xcode .xcassets]
+        N --> Q[ICNS Bundle]
+    end
+
+    subgraph Analysis
+        A --> R[ColorAnalyzer - K-Means]
+        R --> S[Dominant Colors + Palette]
+        A --> T[SmartCropper - Vision]
+        T --> U[Face/Object Detection]
+        A --> V[AccessibilityAnalyzer]
+        A --> W[AppleGuidelinesChecker]
+    end
+
+    subgraph Batch
+        X[BatchProcessingManager] --> Y[Queue of Images]
+        Y --> B
+    end
+
+    subgraph Widget["macOS Widget"]
+        Z[SharedDataManager] --> AA[WidgetKit S/M/L]
+    end
+
+    subgraph API
+        AB[NovaAPIServer :37435] --> B
+    end
 ```
 
-## Test Coverage
+### Export Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant ContentView
+    participant IconGenerator
+    participant ExportManager
+    participant XcodeProjectManager
+
+    User->>ContentView: Select image + platforms
+    ContentView->>IconGenerator: Set source image, scale, padding, effects
+    User->>ContentView: Click Generate
+    ContentView->>IconGenerator: generateIcons(platforms)
+    IconGenerator->>IconGenerator: Resize to all platform sizes
+    IconGenerator->>ExportManager: Export PNG / .xcassets / ICNS
+    ExportManager-->>User: Icon set saved
+    User->>ContentView: Auto-install to Xcode project
+    ContentView->>XcodeProjectManager: Install icons into .xcassets
+```
+
+---
+
+## Features
+
+### Icon Generation
+
+| Feature | Details |
+|---|---|
+| Platforms | iOS, macOS, watchOS, tvOS, iMessage, Mac Catalyst |
+| Formats | PNG, ICNS, Xcode .xcassets |
+| Scaling | Configurable 0.5x-2.0x with bicubic interpolation |
+| Padding | 0-30% adjustable |
+| Background color | Custom background behind icon |
+| Auto-crop | Crop non-square images to square |
+| Image effects | Brightness, contrast, saturation, Core Image filters |
+| Corner radius | Automatic iOS rounded corners |
+| Shadow effects | Optional drop shadow |
+
+### AI Keyword Generation
+
+Generate icons from text descriptions using local or cloud image generation backends.
+
+| Provider | Port | Notes |
+|---|---|---|
+| ComfyUI | 8188 | Node-based workflows |
+| SwarmUI | 7801 | Flux models |
+| Automatic1111 | 7860 | Stable Diffusion WebUI |
+| OpenAI DALL-E | -- | Cloud, API key required |
+
+Configurable variants, size, and style. Inspired by [VibeScape](https://github.com/jasonacox/VibeScape) by Jason Cox.
+
+### Batch Processing
+
+Queue multiple source images with per-item platform and settings. Process entire queues sequentially with progress tracking.
+
+### Color Analysis
+
+K-means clustering extracts dominant colors from source images and generates a complete color palette with primary, secondary, accent, and background color suggestions.
+
+### Smart Cropping
+
+Vision framework face and object detection for intelligent crop positioning.
+
+### Presets
+
+Save and load icon generation presets (Minimalist, Full Bleed, Rounded, etc.) for consistent settings across projects.
+
+### Xcode Project Integration
+
+Scan for local Xcode projects, detect target platforms, and install generated icons directly into .xcassets bundles.
+
+### Screenshot Resizer
+
+Resize screenshots to App Store submission sizes.
+
+### Apple Guidelines Checker
+
+Validate icons against Apple's Human Interface Guidelines.
+
+### Accessibility Analyzer
+
+Check icon contrast, readability, and accessibility compliance.
+
+### macOS Widget (WidgetKit)
+
+| Size | Content |
+|---|---|
+| Small | Quick create from last image, recent project |
+| Medium | Recent projects list, generation status |
+| Large | Dashboard with presets, projects, and status |
+
+Data syncs via App Group `group.com.jkoch.iconcreator`.
+
+### Nova API Server
+
+Local HTTP API on port **37435** (loopback only).
+
+```bash
+curl http://127.0.0.1:37435/api/status
+curl http://127.0.0.1:37435/api/ping
+```
+
+---
+
+## Requirements
+
+- macOS 13.0 (Ventura) or later
+- Universal binary (Apple Silicon recommended)
+- For AI keyword generation: ComfyUI, SwarmUI, A1111, or OpenAI API key
+
+## Installation
+
+### From DMG
+
+Download from [Releases](https://github.com/kochj23/icon-creator/releases), open the DMG, drag to Applications.
+
+### From Source
+
+```bash
+git clone git@github.com:kochj23/icon-creator.git
+cd "Icon Creator"
+open "Icon Creator.xcodeproj"
+# Build: Cmd+R
+```
+
+---
+
+## Usage
+
+1. Launch Icon Creator
+2. Select source image (PNG, JPEG, or drag-and-drop)
+3. Choose target platforms (iOS, macOS, watchOS, tvOS, iMessage)
+4. Adjust scale, padding, background color, and effects
+5. Click Generate
+6. Export to folder, .xcassets, or ICNS
+
+### Keyword Mode
+
+1. Switch to Keyword Generator mode in toolbar
+2. Enter descriptive keywords for the icon you want
+3. Select AI provider (ComfyUI, SwarmUI, A1111, DALL-E)
+4. Generate variants
+5. Export chosen result
+
+### Batch Mode
+
+1. Enable Batch Mode in toolbar
+2. Add multiple source images to the queue
+3. Configure per-item platforms and settings
+4. Process queue
+
+---
+
+## Test Suite
+
+154 tests covering platform sizes, icon settings, color components, image effects, icon generation, export, error handling, keyword generation, and security.
+
+```bash
+xcodebuild -scheme "Icon Creator" -destination "platform=macOS" test
+```
 
 | Category | Tests | Description |
-|----------|-------|-------------|
+|---|---|---|
 | Platform | 12 | Icon sizes, idioms, folder names for all platforms |
 | IconSettings | 4 | Validation, codable, equatable, defaults |
-| ColorComponents | 4 | Init, codable, NSColor conversion, equatable |
+| ColorComponents | 4 | Init, codable, NSColor conversion |
 | ImageEffects | 2 | Defaults, codable round-trip |
 | IconGenerator | 14 | Settings, clamping, validation, export, caching |
 | ContentsJSON | 3 | Init, add image, JSON encoding |
 | Error Handling | 4 | All error types have descriptions |
 | KeywordGenerator | 5 | Providers, categories, filenames |
 | Security | 5 | API keys, localhost, path traversal, PNG integrity |
-| **Total** | **53** | |
+| Comprehensive | 101 | Full coverage of all model and service paths |
 
 ---
 
-## More Apps by Jordan Koch
+## Security and Privacy
 
-| App | Description |
-|-----|-------------|
-| [ExcelExplorer](https://github.com/kochj23/ExcelExplorer) | Native macOS Excel/CSV file viewer |
-| [TopGUI](https://github.com/kochj23/TopGUI) | macOS system monitor with real-time metrics |
-| [RsyncGUI](https://github.com/kochj23/RsyncGUI) | Native macOS GUI for rsync file synchronization |
-| [MBox-Explorer](https://github.com/kochj23/MBox-Explorer) | macOS mbox email archive viewer |
-| [MLXCode](https://github.com/kochj23/MLXCode) | Local AI coding assistant for Apple Silicon |
-
-> **[View all projects](https://github.com/kochj23?tab=repositories)**
+- **Local processing** -- all image manipulation on your Mac
+- **No telemetry** -- zero analytics or tracking
+- **Keychain storage** -- API keys in macOS Keychain
+- **Ethical AI Guardian** -- content moderation on AI-generated imagery
+- **Loopback-only API** -- Nova server binds to 127.0.0.1
 
 ---
 
-> **Disclaimer:** This is a personal project created on my own time. It is not affiliated with, endorsed by, or representative of my employer.
+## License
 
-## Nova / Claude API Integration
+MIT License -- Copyright 2026 Jordan Koch
 
-This app exposes a local HTTP API on port **37435** for integration with [Nova](https://github.com/kochj23) (OpenClaw AI) and Claude Code.
+See [LICENSE](LICENSE) for the full text.
 
-**Platform:** macOS  
-**Auth:** None (loopback only — macOS apps bind to 127.0.0.1)
+---
 
-### Standard Endpoints
-
-```bash
-curl http://127.0.0.1:37435/api/status   # App status + uptime
-curl http://127.0.0.1:37435/api/ping     # Health check
-```
-
-### App-Specific Endpoints
-
-```
-/api/status
-/api/ping
-```
-
-### Usage Example
-
-```bash
-# Check if running
-curl -s http://127.0.0.1:37435/api/status | python3 -m json.tool
-
-# From Nova (OpenClaw TUI)
-# Nova has this pre-authorized and will use these endpoints automatically
-```
-
-The API server starts automatically when the app launches and binds to loopback only — no external network exposure.
-
+Written by Jordan Koch ([@kochj23](https://github.com/kochj23))
