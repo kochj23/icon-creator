@@ -101,7 +101,7 @@
 		BF843DA5BCB3DB84ABC7F2FD /* AIBackendManager+Generation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AIBackendManager+Generation.swift"; sourceTree = "<group>"; };
 		C73492503E76B1884BF9BC8B /* AnalysisUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnalysisUnified.swift; path = "Icon Creator/AICapabilities/AnalysisUnified.swift"; sourceTree = "<group>"; };
 		DCBAA95D994947E79783C133 /* KeywordIconGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordIconGeneratorView.swift; sourceTree = "<group>"; };
-		ED97BDEFBC913D2931D13EAF /* NovaAPIServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NovaAPIServer.swift; sourceTree = "<absolute>"; };
+		ED97BDEFBC913D2931D13EAF /* NovaAPIServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "/Volumes/Data/xcode/Icon Creator/NovaAPIServer.swift"; sourceTree = "<absolute>"; };
 		EFF164E75FFF884220B09136 /* UnifiedAICapabilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnifiedAICapabilities.swift; path = "Icon Creator/AICapabilities/UnifiedAICapabilities.swift"; sourceTree = "<group>"; };
 		F47BF13EEF8E475A9FF25F92 /* XcodeProjectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeProjectPickerView.swift; sourceTree = "<group>"; };
 		IC0000020000000000000001 /* IconCreatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCreatorApp.swift; sourceTree = "<group>"; };
