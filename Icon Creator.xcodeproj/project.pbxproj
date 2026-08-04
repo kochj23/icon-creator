@@ -20,6 +20,7 @@
 		69BEE07DB5EF4109A0FB1166 /* IconPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E201EB4BC84BBBA2035027 /* IconPreset.swift */; };
 		6A3D6D5DCE834004A60DEB71 /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7F6114F9344E54AB437A36 /* BatchItem.swift */; };
 		732B3B09C1C55A740753E80B /* AIBackendStatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DBEA2D75DF8E5E1A21559 /* AIBackendStatusMenu.swift */; };
+		74BF24A0794CE0D9BBDB3B86 /* IconScalingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87B8BE0409554A349557E95 /* IconScalingTests.swift */; };
 		767D7527D0223AF894778985 /* AIBackendManager+Enhanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680BD51D63EC60FBC582C50 /* AIBackendManager+Enhanced.swift */; };
 		7D2E652FFBDCFD1B8DB01C9D /* AIBackendManager+Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF843DA5BCB3DB84ABC7F2FD /* AIBackendManager+Generation.swift */; };
 		7E9A73EBA8F9C3A443B5B8A0 /* NovaAPIServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED97BDEFBC913D2931D13EAF /* NovaAPIServer.swift */; };
@@ -30,6 +31,7 @@
 		AE4D30AACFCF4ACE8AF68E8C /* KeywordIconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DEC4EC8D1415D81BE53D4 /* KeywordIconGenerator.swift */; };
 		B384AEC64EDA321487698F5A /* ProjectLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877DFE19E0558F887CFA4757 /* ProjectLocationsView.swift */; };
 		DCE9DB088BD7455D9E351AD9 /* KeywordIconGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBAA95D994947E79783C133 /* KeywordIconGeneratorView.swift */; };
+		EE882F63F1C31BB559E4E19A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A902404FCA3132140343AC41 /* Cocoa.framework */; };
 		F69AA4E6AC2BEADD624B01DE /* AnalysisUnified.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73492503E76B1884BF9BC8B /* AnalysisUnified.swift */; };
 		F6CC418FF06B4607A27C3D0F /* PresetLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8A1449440439EAF435A42 /* PresetLibraryView.swift */; };
 		F8B37F532A60B32177862027 /* ImageGenerationUnified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D96481B5263B9B360F6B5 /* ImageGenerationUnified.swift */; };
@@ -52,6 +54,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F7FF70CFB0097E39141F20D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = IC0000210000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = IC0000170000000000000001;
+			remoteInfo = "Icon Creator";
+		};
 		WGT0000160000000000000001 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = IC0000210000000000000001 /* Project object */;
@@ -84,6 +93,7 @@
 		1BE8A1449440439EAF435A42 /* PresetLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Presets/PresetLibraryView.swift; sourceTree = "<group>"; };
 		2680BD51D63EC60FBC582C50 /* AIBackendManager+Enhanced.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AIBackendManager+Enhanced.swift"; sourceTree = "<group>"; };
 		282D4BA202DE4D1D804F95B7 /* ImageEffectsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Effects/ImageEffectsPanel.swift; sourceTree = "<group>"; };
+		31FEBEC071498412BF849C8A /* ColorPalette.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorPalette.swift; path = Models/Core/ColorPalette.swift; sourceTree = "<group>"; };
 		35906EB220314CCEAEA71132 /* SecurityUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecurityUnified.swift; path = "Icon Creator/AICapabilities/SecurityUnified.swift"; sourceTree = "<group>"; };
 		3A3A302B925E3E22B8975891 /* XcodeProjectManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XcodeProjectManager.swift; sourceTree = "<group>"; };
 		3F6DBEA2D75DF8E5E1A21559 /* AIBackendStatusMenu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIBackendStatusMenu.swift; sourceTree = "<group>"; };
@@ -91,15 +101,20 @@
 		47CCC0EBD79D4911AF6612E4 /* BatchQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Batch/BatchQueueView.swift; sourceTree = "<group>"; };
 		530324F4956A43B7820360B3 /* ContextPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Preview/ContextPreviewView.swift; sourceTree = "<group>"; };
 		53509EC0A1794AAA9C801A0D /* BatchProcessingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels/BatchProcessingManager.swift; sourceTree = "<group>"; };
+		580F5D2B406EDC153A48DB07 /* ColorAnalyzer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorAnalyzer.swift; path = Utilities/ColorAnalyzer.swift; sourceTree = "<group>"; };
 		5D7F6114F9344E54AB437A36 /* BatchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Batch/BatchItem.swift; sourceTree = "<group>"; };
 		69398922E5A48FDABBEFCC4D /* VoiceUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoiceUnified.swift; path = "Icon Creator/AICapabilities/VoiceUnified.swift"; sourceTree = "<group>"; };
+		7F0CB89F7E75BBFB493D19D5 /* IconCreatorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconCreatorTests.swift; path = IconCreatorTests.swift; sourceTree = "<group>"; };
 		854D96481B5263B9B360F6B5 /* ImageGenerationUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageGenerationUnified.swift; path = "Icon Creator/AICapabilities/ImageGenerationUnified.swift"; sourceTree = "<group>"; };
 		874E15AC838D4F4993358424 /* ModernDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernDesign.swift; sourceTree = "<group>"; };
 		877DFE19E0558F887CFA4757 /* ProjectLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Settings/ProjectLocationsView.swift; sourceTree = "<group>"; };
 		8F6B852A9B894909B32D6CB3 /* AIBackendManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIBackendManager.swift; sourceTree = "<group>"; };
 		9D0DEC4EC8D1415D81BE53D4 /* KeywordIconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordIconGenerator.swift; sourceTree = "<group>"; };
+		A886F55246281BA2098D59C3 /* Icon CreatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Icon CreatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A902404FCA3132140343AC41 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		BF843DA5BCB3DB84ABC7F2FD /* AIBackendManager+Generation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AIBackendManager+Generation.swift"; sourceTree = "<group>"; };
 		C73492503E76B1884BF9BC8B /* AnalysisUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnalysisUnified.swift; path = "Icon Creator/AICapabilities/AnalysisUnified.swift"; sourceTree = "<group>"; };
+		D87B8BE0409554A349557E95 /* IconScalingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconScalingTests.swift; path = IconScalingTests.swift; sourceTree = "<group>"; };
 		DCBAA95D994947E79783C133 /* KeywordIconGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordIconGeneratorView.swift; sourceTree = "<group>"; };
 		ED97BDEFBC913D2931D13EAF /* NovaAPIServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "/Volumes/Data/xcode/Icon Creator/NovaAPIServer.swift"; sourceTree = "<absolute>"; };
 		EFF164E75FFF884220B09136 /* UnifiedAICapabilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnifiedAICapabilities.swift; path = "Icon Creator/AICapabilities/UnifiedAICapabilities.swift"; sourceTree = "<group>"; };
@@ -124,6 +139,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A0CA546A9E91CB8948A15AE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE882F63F1C31BB559E4E19A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		IC0000140000000000000001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,6 +197,24 @@
 			name = "Icon Creator";
 			sourceTree = "<group>";
 		};
+		A37901F912862D5F7C138DAA /* Icon CreatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				7F0CB89F7E75BBFB493D19D5 /* IconCreatorTests.swift */,
+				D87B8BE0409554A349557E95 /* IconScalingTests.swift */,
+			);
+			name = "Icon CreatorTests";
+			path = "Icon CreatorTests";
+			sourceTree = "<group>";
+		};
+		C72E1F0D31FCD22441AA9DD1 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				A902404FCA3132140343AC41 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
 		IC0000150000000000000001 = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +241,9 @@
 				WGT0000220000000000000001 /* Icon Creator Widget */,
 				WGT0000230000000000000001 /* Frameworks */,
 				2713E66F9FF78344D2BA97FC /* AIBackend */,
+				A37901F912862D5F7C138DAA /* Icon CreatorTests */,
+				31FEBEC071498412BF849C8A /* ColorPalette.swift */,
+				580F5D2B406EDC153A48DB07 /* ColorAnalyzer.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,6 +252,7 @@
 			children = (
 				IC0000110000000000000001 /* Icon Creator.app */,
 				WGT0000140000000000000001 /* Icon Creator Widget.appex */,
+				A886F55246281BA2098D59C3 /* Icon CreatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,6 +283,7 @@
 			children = (
 				WGT0000100000000000000001 /* WidgetKit.framework */,
 				WGT0000120000000000000001 /* SwiftUI.framework */,
+				C72E1F0D31FCD22441AA9DD1 /* OS X */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -245,6 +291,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7B81125B7101CE9B753D8EF7 /* Icon CreatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0EDC5BA1A8B7F189B6D3E3E /* Build configuration list for PBXNativeTarget "Icon CreatorTests" */;
+			buildPhases = (
+				7B44ED24FD4FDF481CE89A1F /* Sources */,
+				A0CA546A9E91CB8948A15AE3 /* Frameworks */,
+				FD4DF36EE914EC7FB79D36A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8B25AB975A00220289678A4 /* PBXTargetDependency */,
+			);
+			name = "Icon CreatorTests";
+			productName = "Icon CreatorTests";
+			productReference = A886F55246281BA2098D59C3 /* Icon CreatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		IC0000170000000000000001 /* Icon Creator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = IC0000180000000000000001 /* Build configuration list for PBXNativeTarget "Icon Creator" */;
@@ -306,11 +370,19 @@
 			targets = (
 				IC0000170000000000000001 /* Icon Creator */,
 				WGT0000170000000000000001 /* Icon Creator Widget */,
+				7B81125B7101CE9B753D8EF7 /* Icon CreatorTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FD4DF36EE914EC7FB79D36A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		IC0000200000000000000001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,6 +402,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7B44ED24FD4FDF481CE89A1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74BF24A0794CE0D9BBDB3B86 /* IconScalingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		IC0000190000000000000001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,6 +464,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D8B25AB975A00220289678A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Icon Creator";
+			target = IC0000170000000000000001 /* Icon Creator */;
+			targetProxy = F7FF70CFB0097E39141F20D4 /* PBXContainerItemProxy */;
+		};
 		WGT0000240000000000000001 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = WGT0000170000000000000001 /* Icon Creator Widget */;
@@ -392,6 +478,40 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		62BC868B7E49A218D86B4B82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QRRCB8HB3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.IconCreatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Icon Creator.app/Contents/MacOS/Icon Creator";
+			};
+			name = Release;
+		};
+		82E4D0F432A48E75FD27359C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QRRCB8HB3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.IconCreatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Icon Creator.app/Contents/MacOS/Icon Creator";
+			};
+			name = Debug;
+		};
 		IC0000230000000000000001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -521,11 +641,12 @@
 				CODE_SIGN_ENTITLEMENTS = Icon_Creator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Info.plist;
@@ -537,7 +658,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.IconCreator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -554,7 +675,7 @@
 				CODE_SIGN_ENTITLEMENTS = Icon_Creator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -570,7 +691,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.IconCreator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -588,7 +709,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "Icon Creator Widget/Icon_Creator_Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_APP_SANDBOX = NO;
@@ -602,7 +723,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.IconCreator.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -620,7 +741,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "Icon Creator Widget/Icon_Creator_Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_APP_SANDBOX = NO;
@@ -634,7 +755,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.IconCreator.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -649,6 +770,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A0EDC5BA1A8B7F189B6D3E3E /* Build configuration list for PBXNativeTarget "Icon CreatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62BC868B7E49A218D86B4B82 /* Release */,
+				82E4D0F432A48E75FD27359C /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		IC0000180000000000000001 /* Build configuration list for PBXNativeTarget "Icon Creator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

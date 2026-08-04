@@ -12,6 +12,8 @@ Icon Creator generates complete icon sets from a single source image for iOS, ma
 
 Written by Jordan Koch.
 
+> **2.6.1** — Fixed a scale/padding slider crash. Moving the scale slider above 1.0x (or adjusting padding on a large source such as a 1024px PNG) could blank the preview or crash. Two defects were at fault: an upper-bound render guard (`scaledSize <= targetSize`) rejected *all* upscaling even though the fixed-size canvas simply clips a zoomed image at its edges, and the `scale`/`padding` `@Published` property observers reassigned themselves unconditionally, recursing without bound (stack overflow) the instant a slider moved. Both are fixed and locked by a 7-category regression test grid.
+
 ---
 
 ## Architecture
@@ -23,12 +25,14 @@ graph TD
         C[Keywords] --> D[KeywordIconGenerator]
     end
 
-    subgraph Processing
-        B --> E{Effects?}
+    subgraph Processing["Render Pipeline"]
+        B --> SP[Apply scale 0.5-2.0x and padding 0-30%]
+        SP --> E{Effects?}
         E -->|Yes| F[ImageProcessor - CoreImage]
-        E -->|No| G[Direct Render]
-        F --> H[Generate All Sizes]
-        G --> H
+        E -->|No| G[Direct CGContext Render]
+        F --> CV[NSBitmapImageRep canvas targetSize x targetSize]
+        G --> CV
+        CV --> H[Generate All Sizes - canvas clips when scale > 1.0]
         D --> I{AI Provider}
         I --> J[ComfyUI :8188]
         I --> K[SwarmUI :7801]
@@ -36,8 +40,9 @@ graph TD
         I --> M[OpenAI DALL-E]
     end
 
-    subgraph Export
-        H --> N{Format}
+    subgraph Output
+        CV --> PV[Live Preview - NSCache]
+        H --> N{Export Format}
         N --> O[PNG Files by Platform]
         N --> P[Xcode .xcassets]
         N --> Q[ICNS Bundle]
@@ -78,6 +83,9 @@ sequenceDiagram
 
     User->>ContentView: Select image + platforms
     ContentView->>IconGenerator: Set source image, scale, padding, effects
+    Note over IconGenerator: scale/padding clamped safely (0.5-2.0x, 0-30%)
+    IconGenerator->>IconGenerator: Render into targetSize canvas (clips at edges)
+    IconGenerator-->>ContentView: Live preview (any scale, incl. > 1.0x)
     User->>ContentView: Click Generate
     ContentView->>IconGenerator: generateIcons(platforms)
     IconGenerator->>IconGenerator: Resize to all platform sizes
@@ -240,6 +248,20 @@ xcodebuild -scheme "Icon Creator" -destination "platform=macOS" test
 | KeywordGenerator | 5 | Providers, categories, filenames |
 | Security | 5 | API keys, localhost, path traversal, PNG integrity |
 | Comprehensive | 101 | Full coverage of all model and service paths |
+
+### Scale / Padding Regression Suite (`IconScalingTests`, v2.6.1)
+
+A dedicated 7-category suite locks the scale/padding render path so the slider crash cannot regress. 27 tests, all green:
+
+| Category | Coverage |
+|---|---|
+| Unit | Full scale x padding x size grid returns valid images; upscale > 1.0x renders; output pixel size matches; scale/padding clamp to range |
+| Integration | Preview cache key varies with scale/padding (no stale render); resetSettings restores defaults |
+| Functional | End-to-end slider sweep 0.5->2.0x and 0->30% on a 1024px source (the exact reporter repro) |
+| Security | Zero-size, extreme-aspect, and huge source images render without crash or unbounded allocation; export stays within the chosen directory |
+| Performance | Full 16..1024 icon set renders within bound; cache hit is cheaper than a fresh render |
+| Retry | Invalid geometry fails gracefully (nil, not crash); export surfaces typed errors instead of aborting |
+| Frame | Generator constructs with valid defaults; default preview renders; test bundle launches |
 
 ---
 

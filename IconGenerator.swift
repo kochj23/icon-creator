@@ -90,8 +90,15 @@ class IconGenerator: ObservableObject {
     /// Default: 1.0 (100%)
     @Published var scale: Double = 1.0 {
         didSet {
-            // Clamp scale to valid range
-            scale = max(Constants.minScale, min(Constants.maxScale, scale))
+            // Clamp scale to valid range. The self-assignment MUST be guarded:
+            // writing back unconditionally inside a @Published property's didSet
+            // re-enters the observer on every set and recurses without bound
+            // (stack overflow / SIGSEGV) — that is what crashed the app the instant
+            // the scale slider moved. Only write back when the value is genuinely
+            // out of range so the re-entrant didSet sees an already-clamped value
+            // and terminates.
+            let clamped = max(Constants.minScale, min(Constants.maxScale, scale))
+            if scale != clamped { scale = clamped }
             clearCache()
         }
     }
@@ -100,8 +107,12 @@ class IconGenerator: ObservableObject {
     /// Default: 10%
     @Published var padding: Double = 10.0 {
         didSet {
-            // Clamp padding to valid range
-            padding = max(Constants.minPadding, min(Constants.maxPadding, padding))
+            // Clamp padding to valid range. Guard the self-assignment for the same
+            // reason as `scale` above — an unconditional write-back inside a
+            // @Published didSet recurses without bound and crashed the app when the
+            // padding slider moved. Only write back when actually out of range.
+            let clamped = max(Constants.minPadding, min(Constants.maxPadding, padding))
+            if padding != clamped { padding = clamped }
             clearCache()
         }
     }
@@ -345,14 +356,21 @@ class IconGenerator: ObservableObject {
         // Calculate final scaled size
         let scaledSize = contentSize * scale
 
-        // Validate that scaled size fits within bounds
-        guard scaledSize > 0 && scaledSize <= targetSize else {
-            print("Invalid scaled size: \(scaledSize) for target: \(targetSize)")
+        // Validate geometry. Only reject genuinely invalid values — non-positive
+        // or non-finite. Upscaling past targetSize is intentional: the render canvas
+        // is a fixed targetSize×targetSize bitmap, so a scaledSize larger than the
+        // canvas simply clips the zoomed image at its edges (that is the entire point
+        // of a 0.5–2.0 scale slider). scaledSize > targetSize must NOT be rejected or
+        // clamped — doing so blanked the preview whenever scale went above 1.0. (The
+        // crash-on-slider itself was the @Published didSet recursion, fixed above.)
+        guard scaledSize > 0, scaledSize.isFinite, targetSize > 0 else {
+            print("Invalid geometry: scaledSize \(scaledSize) for target \(targetSize)")
             return nil
         }
 
-        let pixelWidth = Int(targetSize)
-        let pixelHeight = Int(targetSize)
+        // Canvas must be at least 1×1 pixel to construct a valid bitmap rep.
+        let pixelWidth = max(1, Int(targetSize))
+        let pixelHeight = max(1, Int(targetSize))
 
         // Use NSBitmapImageRep + NSGraphicsContext instead of lockFocus/unlockFocus
         guard let bitmapRep = NSBitmapImageRep(
