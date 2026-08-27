@@ -20,6 +20,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import Security
 
 // MARK: - AI Backend Type
 
@@ -138,7 +139,7 @@ class AIBackendManager: ObservableObject {
     // OpenWebUI-specific
     @Published var openWebUIServerURL: String = "http://localhost:8080"
 
-    // Cloud AI Services - API Keys (WARNING: Use Keychain in production!)
+    // Cloud AI Services - API Keys (persisted in the Keychain, never UserDefaults)
     @Published var openAIAPIKey: String = ""
     @Published var googleCloudAPIKey: String = ""
     @Published var azureAPIKey: String = ""
@@ -175,7 +176,7 @@ class AIBackendManager: ObservableObject {
         static let tinyLLMServerURL = "AIBackendManager_TinyLLMServerURL"
         static let tinyChatServerURL = "AIBackendManager_TinyChatServerURL"
         static let openWebUIServerURL = "AIBackendManager_OpenWebUIServerURL"
-        // Cloud API Keys (WARNING: Store in Keychain for production!)
+        // Cloud API Keys — Keychain account names (also the legacy UserDefaults keys, migrated on first launch)
         static let openAIAPIKey = "AIBackendManager_OpenAI_Key"
         static let googleCloudAPIKey = "AIBackendManager_GoogleCloud_Key"
         static let azureAPIKey = "AIBackendManager_Azure_Key"
@@ -187,9 +188,65 @@ class AIBackendManager: ObservableObject {
         static let ibmWatsonURL = "AIBackendManager_IBM_URL"
     }
 
+    // MARK: - Keychain Storage (cloud credentials)
+
+    private static let keychainServiceName = "com.jordankoch.IconCreator"
+
+    /// Cloud credential keys that must live in the Keychain, never UserDefaults.
+    private static let secretKeys = [
+        Keys.openAIAPIKey,
+        Keys.googleCloudAPIKey,
+        Keys.azureAPIKey,
+        Keys.azureEndpoint,
+        Keys.awsAccessKey,
+        Keys.awsSecretKey,
+        Keys.ibmWatsonAPIKey,
+        Keys.ibmWatsonURL
+    ]
+
+    private static func saveToKeychain(key: String, value: String) {
+        let base: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: keychainServiceName,
+            kSecAttrAccount as String: key
+        ]
+        SecItemDelete(base as CFDictionary)
+        guard !value.isEmpty, let data = value.data(using: .utf8) else { return }
+        var attributes = base
+        attributes[kSecValueData as String] = data
+        attributes[kSecAttrAccessible as String] = kSecAttrAccessibleWhenUnlockedThisDeviceOnly
+        SecItemAdd(attributes as CFDictionary, nil)
+    }
+
+    private static func loadFromKeychain(key: String) -> String? {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: keychainServiceName,
+            kSecAttrAccount as String: key,
+            kSecReturnData as String: true,
+            kSecMatchLimit as String: kSecMatchLimitOne
+        ]
+        var result: AnyObject?
+        guard SecItemCopyMatching(query as CFDictionary, &result) == errSecSuccess,
+              let data = result as? Data else { return nil }
+        return String(data: data, encoding: .utf8)
+    }
+
+    /// One-time migration: move any plaintext cloud credentials out of
+    /// UserDefaults into the Keychain, then delete the UserDefaults copies.
+    private func migrateSecretsFromUserDefaults() {
+        for key in Self.secretKeys {
+            if let value = userDefaults.string(forKey: key), !value.isEmpty {
+                Self.saveToKeychain(key: key, value: value)
+            }
+            userDefaults.removeObject(forKey: key)
+        }
+    }
+
     // MARK: - Initialization
 
     private init() {
+        migrateSecretsFromUserDefaults()
         loadSettings()
         Task {
             await checkBackendAvailability()
@@ -211,16 +268,16 @@ class AIBackendManager: ObservableObject {
         tinyChatServerURL = userDefaults.string(forKey: Keys.tinyChatServerURL) ?? "http://localhost:8000"
         openWebUIServerURL = userDefaults.string(forKey: Keys.openWebUIServerURL) ?? "http://localhost:8080"
 
-        // Cloud API Keys (WARNING: These should be in Keychain in production!)
-        openAIAPIKey = userDefaults.string(forKey: Keys.openAIAPIKey) ?? ""
-        googleCloudAPIKey = userDefaults.string(forKey: Keys.googleCloudAPIKey) ?? ""
-        azureAPIKey = userDefaults.string(forKey: Keys.azureAPIKey) ?? ""
-        azureEndpoint = userDefaults.string(forKey: Keys.azureEndpoint) ?? ""
-        awsAccessKey = userDefaults.string(forKey: Keys.awsAccessKey) ?? ""
-        awsSecretKey = userDefaults.string(forKey: Keys.awsSecretKey) ?? ""
+        // Cloud API Keys are stored in the Keychain, never UserDefaults.
+        openAIAPIKey = Self.loadFromKeychain(key: Keys.openAIAPIKey) ?? ""
+        googleCloudAPIKey = Self.loadFromKeychain(key: Keys.googleCloudAPIKey) ?? ""
+        azureAPIKey = Self.loadFromKeychain(key: Keys.azureAPIKey) ?? ""
+        azureEndpoint = Self.loadFromKeychain(key: Keys.azureEndpoint) ?? ""
+        awsAccessKey = Self.loadFromKeychain(key: Keys.awsAccessKey) ?? ""
+        awsSecretKey = Self.loadFromKeychain(key: Keys.awsSecretKey) ?? ""
         awsRegion = userDefaults.string(forKey: Keys.awsRegion) ?? "us-east-1"
-        ibmWatsonAPIKey = userDefaults.string(forKey: Keys.ibmWatsonAPIKey) ?? ""
-        ibmWatsonURL = userDefaults.string(forKey: Keys.ibmWatsonURL) ?? ""
+        ibmWatsonAPIKey = Self.loadFromKeychain(key: Keys.ibmWatsonAPIKey) ?? ""
+        ibmWatsonURL = Self.loadFromKeychain(key: Keys.ibmWatsonURL) ?? ""
     }
 
     func saveSettings() {
@@ -232,16 +289,16 @@ class AIBackendManager: ObservableObject {
         userDefaults.set(tinyChatServerURL, forKey: Keys.tinyChatServerURL)
         userDefaults.set(openWebUIServerURL, forKey: Keys.openWebUIServerURL)
 
-        // Cloud API Keys (WARNING: These should be in Keychain in production!)
-        userDefaults.set(openAIAPIKey, forKey: Keys.openAIAPIKey)
-        userDefaults.set(googleCloudAPIKey, forKey: Keys.googleCloudAPIKey)
-        userDefaults.set(azureAPIKey, forKey: Keys.azureAPIKey)
-        userDefaults.set(azureEndpoint, forKey: Keys.azureEndpoint)
-        userDefaults.set(awsAccessKey, forKey: Keys.awsAccessKey)
-        userDefaults.set(awsSecretKey, forKey: Keys.awsSecretKey)
+        // Cloud API Keys are stored in the Keychain, never UserDefaults.
+        Self.saveToKeychain(key: Keys.openAIAPIKey, value: openAIAPIKey)
+        Self.saveToKeychain(key: Keys.googleCloudAPIKey, value: googleCloudAPIKey)
+        Self.saveToKeychain(key: Keys.azureAPIKey, value: azureAPIKey)
+        Self.saveToKeychain(key: Keys.azureEndpoint, value: azureEndpoint)
+        Self.saveToKeychain(key: Keys.awsAccessKey, value: awsAccessKey)
+        Self.saveToKeychain(key: Keys.awsSecretKey, value: awsSecretKey)
         userDefaults.set(awsRegion, forKey: Keys.awsRegion)
-        userDefaults.set(ibmWatsonAPIKey, forKey: Keys.ibmWatsonAPIKey)
-        userDefaults.set(ibmWatsonURL, forKey: Keys.ibmWatsonURL)
+        Self.saveToKeychain(key: Keys.ibmWatsonAPIKey, value: ibmWatsonAPIKey)
+        Self.saveToKeychain(key: Keys.ibmWatsonURL, value: ibmWatsonURL)
     }
 
     // MARK: - Backend Availability Checking
