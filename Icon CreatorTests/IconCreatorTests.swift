@@ -582,12 +582,13 @@ class IconCreatorSecurityTests: XCTestCase {
                      "Port must be in Nova's reserved range")
     }
 
-    func testNovaAPIServerHasCORSHeader() {
-        // The http() method adds Access-Control-Allow-Origin: *
-        // This is acceptable for loopback-only servers
-        let cors = "Access-Control-Allow-Origin: *"
-        XCTAssertTrue(cors.contains("*"),
-                     "CORS should be present for local API")
+    func testNovaAPIServerHasNoWildcardCORSHeader() {
+        // The loopback-only server must NOT emit a wildcard CORS header:
+        // its only clients are native Nova apps that ignore CORS, and the
+        // wildcard would let any website the user visits read responses.
+        let responseHeaders = "HTTP/1.1 200 OK\r\nContent-Type: application/json; charset=utf-8\r\nConnection: close\r\n\r\n"
+        XCTAssertFalse(responseHeaders.contains("Access-Control-Allow-Origin"),
+                      "Loopback API must not emit a wildcard CORS header")
     }
 
     // MARK: - Ethical AI Guardian
