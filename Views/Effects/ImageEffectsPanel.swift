@@ -127,7 +127,7 @@ struct ImageEffectsPanel: View {
                         .pickerStyle(.segmented)
 
                         // Gradient controls
-                        if case .gradient(let gradient, let direction) = effects.backgroundType {
+                        if case .gradient(_, let direction) = effects.backgroundType {
                             VStack(alignment: .leading, spacing: 8) {
                                 Picker("Direction", selection: Binding(
                                     get: { direction },

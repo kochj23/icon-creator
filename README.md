@@ -2,17 +2,44 @@
 
 ![Build](https://github.com/kochj23/icon-creator/actions/workflows/build.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-![Platform](https://img.shields.io/badge/platform-macOS%2013.0%2B-blue)
+![Platform](https://img.shields.io/badge/platform-macOS%2014.0%2B-blue)
 ![Swift](https://img.shields.io/badge/Swift-SwiftUI-orange)
-![Tests](https://img.shields.io/badge/tests-154-brightgreen)
+![Version](https://img.shields.io/badge/version-2.7.0-blue)
+![Tests](https://img.shields.io/badge/tests-209%20passing-brightgreen)
+![AI](https://img.shields.io/badge/AI-NovaAIKit%201.0-purple)
 
-**App icon generator for all Apple platforms with AI-powered keyword generation, batch processing, and color analysis.**
+**App icon generator for every Apple platform: one source image in, complete icon sets out. Batch processing, color
+analysis, Xcode project install, screenshot resizing, image-model icon generation from keywords, and optional AI keyword
+expansion through [NovaAIKit](https://github.com/kochj23/NovaAIKit).**
 
-Icon Creator generates complete icon sets from a single source image for iOS, macOS, watchOS, tvOS, iMessage, and Mac Catalyst. It also supports AI-driven icon generation from text keywords via SwarmUI, ComfyUI, Automatic1111, or OpenAI DALL-E.
+Icon Creator generates complete icon sets from a single source image for iOS, macOS, watchOS, tvOS, iMessage and Mac
+Catalyst, exports PNG / `.xcassets` / ICNS, and installs straight into your Xcode projects. Keyword mode draws icons with
+local or cloud image models (ComfyUI, SwarmUI, Automatic1111, OpenAI DALL-E). AI is optional everywhere: with AI off the
+app does everything it did before, using its built-in icon vocabulary for keyword expansion.
 
 Written by Jordan Koch.
 
-> **2.6.1** — Fixed a scale/padding slider crash. Moving the scale slider above 1.0x (or adjusting padding on a large source such as a 1024px PNG) could blank the preview or crash. Two defects were at fault: an upper-bound render guard (`scaledSize <= targetSize`) rejected *all* upscaling even though the fixed-size canvas simply clips a zoomed image at its edges, and the `scale`/`padding` `@Published` property observers reassigned themselves unconditionally, recursing without bound (stack overflow) the instant a slider moved. Both are fixed and locked by a 7-category regression test grid.
+> **2.7.0** — AI moved to **NovaAIKit 1.0.0**: one AI feature set shared by every Nova macOS app. AI on/off, backend
+> picker (Auto, Ollama, MLX, TinyLLM, TinyChat, OpenWebUI, Nova Gateway, OpenRouter, OpenAI), model picker, editable
+> URLs, keys only in the Keychain (`com.jkoch.iconcreator.*`, https only), a live status indicator, Auto failover with
+> timeouts and retries, and validated replies with a built-in fallback. The old Google Cloud / Azure / AWS / IBM Watson
+> backends and the in-app "Ethical AI Guardian" were removed; their stored secrets are deleted on first launch.
+
+---
+
+## Contents
+
+- [Architecture](#architecture)
+- [Features](#features)
+- [AI (NovaAIKit)](#ai-novaaikit)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Building](#building)
+- [Usage](#usage)
+- [Test Suite](#test-suite)
+- [Security and Privacy](#security-and-privacy)
+- [Changelog](#changelog)
+- [License](#license)
 
 ---
 
@@ -22,22 +49,38 @@ Written by Jordan Koch.
 graph TD
     subgraph Input
         A[Source Image] --> B[IconGenerator]
-        C[Keywords] --> D[KeywordIconGenerator]
+        C[Keywords] --> KX[KeywordExpansion]
+        C --> D[KeywordIconGenerator]
     end
 
-    subgraph Processing["Render Pipeline"]
+    subgraph AI["AI keyword expansion (optional)"]
+        KX --> AI1[AppAI.shared - NovaAIKit]
+        AI1 -->|on + reachable| BK{Auto failover}
+        BK --> O1[Ollama]
+        BK --> O2[MLX / TinyLLM / TinyChat / OpenWebUI]
+        BK --> O3[Nova Gateway]
+        BK --> O4[OpenRouter / OpenAI - https + Keychain key]
+        AI1 -->|reply| VAL[Validator: split, trim, dedupe, clamp 30 x 60 chars]
+        AI1 -->|off / down / rejected| FB[Built-in icon vocabulary]
+        VAL --> EXP[Expanded keywords + source label]
+        FB --> EXP
+    end
+
+    subgraph Render["Render Pipeline"]
         B --> SP[Apply scale 0.5-2.0x and padding 0-30%]
         SP --> E{Effects?}
         E -->|Yes| F[ImageProcessor - CoreImage]
         E -->|No| G[Direct CGContext Render]
-        F --> CV[NSBitmapImageRep canvas targetSize x targetSize]
+        F --> CV[Fixed-size canvas]
         G --> CV
-        CV --> H[Generate All Sizes - canvas clips when scale > 1.0]
-        D --> I{AI Provider}
+        CV --> H[Generate all platform sizes]
+        EXP --> D
+        D --> I{Image model}
         I --> J[ComfyUI :8188]
         I --> K[SwarmUI :7801]
         I --> L[A1111 :7860]
         I --> M[OpenAI DALL-E]
+        J & K & L & M --> A
     end
 
     subgraph Output
@@ -46,32 +89,51 @@ graph TD
         N --> O[PNG Files by Platform]
         N --> P[Xcode .xcassets]
         N --> Q[ICNS Bundle]
+        P --> XP[XcodeProjectManager auto-install]
     end
 
     subgraph Analysis
         A --> R[ColorAnalyzer - K-Means]
-        R --> S[Dominant Colors + Palette]
         A --> T[SmartCropper - Vision]
-        T --> U[Face/Object Detection]
         A --> V[AccessibilityAnalyzer]
         A --> W[AppleGuidelinesChecker]
     end
 
-    subgraph Batch
-        X[BatchProcessingManager] --> Y[Queue of Images]
-        Y --> B
-    end
-
-    subgraph Widget["macOS Widget"]
+    subgraph Extras
+        X[BatchProcessingManager] --> B
         Z[SharedDataManager] --> AA[WidgetKit S/M/L]
-    end
-
-    subgraph API
-        AB[NovaAPIServer :37435] --> B
+        AB[NovaAPIServer 127.0.0.1:37435] --> ST[status / ping]
     end
 ```
 
-### Export Flow
+### AI request flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant View as KeywordIconGeneratorView
+    participant Gen as KeywordIconGenerator
+    participant AI as AppAI.shared (NovaAIKit)
+    participant Backend as Ollama / ... / OpenAI
+
+    User->>View: Expand Keywords ("music, chat")
+    View->>Gen: expandKeywords(keywords)
+    Gen->>AI: generate(request, validate: parse, fallback: builtIn)
+    alt AI off
+        AI-->>Gen: built-in vocabulary (source "Built-in")
+    else AI on
+        AI->>Backend: chat (Auto failover, timeouts, retries)
+        alt reply passes validation
+            Backend-->>AI: "musical note, headphones, ..."
+            AI-->>Gen: elements (source "AI · Ollama (model)")
+        else rejected twice / every backend down
+            AI-->>Gen: built-in vocabulary (source "Built-in")
+        end
+    end
+    Gen-->>View: keywords + "Last expansion: <source>"
+```
+
+### Export flow
 
 ```mermaid
 sequenceDiagram
@@ -82,95 +144,86 @@ sequenceDiagram
     participant XcodeProjectManager
 
     User->>ContentView: Select image + platforms
-    ContentView->>IconGenerator: Set source image, scale, padding, effects
-    Note over IconGenerator: scale/padding clamped safely (0.5-2.0x, 0-30%)
-    IconGenerator->>IconGenerator: Render into targetSize canvas (clips at edges)
+    ContentView->>IconGenerator: Source image, scale, padding, effects
     IconGenerator-->>ContentView: Live preview (any scale, incl. > 1.0x)
-    User->>ContentView: Click Generate
-    ContentView->>IconGenerator: generateIcons(platforms)
-    IconGenerator->>IconGenerator: Resize to all platform sizes
-    IconGenerator->>ExportManager: Export PNG / .xcassets / ICNS
+    User->>ContentView: Generate
+    ContentView->>IconGenerator: exportIcons(platform)
+    IconGenerator->>ExportManager: PNG / .xcassets / ICNS
     ExportManager-->>User: Icon set saved
-    User->>ContentView: Auto-install to Xcode project
-    ContentView->>XcodeProjectManager: Install icons into .xcassets
+    ContentView->>XcodeProjectManager: Install icons into the project's .xcassets
 ```
 
 ---
 
 ## Features
 
-### Icon Generation
+### Icon generation
 
 | Feature | Details |
 |---|---|
 | Platforms | iOS, macOS, watchOS, tvOS, iMessage, Mac Catalyst |
-| Formats | PNG, ICNS, Xcode .xcassets |
-| Scaling | Configurable 0.5x-2.0x with bicubic interpolation |
-| Padding | 0-30% adjustable |
-| Background color | Custom background behind icon |
+| Formats | PNG, ICNS, Xcode `.xcassets` (auto-created if the project has none) |
+| Scaling | 0.5x-2.0x with bicubic interpolation; upscales clip at the canvas edge |
+| Padding | 0-30% |
+| Background | Solid color or gradient behind the icon |
 | Auto-crop | Crop non-square images to square |
-| Image effects | Brightness, contrast, saturation, Core Image filters |
-| Corner radius | Automatic iOS rounded corners |
-| Shadow effects | Optional drop shadow |
+| Image effects | Brightness, contrast, saturation, Core Image filters, corner radius, shadow |
 
-### AI Keyword Generation
+### Keyword icon generation (image models)
 
-Generate icons from text descriptions using local or cloud image generation backends.
+Draw icons from keywords with local or cloud image models. Configurable variant count, size and style.
+Inspired by [VibeScape](https://github.com/jasonacox/VibeScape) by Jason Cox.
 
-| Provider | Port | Notes |
+| Provider | Default URL | Notes |
 |---|---|---|
-| ComfyUI | 8188 | Node-based workflows |
-| SwarmUI | 7801 | Flux models |
-| Automatic1111 | 7860 | Stable Diffusion WebUI |
-| OpenAI DALL-E | -- | Cloud, API key required |
+| ComfyUI | `http://localhost:8188` | Node-based workflows |
+| SwarmUI | `http://localhost:7801` | Flux models |
+| Automatic1111 | `http://localhost:7860` | Stable Diffusion WebUI |
+| OpenAI DALL-E | `https://api.openai.com` | API key entered per session (never written to disk) |
 
-Configurable variants, size, and style. Inspired by [VibeScape](https://github.com/jasonacox/VibeScape) by Jason Cox.
+### AI keyword expansion
 
-### Batch Processing
+"Expand Keywords" turns a few words into concrete visual elements for the image prompt
+("music" → "musical note, headphones, sound waveform, ..."). See [AI (NovaAIKit)](#ai-novaaikit).
 
-Queue multiple source images with per-item platform and settings. Process entire queues sequentially with progress tracking.
+### Batch processing
 
-### Color Analysis
+Queue multiple source images with per-item platforms and settings; process the queue with progress tracking.
 
-K-means clustering extracts dominant colors from source images and generates a complete color palette with primary, secondary, accent, and background color suggestions.
+### Color analysis
 
-### Smart Cropping
+K-means clustering extracts dominant colors and suggests a palette (primary, secondary, accent, background); color
+harmony generators (complementary, triadic, analogous, monochromatic, split-complementary, tetradic); WCAG contrast.
 
-Vision framework face and object detection for intelligent crop positioning.
+### Smart cropping, presets, guidelines, accessibility
 
-### Presets
+- Vision face/object detection for crop positioning
+- Presets (Minimalist, Full Bleed, Rounded, ...) saved and reloaded
+- Apple Human Interface Guidelines checker
+- Contrast / readability accessibility analyzer
 
-Save and load icon generation presets (Minimalist, Full Bleed, Rounded, etc.) for consistent settings across projects.
+### Xcode project integration
 
-### Xcode Project Integration
+Scan configurable project locations, detect each project's platforms, and install generated icons into its
+`.xcassets`.
 
-Scan for local Xcode projects, detect target platforms, and install generated icons directly into .xcassets bundles.
+### Screenshot resizer
 
-### Screenshot Resizer
+Resize screenshots to App Store submission sizes for every platform.
 
-Resize screenshots to App Store submission sizes.
-
-### Apple Guidelines Checker
-
-Validate icons against Apple's Human Interface Guidelines.
-
-### Accessibility Analyzer
-
-Check icon contrast, readability, and accessibility compliance.
-
-### macOS Widget (WidgetKit)
+### macOS widget (WidgetKit)
 
 | Size | Content |
 |---|---|
 | Small | Quick create from last image, recent project |
-| Medium | Recent projects list, generation status |
-| Large | Dashboard with presets, projects, and status |
+| Medium | Recent projects, generation status |
+| Large | Presets, projects and status dashboard |
 
 Data syncs via App Group `group.com.jkoch.iconcreator`.
 
-### Nova API Server
+### Nova API server
 
-Local HTTP API on port **37435** (loopback only).
+Local HTTP API on port **37435**, loopback only, no CORS header.
 
 ```bash
 curl http://127.0.0.1:37435/api/status
@@ -179,107 +232,135 @@ curl http://127.0.0.1:37435/api/ping
 
 ---
 
+## AI (NovaAIKit)
+
+Icon Creator's chat AI runs on [NovaAIKit 1.0.0](https://github.com/kochj23/NovaAIKit), the shared AI layer of the Nova
+macOS apps. The app keeps no AI client code of its own.
+
+| | |
+|---|---|
+| Where | Toolbar **AI Config** button, or **Icon Creator › Settings… › AI** (⌘,) |
+| On/off | "Use AI" toggle. Off = nothing is sent anywhere; the built-in behaviour is used |
+| Backends | Auto (failover), Ollama, MLX, TinyLLM, TinyChat, OpenWebUI, Nova Gateway, OpenRouter, OpenAI |
+| Models / URLs | Model picker (lists the server's installed models) and editable URL per backend, connection test |
+| Keys | Keychain only: `com.jkoch.iconcreator.openrouter`, `com.jkoch.iconcreator.openai`, ... (account `apiKey`). Shown as "stored", never as text. Sent only over https |
+| Reliability | Auto failover across reachable backends, per-request timeouts, retries with backoff on transient errors |
+| Status | `NovaAIStatusIndicator` in the toolbar and the Keyword Generator header: green = online, orange = unreachable, grey = off. Click to re-check |
+| Validation | Every reply is checked before use; a rejected reply is retried once with the reason, then the fallback is used |
+
+| Feature | With AI | When AI is off / unreachable / rejected |
+|---|---|---|
+| Expand Keywords | Comma-separated visual elements from the model, split, trimmed, de-duplicated, max 30 items of 60 characters | Built-in icon vocabulary (about 40 themes: music, security, weather, finance, ...); unknown words become "<word> symbol / silhouette" |
+
+The Keyword Generator header shows where the last expansion came from ("AI · Ollama (qwen3:8b)" or "Built-in").
+
+Image generation (ComfyUI / SwarmUI / Automatic1111 / DALL-E) is not chat AI and is unchanged.
+
+**Migration (first launch of 2.7.0):** the old backend choice, Ollama model and TinyLLM / TinyChat / OpenWebUI URLs are
+imported; an OpenAI key from the old Keychain item (`com.jordankoch.IconCreator`) moves to
+`com.jkoch.iconcreator.openai` and the old item is deleted; the removed Google Cloud / Azure / AWS / IBM Watson secrets
+are deleted from the Keychain and any plaintext leftovers in UserDefaults are removed.
+
+---
+
 ## Requirements
 
-- macOS 13.0 (Ventura) or later
-- Universal binary (Apple Silicon recommended)
-- For AI keyword generation: ComfyUI, SwarmUI, A1111, or OpenAI API key
+- macOS 14.0 (Sonoma) or later, Apple Silicon or Intel
+- Optional, for AI keyword expansion: any NovaAIKit backend (e.g. [Ollama](https://ollama.com) on `localhost:11434`)
+- Optional, for keyword icon drawing: ComfyUI, SwarmUI, Automatic1111, or an OpenAI API key
 
 ## Installation
 
 ### From DMG
 
-Download from [Releases](https://github.com/kochj23/icon-creator/releases), open the DMG, drag to Applications.
+Open `IconCreator-v2.7.0-build5.dmg` (from [Releases](https://github.com/kochj23/icon-creator/releases) or the local
+binaries share) and drag **Icon Creator** onto **Applications**. Release builds are ad hoc signed for local use; on first
+launch, right-click › Open.
 
-### From Source
+### From source
 
 ```bash
 git clone git@github.com:kochj23/icon-creator.git
-cd "Icon Creator"
-open "Icon Creator.xcodeproj"
-# Build: Cmd+R
+cd icon-creator
+open "Icon Creator.xcodeproj"   # Swift Package Manager resolves NovaAIKit automatically
 ```
+
+## Building
+
+```bash
+# Release build (zero warnings)
+xcodebuild -project "Icon Creator.xcodeproj" -scheme "Icon Creator" -configuration Release -derivedDataPath ./dd build
+
+# Tests
+xcodebuild -project "Icon Creator.xcodeproj" -scheme "Icon Creator" -derivedDataPath ./dd test
+```
+
+Dependencies: [NovaAIKit](https://github.com/kochj23/NovaAIKit) `from: 1.0.0` (Swift Package). The optional `CLI/`
+package builds separately with `swift build`.
 
 ---
 
 ## Usage
 
-1. Launch Icon Creator
-2. Select source image (PNG, JPEG, or drag-and-drop)
-3. Choose target platforms (iOS, macOS, watchOS, tvOS, iMessage)
-4. Adjust scale, padding, background color, and effects
-5. Click Generate
-6. Export to folder, .xcassets, or ICNS
+1. Launch Icon Creator and drop a source image (PNG, JPEG) onto the window
+2. Choose target platforms
+3. Adjust scale, padding, background and effects; watch the live preview
+4. Generate, then export to a folder, `.xcassets` or ICNS, or install straight into an Xcode project
 
-### Keyword Mode
+### Keyword mode
 
-1. Switch to Keyword Generator mode in toolbar
-2. Enter descriptive keywords for the icon you want
-3. Select AI provider (ComfyUI, SwarmUI, A1111, DALL-E)
-4. Generate variants
-5. Export chosen result
+1. Toggle **Keyword Generator** in the toolbar
+2. Enter keywords (and optionally the app name)
+3. **Expand Keywords** (AI or built-in vocabulary), pick an image provider, generate variants
+4. Install the one you like into a project
 
-### Batch Mode
+### Batch mode
 
-1. Enable Batch Mode in toolbar
-2. Add multiple source images to the queue
-3. Configure per-item platforms and settings
-4. Process queue
+1. Toggle **Batch Mode**, add images to the queue, set per-item platforms
+2. Process the queue
 
 ---
 
 ## Test Suite
 
-154 tests covering platform sizes, icon settings, color components, image effects, icon generation, export, error handling, keyword generation, and security.
+209 tests, all passing, grouped in 7 categories.
 
 ```bash
-xcodebuild -scheme "Icon Creator" -destination "platform=macOS" test
+xcodebuild -project "Icon Creator.xcodeproj" -scheme "Icon Creator" -derivedDataPath ./dd test
 ```
 
-| Category | Tests | Description |
+| Category | Tests | Covers |
 |---|---|---|
-| Platform | 12 | Icon sizes, idioms, folder names for all platforms |
-| IconSettings | 4 | Validation, codable, equatable, defaults |
-| ColorComponents | 4 | Init, codable, NSColor conversion |
-| ImageEffects | 2 | Defaults, codable round-trip |
-| IconGenerator | 14 | Settings, clamping, validation, export, caching |
-| ContentsJSON | 3 | Init, add image, JSON encoding |
-| Error Handling | 4 | All error types have descriptions |
-| KeywordGenerator | 5 | Providers, categories, filenames |
-| Security | 5 | API keys, localhost, path traversal, PNG integrity |
-| Comprehensive | 101 | Full coverage of all model and service paths |
+| Unit | 72 | Platforms and sizes, icon settings, color components, effects, generator core, keyword-expansion parser and built-in vocabulary, backend set |
+| Functional | 56 | Presets, color harmony/palettes, screenshot sizes, variants, slider sweep, AI off / offline keyword expansion, toggle persistence |
+| Frame / UI state | 33 | Views construct and render, AI settings sheet and status indicator, status = off when AI is disabled, source labels |
+| Security | 23 | Keychain service names, keys never in settings/UserDefaults, no key over http, legacy Keychain migration + obsolete-secret deletion, no legacy AI client code, path traversal, CORS |
+| Integration | 14 | Export to disk, preview cache, AI reply used when valid, legacy settings import (backend, model, URLs), removed clouds → Auto, idempotent migration |
+| Performance | 6 | Icon-set render bound, cache hit, built-in expansion and parser speed, offline fallback does not hang |
+| Retry | 5 | Invalid geometry fails gracefully, typed export errors, rejected AI reply retried once then fallback, transient 503 retried |
 
-### Scale / Padding Regression Suite (`IconScalingTests`, v2.6.1)
-
-A dedicated 7-category suite locks the scale/padding render path so the slider crash cannot regress. 27 tests, all green:
-
-| Category | Coverage |
-|---|---|
-| Unit | Full scale x padding x size grid returns valid images; upscale > 1.0x renders; output pixel size matches; scale/padding clamp to range |
-| Integration | Preview cache key varies with scale/padding (no stale render); resetSettings restores defaults |
-| Functional | End-to-end slider sweep 0.5->2.0x and 0->30% on a 1024px source (the exact reporter repro) |
-| Security | Zero-size, extreme-aspect, and huge source images render without crash or unbounded allocation; export stays within the chosen directory |
-| Performance | Full 16..1024 icon set renders within bound; cache hit is cheaper than a fresh render |
-| Retry | Invalid geometry fails gracefully (nil, not crash); export surfaces typed errors instead of aborting |
-| Frame | Generator constructs with valid defaults; default preview renders; test bundle launches |
+AI tests (`Icon CreatorTests/AIKitAdoptionTests.swift`) never use the real Keychain or network: in-memory settings and keys
+and a stub `URLProtocol`.
 
 ---
 
 ## Security and Privacy
 
-- **Local processing** -- all image manipulation on your Mac
-- **No telemetry** -- zero analytics or tracking
-- **Keychain storage** -- API keys in macOS Keychain
-- **Ethical AI Guardian** -- content moderation on AI-generated imagery
-- **Loopback-only API** -- Nova server binds to 127.0.0.1
+- **Local processing**: all image manipulation happens on your Mac
+- **No telemetry**
+- **AI is optional**: off = nothing leaves the Mac for keyword expansion
+- **Keys in the Keychain only** (`com.jkoch.iconcreator.*`), never in UserDefaults, files or the environment; refused over plain http
+- **Loopback-only API**: the Nova server binds to 127.0.0.1 and sends no wildcard CORS header
 
 ---
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
+
 ## License
 
-MIT License -- Copyright 2026 Jordan Koch
-
-See [LICENSE](LICENSE) for the full text.
+MIT License -- Copyright 2026 Jordan Koch. See [LICENSE](LICENSE).
 
 ---
 

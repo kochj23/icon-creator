@@ -106,7 +106,7 @@ class VariantGenerator {
             case .badge(let type, let position):
                 result = applyBadge(to: result, type: type, position: position)
 
-            case .overlay(let overlayName, let position, let alpha):
+            case .overlay(_, let position, let alpha):
                 // Would load overlay image by name
                 result = applyOverlayEffect(to: result, position: position, alpha: alpha)
 
@@ -242,3 +242,6 @@ class VariantGenerator {
         return applyTint(to: image, color: tint, intensity: 0.2)
     }
 }
+
+/// Platforms are stored by raw value in saved variants.
+extension Platform: Codable {}

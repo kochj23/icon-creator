@@ -1,5 +1,6 @@
 import SwiftUI
 import UniformTypeIdentifiers
+import NovaAIKit
 
 // MARK: - Main Content View
 
@@ -68,7 +69,8 @@ struct ContentView: View {
 
                     Spacer()
 
-                    // Always show AI Config button
+                    // AI status (click re-checks) + AI settings
+                    NovaAIStatusIndicator(ai: AppAI.shared)
                     Button(action: { showingAISettings = true }) {
                         Label("AI Config", systemImage: "cpu")
                     }
@@ -243,7 +245,7 @@ struct ContentView: View {
             PresetLibraryView(presetManager: presetManager, iconGenerator: iconGenerator)
         }
         .sheet(isPresented: $showingAISettings) {
-            AIBackendSelectionView()
+            AISettingsSheet()
         }
         .sheet(isPresented: $showingProjectSelector) {
             ProjectSelectorSheet(
@@ -271,7 +273,7 @@ struct ContentView: View {
                 }
             )
         }
-        .onChange(of: iconGenerator.sourceImage) { newImage in
+        .onChange(of: iconGenerator.sourceImage) { _, newImage in
             // Validate image when it changes
             if newImage != nil {
                 let validation = iconGenerator.validateSourceImage()
@@ -281,9 +283,9 @@ struct ContentView: View {
             }
         }
         .onAppear {
-            // Initialize AI backend on launch
+            // Check which AI backend is reachable (status indicator)
             Task {
-                await AIBackendManager.shared.refreshAllBackends()
+                await AppAI.shared.refreshStatus()
             }
         }
     }

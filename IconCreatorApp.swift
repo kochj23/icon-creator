@@ -15,5 +15,8 @@ struct IconCreatorApp: App {
         WindowGroup {
             ContentView()
         }
+        Settings {
+            IconCreatorSettingsView()
+        }
     }
 }

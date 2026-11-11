@@ -17,6 +17,7 @@
 import Foundation
 import SwiftUI
 import AppKit
+import NovaAIKit
 
 /// Generates app icons from keywords using AI image generation
 /// Inspired by VibeScape's keyword-based approach
@@ -39,9 +40,6 @@ class KeywordIconGenerator: ObservableObject {
     @Published var iconSize: String = "1024x1024"
     @Published var iconStyle: String = "modern app icon"
     @Published var numberOfVariants: Int = 3
-
-    // Note: AI backend integration requires AIBackendManager in project
-    // private let aiBackend = AIBackendManager.shared
 
     // MARK: - Keyword-to-Icon Generation (VibeScape-Inspired)
 
@@ -115,55 +113,21 @@ class KeywordIconGenerator: ObservableObject {
 
     // MARK: - AI-Enhanced Keyword Expansion
 
-    /// Use AI to expand user keywords into richer icon prompts
-    /// Example: "music" → "musical notes, sound waves, headphones, vinyl record"
-    func expandKeywords(_ keywords: [String]) async -> [String] {
-        guard AIBackendManager.shared.activeBackend != nil else {
-            lastError = "AI backend not configured. Click 'AI Config' button to set up Ollama or MLX."
-            return keywords
-        }
+    /// Where the last keyword expansion came from ("AI · Ollama (model)" or "Built-in").
+    @Published var lastExpansionSource: String?
 
-        let prompt = """
-        Expand these keywords into detailed visual elements suitable for app icons.
-
-        Keywords: \(keywords.joined(separator: ", "))
-
-        For each keyword, provide 3-5 related concrete visual elements:
-        - Use shapes, symbols, objects (not abstract concepts)
-        - Think about iconic, recognizable imagery
-        - Suitable for app icons
-
-        Example:
-        "music" → "musical note, headphones, sound waveform, microphone, vinyl record"
-        "security" → "shield, lock, key, fingerprint, padlock, checkmark"
-
-        Respond with comma-separated visual elements.
-        """
-
-        do {
-            let response = try await AIBackendManager.shared.generate(
-                prompt: prompt,
-                systemPrompt: "You are an icon designer. Convert keywords into concrete visual elements suitable for app icons.",
-                temperature: 0.7,
-                maxTokens: 400
-            )
-
-            let expanded = response.components(separatedBy: "\n")
-                .filter { !$0.isEmpty }
-                .flatMap { $0.components(separatedBy: ",") }
-                .map { $0.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) }
-                .filter { !$0.isEmpty }
-
-            if !expanded.isEmpty {
-                lastError = nil // Clear any previous errors
-                return expanded
-            } else {
-                return keywords
-            }
-        } catch {
-            lastError = "AI expansion failed: \(error.localizedDescription). Click 'AI Config' to configure AI backend."
-            return keywords
-        }
+    /// Use AI (NovaAIKit) to expand user keywords into richer icon prompts.
+    /// Example: "music" → "musical note, headphones, sound waveform, microphone, vinyl record".
+    /// Never fails: AI off, unreachable or a rejected reply → the built-in icon vocabulary.
+    func expandKeywords(_ keywords: [String], ai: NovaAI? = nil) async -> [String] {
+        guard !keywords.isEmpty else { return keywords }
+        let ai = ai ?? AppAI.shared
+        let result = await ai.generate(KeywordExpansion.request(for: keywords),
+                                       validate: KeywordExpansion.parse,
+                                       fallback: { KeywordExpansion.builtIn(keywords) })
+        lastExpansionSource = result.source.label
+        lastError = nil
+        return result.value
     }
 
     // MARK: - Image Generation
@@ -434,7 +398,7 @@ class KeywordIconGenerator: ObservableObject {
                             print("ComfyUI outputs found")
 
                             // Extract image filename from outputs
-                            for (nodeId, output) in outputs {
+                            for output in outputs.values {
                                 if let outputDict = output as? [String: Any],
                                    let images = outputDict["images"] as? [[String: Any]] {
 

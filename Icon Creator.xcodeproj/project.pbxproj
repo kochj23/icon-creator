@@ -7,34 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00517A0750A9BB33FCACDC2A /* NovaAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 686DA382DADA6900EBFB1E5C /* NovaAIKit */; };
 		045EB692EDFD4BA59009AE6E /* BatchQueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CCC0EBD79D4911AF6612E4 /* BatchQueueView.swift */; };
 		04BCBA2F03074F2593485553 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0C9891CEB48C5812B7246 /* ImageProcessor.swift */; };
-		04EE48300C6F62560BE9A4CF /* VoiceUnified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69398922E5A48FDABBEFCC4D /* VoiceUnified.swift */; };
 		06BC87E3ED16425591380E74 /* XcodeProjectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47BF13EEF8E475A9FF25F92 /* XcodeProjectPickerView.swift */; };
-		25C0339682BEAF3347E37033 /* SecurityUnified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35906EB220314CCEAEA71132 /* SecurityUnified.swift */; };
+		19CD9609F939481554035131 /* AppAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556C9016D0CE7AB3BD52C96 /* AppAI.swift */; };
+		2FD82DCA99D687E06975F30A /* ScreenshotSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90046C129DF85B908DCCA943 /* ScreenshotSize.swift */; };
 		37B2D2E86555447D888CC65F /* PresetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1174F6707545D0B04E1B91 /* PresetManager.swift */; };
 		3BB252A5B61A447F964A5234 /* ContextPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530324F4956A43B7820360B3 /* ContextPreviewView.swift */; };
-		4C00916DE0234B2790332129 /* AIBackendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B852A9B894909B32D6CB3 /* AIBackendManager.swift */; };
+		3EBDF397D20CB8073E231F3B /* KeywordExpansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAA9B59C732177CA67D3E98 /* KeywordExpansion.swift */; };
+		4CEBA6EDE2286E7A7D16C633 /* ExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9415BEFC4C687F0876E8E /* ExportManager.swift */; };
 		4E7D04D35A10089EE07144BA /* ProjectLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA184F04F959E419C97A4E8 /* ProjectLocation.swift */; };
 		5A79B8EA60E04F5584A7E558 /* IconSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107B80FCB91441869DACE085 /* IconSettings.swift */; };
+		685D9C33CFE658D81DE843FF /* AISettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B205461B505AF857CC2C78DF /* AISettingsSheet.swift */; };
 		69BEE07DB5EF4109A0FB1166 /* IconPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E201EB4BC84BBBA2035027 /* IconPreset.swift */; };
 		6A3D6D5DCE834004A60DEB71 /* BatchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7F6114F9344E54AB437A36 /* BatchItem.swift */; };
-		732B3B09C1C55A740753E80B /* AIBackendStatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DBEA2D75DF8E5E1A21559 /* AIBackendStatusMenu.swift */; };
 		74BF24A0794CE0D9BBDB3B86 /* IconScalingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87B8BE0409554A349557E95 /* IconScalingTests.swift */; };
-		767D7527D0223AF894778985 /* AIBackendManager+Enhanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680BD51D63EC60FBC582C50 /* AIBackendManager+Enhanced.swift */; };
-		7D2E652FFBDCFD1B8DB01C9D /* AIBackendManager+Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF843DA5BCB3DB84ABC7F2FD /* AIBackendManager+Generation.swift */; };
 		7E9A73EBA8F9C3A443B5B8A0 /* NovaAPIServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED97BDEFBC913D2931D13EAF /* NovaAPIServer.swift */; };
 		805024CE227B4FB68B303270 /* BatchProcessingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53509EC0A1794AAA9C801A0D /* BatchProcessingManager.swift */; };
 		8785EDA89DA441E3B6F09897 /* ModernDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874E15AC838D4F4993358424 /* ModernDesign.swift */; };
+		923B80A99565568F48E82C9B /* IconCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0CB89F7E75BBFB493D19D5 /* IconCreatorTests.swift */; };
 		96AD0F8F5D76201AC709FFF0 /* XcodeProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A302B925E3E22B8975891 /* XcodeProjectManager.swift */; };
-		AD8B200EF4343327F24DF7D0 /* UnifiedAICapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF164E75FFF884220B09136 /* UnifiedAICapabilities.swift */; };
+		9924A5DB778C0A2CDC66B863 /* ColorAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F5D2B406EDC153A48DB07 /* ColorAnalyzer.swift */; };
 		AE4D30AACFCF4ACE8AF68E8C /* KeywordIconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DEC4EC8D1415D81BE53D4 /* KeywordIconGenerator.swift */; };
 		B384AEC64EDA321487698F5A /* ProjectLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877DFE19E0558F887CFA4757 /* ProjectLocationsView.swift */; };
+		C459C1920EA5C5C2D606EDE7 /* IconVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9BA5686BCEF425DCBCE708 /* IconVariant.swift */; };
+		C9046D8627B25E9EF638461A /* AIKitAdoptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA32490EBFE9A4F0FAC7CED1 /* AIKitAdoptionTests.swift */; };
+		CBBC686B9E0267A5F0F3E2EE /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEBEC071498412BF849C8A /* ColorPalette.swift */; };
 		DCE9DB088BD7455D9E351AD9 /* KeywordIconGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBAA95D994947E79783C133 /* KeywordIconGeneratorView.swift */; };
 		EE882F63F1C31BB559E4E19A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A902404FCA3132140343AC41 /* Cocoa.framework */; };
-		F69AA4E6AC2BEADD624B01DE /* AnalysisUnified.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73492503E76B1884BF9BC8B /* AnalysisUnified.swift */; };
 		F6CC418FF06B4607A27C3D0F /* PresetLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE8A1449440439EAF435A42 /* PresetLibraryView.swift */; };
-		F8B37F532A60B32177862027 /* ImageGenerationUnified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D96481B5263B9B360F6B5 /* ImageGenerationUnified.swift */; };
 		F92DB3944D1698FA73B317F2 /* ProjectLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471818FFC28716DA7A66F21E /* ProjectLocationManager.swift */; };
 		F95DFA9EF90B40F496B99D0B /* ImageEffectsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D4BA202DE4D1D804F95B7 /* ImageEffectsPanel.swift */; };
 		IC0000010000000000000001 /* IconCreatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = IC0000020000000000000001 /* IconCreatorApp.swift */; };
@@ -90,34 +92,32 @@
 		107B80FCB91441869DACE085 /* IconSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/IconSettings.swift; sourceTree = "<group>"; };
 		17E201EB4BC84BBBA2035027 /* IconPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/IconPreset.swift; sourceTree = "<group>"; };
 		1AA184F04F959E419C97A4E8 /* ProjectLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Core/ProjectLocation.swift; sourceTree = "<group>"; };
+		1BAA9B59C732177CA67D3E98 /* KeywordExpansion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeywordExpansion.swift; sourceTree = "<group>"; };
 		1BE8A1449440439EAF435A42 /* PresetLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Presets/PresetLibraryView.swift; sourceTree = "<group>"; };
-		2680BD51D63EC60FBC582C50 /* AIBackendManager+Enhanced.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AIBackendManager+Enhanced.swift"; sourceTree = "<group>"; };
+		1C9BA5686BCEF425DCBCE708 /* IconVariant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconVariant.swift; path = Models/Core/IconVariant.swift; sourceTree = "<group>"; };
+		24F9415BEFC4C687F0876E8E /* ExportManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExportManager.swift; path = Services/Export/ExportManager.swift; sourceTree = "<group>"; };
+		2556C9016D0CE7AB3BD52C96 /* AppAI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppAI.swift; sourceTree = "<group>"; };
 		282D4BA202DE4D1D804F95B7 /* ImageEffectsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Effects/ImageEffectsPanel.swift; sourceTree = "<group>"; };
 		31FEBEC071498412BF849C8A /* ColorPalette.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorPalette.swift; path = Models/Core/ColorPalette.swift; sourceTree = "<group>"; };
-		35906EB220314CCEAEA71132 /* SecurityUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecurityUnified.swift; path = "Icon Creator/AICapabilities/SecurityUnified.swift"; sourceTree = "<group>"; };
 		3A3A302B925E3E22B8975891 /* XcodeProjectManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XcodeProjectManager.swift; sourceTree = "<group>"; };
-		3F6DBEA2D75DF8E5E1A21559 /* AIBackendStatusMenu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIBackendStatusMenu.swift; sourceTree = "<group>"; };
 		471818FFC28716DA7A66F21E /* ProjectLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/Project/ProjectLocationManager.swift; sourceTree = "<group>"; };
 		47CCC0EBD79D4911AF6612E4 /* BatchQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Batch/BatchQueueView.swift; sourceTree = "<group>"; };
 		530324F4956A43B7820360B3 /* ContextPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Preview/ContextPreviewView.swift; sourceTree = "<group>"; };
 		53509EC0A1794AAA9C801A0D /* BatchProcessingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels/BatchProcessingManager.swift; sourceTree = "<group>"; };
 		580F5D2B406EDC153A48DB07 /* ColorAnalyzer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorAnalyzer.swift; path = Utilities/ColorAnalyzer.swift; sourceTree = "<group>"; };
 		5D7F6114F9344E54AB437A36 /* BatchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Batch/BatchItem.swift; sourceTree = "<group>"; };
-		69398922E5A48FDABBEFCC4D /* VoiceUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoiceUnified.swift; path = "Icon Creator/AICapabilities/VoiceUnified.swift"; sourceTree = "<group>"; };
 		7F0CB89F7E75BBFB493D19D5 /* IconCreatorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconCreatorTests.swift; path = IconCreatorTests.swift; sourceTree = "<group>"; };
-		854D96481B5263B9B360F6B5 /* ImageGenerationUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageGenerationUnified.swift; path = "Icon Creator/AICapabilities/ImageGenerationUnified.swift"; sourceTree = "<group>"; };
 		874E15AC838D4F4993358424 /* ModernDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernDesign.swift; sourceTree = "<group>"; };
 		877DFE19E0558F887CFA4757 /* ProjectLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Settings/ProjectLocationsView.swift; sourceTree = "<group>"; };
-		8F6B852A9B894909B32D6CB3 /* AIBackendManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIBackendManager.swift; sourceTree = "<group>"; };
+		90046C129DF85B908DCCA943 /* ScreenshotSize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScreenshotSize.swift; path = Models/Core/ScreenshotSize.swift; sourceTree = "<group>"; };
 		9D0DEC4EC8D1415D81BE53D4 /* KeywordIconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordIconGenerator.swift; sourceTree = "<group>"; };
 		A886F55246281BA2098D59C3 /* Icon CreatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Icon CreatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A902404FCA3132140343AC41 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		BF843DA5BCB3DB84ABC7F2FD /* AIBackendManager+Generation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AIBackendManager+Generation.swift"; sourceTree = "<group>"; };
-		C73492503E76B1884BF9BC8B /* AnalysisUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnalysisUnified.swift; path = "Icon Creator/AICapabilities/AnalysisUnified.swift"; sourceTree = "<group>"; };
+		AA32490EBFE9A4F0FAC7CED1 /* AIKitAdoptionTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIKitAdoptionTests.swift; sourceTree = "<group>"; };
+		B205461B505AF857CC2C78DF /* AISettingsSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AISettingsSheet.swift; sourceTree = "<group>"; };
 		D87B8BE0409554A349557E95 /* IconScalingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconScalingTests.swift; path = IconScalingTests.swift; sourceTree = "<group>"; };
 		DCBAA95D994947E79783C133 /* KeywordIconGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordIconGeneratorView.swift; sourceTree = "<group>"; };
-		ED97BDEFBC913D2931D13EAF /* NovaAPIServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "/Volumes/Data/xcode/Icon Creator/NovaAPIServer.swift"; sourceTree = "<absolute>"; };
-		EFF164E75FFF884220B09136 /* UnifiedAICapabilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnifiedAICapabilities.swift; path = "Icon Creator/AICapabilities/UnifiedAICapabilities.swift"; sourceTree = "<group>"; };
+		ED97BDEFBC913D2931D13EAF /* NovaAPIServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NovaAPIServer.swift; sourceTree = "<group>"; };
 		F47BF13EEF8E475A9FF25F92 /* XcodeProjectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeProjectPickerView.swift; sourceTree = "<group>"; };
 		IC0000020000000000000001 /* IconCreatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCreatorApp.swift; sourceTree = "<group>"; };
 		IC0000040000000000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00517A0750A9BB33FCACDC2A /* NovaAIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,32 +167,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2713E66F9FF78344D2BA97FC /* AIBackend */ = {
+		03CDA5BFD3B3E0690F657D8A /* AI */ = {
 			isa = PBXGroup;
 			children = (
-				BF843DA5BCB3DB84ABC7F2FD /* AIBackendManager+Generation.swift */,
-				2680BD51D63EC60FBC582C50 /* AIBackendManager+Enhanced.swift */,
-				3F6DBEA2D75DF8E5E1A21559 /* AIBackendStatusMenu.swift */,
+				2556C9016D0CE7AB3BD52C96 /* AppAI.swift */,
+				1BAA9B59C732177CA67D3E98 /* KeywordExpansion.swift */,
+				B205461B505AF857CC2C78DF /* AISettingsSheet.swift */,
 			);
-			name = AIBackend;
-			sourceTree = "<group>";
-		};
-		4984102460BBF438384E73BC /* AICapabilities */ = {
-			isa = PBXGroup;
-			children = (
-				EFF164E75FFF884220B09136 /* UnifiedAICapabilities.swift */,
-				854D96481B5263B9B360F6B5 /* ImageGenerationUnified.swift */,
-				69398922E5A48FDABBEFCC4D /* VoiceUnified.swift */,
-				C73492503E76B1884BF9BC8B /* AnalysisUnified.swift */,
-				35906EB220314CCEAEA71132 /* SecurityUnified.swift */,
-			);
-			name = AICapabilities;
+			name = AI;
+			path = AI;
 			sourceTree = "<group>";
 		};
 		60ADD9B2A1CC8C0907D38940 /* Icon Creator */ = {
 			isa = PBXGroup;
 			children = (
-				4984102460BBF438384E73BC /* AICapabilities */,
 				ED97BDEFBC913D2931D13EAF /* NovaAPIServer.swift */,
 			);
 			name = "Icon Creator";
@@ -202,6 +191,7 @@
 			children = (
 				7F0CB89F7E75BBFB493D19D5 /* IconCreatorTests.swift */,
 				D87B8BE0409554A349557E95 /* IconScalingTests.swift */,
+				AA32490EBFE9A4F0FAC7CED1 /* AIKitAdoptionTests.swift */,
 			);
 			name = "Icon CreatorTests";
 			path = "Icon CreatorTests";
@@ -240,10 +230,13 @@
 				SHR0000040000000000000001 /* Shared */,
 				WGT0000220000000000000001 /* Icon Creator Widget */,
 				WGT0000230000000000000001 /* Frameworks */,
-				2713E66F9FF78344D2BA97FC /* AIBackend */,
 				A37901F912862D5F7C138DAA /* Icon CreatorTests */,
 				31FEBEC071498412BF849C8A /* ColorPalette.swift */,
 				580F5D2B406EDC153A48DB07 /* ColorAnalyzer.swift */,
+				03CDA5BFD3B3E0690F657D8A /* AI */,
+				90046C129DF85B908DCCA943 /* ScreenshotSize.swift */,
+				1C9BA5686BCEF425DCBCE708 /* IconVariant.swift */,
+				24F9415BEFC4C687F0876E8E /* ExportManager.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -324,6 +317,9 @@
 				WGT0000240000000000000001 /* PBXTargetDependency */,
 			);
 			name = "Icon Creator";
+			packageProductDependencies = (
+				686DA382DADA6900EBFB1E5C /* NovaAIKit */,
+			);
 			productName = "Icon Creator";
 			productReference = IC0000110000000000000001 /* Icon Creator.app */;
 			productType = "com.apple.product-type.application";
@@ -364,6 +360,9 @@
 				Base,
 			);
 			mainGroup = IC0000150000000000000001;
+			packageReferences = (
+				2B67437C00F677C9498DF5E5 /* XCRemoteSwiftPackageReference "NovaAIKit" */,
+			);
 			productRefGroup = IC0000160000000000000001 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -407,6 +406,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74BF24A0794CE0D9BBDB3B86 /* IconScalingTests.swift in Sources */,
+				C9046D8627B25E9EF638461A /* AIKitAdoptionTests.swift in Sources */,
+				923B80A99565568F48E82C9B /* IconCreatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,21 +433,20 @@
 				IC0000050000000000000001 /* IconGenerator.swift in Sources */,
 				96AD0F8F5D76201AC709FFF0 /* XcodeProjectManager.swift in Sources */,
 				8785EDA89DA441E3B6F09897 /* ModernDesign.swift in Sources */,
-				4C00916DE0234B2790332129 /* AIBackendManager.swift in Sources */,
 				AE4D30AACFCF4ACE8AF68E8C /* KeywordIconGenerator.swift in Sources */,
 				DCE9DB088BD7455D9E351AD9 /* KeywordIconGeneratorView.swift in Sources */,
 				06BC87E3ED16425591380E74 /* XcodeProjectPickerView.swift in Sources */,
-				AD8B200EF4343327F24DF7D0 /* UnifiedAICapabilities.swift in Sources */,
-				F8B37F532A60B32177862027 /* ImageGenerationUnified.swift in Sources */,
-				04EE48300C6F62560BE9A4CF /* VoiceUnified.swift in Sources */,
-				F69AA4E6AC2BEADD624B01DE /* AnalysisUnified.swift in Sources */,
-				25C0339682BEAF3347E37033 /* SecurityUnified.swift in Sources */,
 				WGT0000150000000000000001 /* SharedDataManager.swift in Sources */,
 				SHR0000010000000000000001 /* WidgetDataModels.swift in Sources */,
-				7D2E652FFBDCFD1B8DB01C9D /* AIBackendManager+Generation.swift in Sources */,
-				767D7527D0223AF894778985 /* AIBackendManager+Enhanced.swift in Sources */,
-				732B3B09C1C55A740753E80B /* AIBackendStatusMenu.swift in Sources */,
 				7E9A73EBA8F9C3A443B5B8A0 /* NovaAPIServer.swift in Sources */,
+				19CD9609F939481554035131 /* AppAI.swift in Sources */,
+				3EBDF397D20CB8073E231F3B /* KeywordExpansion.swift in Sources */,
+				685D9C33CFE658D81DE843FF /* AISettingsSheet.swift in Sources */,
+				CBBC686B9E0267A5F0F3E2EE /* ColorPalette.swift in Sources */,
+				2FD82DCA99D687E06975F30A /* ScreenshotSize.swift in Sources */,
+				C459C1920EA5C5C2D606EDE7 /* IconVariant.swift in Sources */,
+				9924A5DB778C0A2CDC66B863 /* ColorAnalyzer.swift in Sources */,
+				4CEBA6EDE2286E7A7D16C633 /* ExportManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,7 +641,7 @@
 				CODE_SIGN_ENTITLEMENTS = Icon_Creator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -658,7 +658,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.6.1;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.IconCreator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -675,7 +675,7 @@
 				CODE_SIGN_ENTITLEMENTS = Icon_Creator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -691,7 +691,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.6.1;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.IconCreator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -709,7 +709,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "Icon Creator Widget/Icon_Creator_Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_APP_SANDBOX = NO;
@@ -723,7 +723,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.6.1;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.IconCreator.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -741,7 +741,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "Icon Creator Widget/Icon_Creator_Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_APP_SANDBOX = NO;
@@ -755,7 +755,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.6.1;
+				MARKETING_VERSION = 2.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.IconCreator.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -807,6 +807,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2B67437C00F677C9498DF5E5 /* XCRemoteSwiftPackageReference "NovaAIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kochj23/NovaAIKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		686DA382DADA6900EBFB1E5C /* NovaAIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B67437C00F677C9498DF5E5 /* XCRemoteSwiftPackageReference "NovaAIKit" */;
+			productName = NovaAIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = IC0000210000000000000001 /* Project object */;
 }

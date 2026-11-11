@@ -239,7 +239,7 @@ struct XcodeProjectPickerView: View {
                 }
 
                 // Install to Xcode project
-                let results = try await projectManager.installMultiplePlatforms(
+                _ = try await projectManager.installMultiplePlatforms(
                     from: tempDir,
                     platforms: selectedPlatforms,
                     to: project

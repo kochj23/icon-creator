@@ -400,7 +400,7 @@ struct LargeWidgetView: View {
             GridItem(.flexible())
         ], spacing: 8) {
             // Quick Create from Last Image
-            if let lastImage = entry.data.lastUsedImage {
+            if entry.data.lastUsedImage != nil {
                 quickActionButton(
                     title: "Last Image",
                     icon: "photo.fill",

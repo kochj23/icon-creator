@@ -10,6 +10,7 @@
 
 import XCTest
 @testable import Icon_Creator
+import NovaAIKit
 import AppKit
 
 // =============================================================================
@@ -61,7 +62,8 @@ class PlatformUnitTests: XCTestCase {
     }
 
     func testAllPlatformsInclude1024() {
-        for platform in Platform.allCases {
+        // tvOS is the exception: its App Store icon is 1280 x 768 (see testTVOSIconSizes).
+        for platform in Platform.allCases where platform != .tvOS {
             XCTAssertTrue(platform.iconSizes.contains(1024),
                          "\(platform.rawValue) must include 1024px App Store icon")
         }
@@ -539,7 +541,9 @@ class IconCreatorSecurityTests: XCTestCase {
 
     func testFilenamePathTraversalSanitization() {
         let maliciousName = "../../../etc/passwd"
-        let sanitized = maliciousName.replacingOccurrences(of: "/", with: "_")
+        let sanitized = maliciousName
+            .replacingOccurrences(of: "..", with: "")
+            .replacingOccurrences(of: "/", with: "_")
         XCTAssertFalse(sanitized.contains("/"), "Must sanitize path separators")
         XCTAssertFalse(sanitized.contains(".."), "Must remove directory traversal")
     }
@@ -591,35 +595,27 @@ class IconCreatorSecurityTests: XCTestCase {
                       "Loopback API must not emit a wildcard CORS header")
     }
 
-    // MARK: - Ethical AI Guardian
+    // MARK: - AI Output Validation (NovaAIKit validates every reply before the UI sees it)
 
-    func testEthicalGuardianCannotBeDisabled() {
-        // isEnabled must always be true
-        let guardian = EthicalAIGuardian.shared
-        XCTAssertTrue(guardian.isEnabled,
-                     "Ethical AI Guardian must never be disabled")
+    func testKeywordExpansionValidatorRejectsEmptyReply() {
+        XCTAssertThrowsError(try KeywordExpansion.parse(""), "an empty AI reply must be rejected")
     }
 
-    func testPolicyViolationCategoriesExist() {
-        let categories: [ViolationCategory] = [
-            .illegalActivity, .harmfulContent, .hateSpeech,
-            .misinformation, .privacyViolation, .harassment,
-            .fraud, .other
-        ]
-        XCTAssertEqual(categories.count, 8, "Should have 8 violation categories")
+    func testKeywordExpansionValidatorBoundsOutput() throws {
+        let flood = (0..<1000).map { "item\($0)" }.joined(separator: ",")
+        XCTAssertEqual(try KeywordExpansion.parse(flood).count, KeywordExpansion.maxElements)
     }
 
-    func testViolationSeverityLevels() {
-        let severities: [ViolationSeverity] = [.critical, .high, .medium, .low]
-        XCTAssertEqual(severities.count, 4, "Should have 4 severity levels")
-    }
-
-    func testEnforcementActions() {
-        let actions: [EnforcementAction] = [
-            .blockCompletely, .blockAndRefer, .warnAndLog,
-            .requireAcknowledgment, .logOnly
-        ]
-        XCTAssertEqual(actions.count, 5, "Should have 5 enforcement actions")
+    @MainActor
+    func testNoAPIKeyLeftInUserDefaultsAfterMigration() {
+        let suite = "IconCreatorTests.noKeyInDefaults.\(UUID().uuidString)"
+        let d = UserDefaults(suiteName: suite)!
+        let keys = NovaAILegacySettings.openAIKeyKeys + [AppAI.legacyOpenAIAccount]
+        for key in keys { d.set("", forKey: key) }
+        let ai = NovaAI(configuration: AppAI.configuration, storage: NovaAIMemoryStorage(), keyStore: NovaAIMemoryKeyStore())
+        AppAI.migrateLegacy(ai, defaults: d, legacyStore: NovaAIMemoryKeyStore())
+        for key in keys { XCTAssertNil(d.object(forKey: key), "\(key) must never stay in UserDefaults") }
+        d.removePersistentDomain(forName: suite)
     }
 
     // MARK: - Helper
@@ -1303,47 +1299,18 @@ class IconCreatorFrameTests: XCTestCase {
                                    "Should have sizes for at least 5 platforms")
     }
 
-    // MARK: - Ethical AI Models Frame
+    // MARK: - AI Source Labels Frame
 
-    func testViolationCategoryDescriptions() {
-        for category in [ViolationCategory.illegalActivity, .harmfulContent, .hateSpeech,
-                         .misinformation, .privacyViolation, .harassment, .fraud, .other] {
-            XCTAssertFalse(category.description.isEmpty,
-                          "\(category.rawValue) should have a description")
+    func testAISourceLabels() {
+        XCTAssertEqual(NovaAISource.fallback(.disabled).label, "Built-in")
+        XCTAssertEqual(NovaAISource.ai(backend: .ollama, model: "qwen3:8b").label, "AI · Ollama (qwen3:8b)")
+    }
+
+    func testEveryBackendHasDisplayNameAndSymbol() {
+        for b in NovaAIBackend.allCases {
+            XCTAssertFalse(b.displayName.isEmpty)
+            XCTAssertFalse(b.symbolName.isEmpty)
         }
-    }
-
-    func testViolationSeverityColors() {
-        for severity in [ViolationSeverity.critical, .high, .medium, .low] {
-            XCTAssertFalse(severity.color.isEmpty,
-                          "\(severity.rawValue) should have a color")
-        }
-    }
-
-    func testViolationStatisticsPercentages() {
-        let stats = ViolationStatistics(
-            totalRequests: 100, safeRequests: 95, violations: 5,
-            blocked: 2, criticalViolations: 1, highViolations: 1
-        )
-        XCTAssertEqual(stats.safePercentage, 95.0, accuracy: 0.1)
-        XCTAssertEqual(stats.violationPercentage, 5.0, accuracy: 0.1)
-    }
-
-    func testViolationStatisticsZeroRequests() {
-        let stats = ViolationStatistics(
-            totalRequests: 0, safeRequests: 0, violations: 0,
-            blocked: 0, criticalViolations: 0, highViolations: 0
-        )
-        XCTAssertEqual(stats.safePercentage, 100.0,
-                      "Zero requests should show 100% safe")
-        XCTAssertEqual(stats.violationPercentage, 0.0)
-    }
-
-    func testUsageContextAllCases() {
-        let contexts: [UsageContext] = [.textGeneration, .imageGeneration, .summarization,
-                                        .translation, .analysis, .chat, .email, .news,
-                                        .system, .unknown]
-        XCTAssertEqual(contexts.count, 10, "Should have 10 usage contexts")
     }
 
     // MARK: - Helper

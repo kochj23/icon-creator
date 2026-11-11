@@ -10,6 +10,7 @@
 //
 
 import SwiftUI
+import NovaAIKit
 
 struct KeywordIconGeneratorView: View {
     @StateObject private var generator = KeywordIconGenerator()
@@ -91,20 +92,11 @@ struct KeywordIconGeneratorView: View {
             }
 
             HStack(spacing: 8) {
-                if let backend = AIBackendManager.shared.activeBackend {
-                    Circle()
-                        .fill(Color.green)
-                        .frame(width: 8, height: 8)
-                    Text("AI: \(backend.rawValue)")
+                NovaAIStatusIndicator(ai: AppAI.shared)
+                if let source = generator.lastExpansionSource {
+                    Text("Last expansion: \(source)")
                         .font(.caption)
-                        .foregroundColor(.green)
-                } else {
-                    Circle()
-                        .fill(Color.orange)
-                        .frame(width: 8, height: 8)
-                    Text("AI Not Configured - Click 'AI Config' button")
-                        .font(.caption)
-                        .foregroundColor(.orange)
+                        .foregroundColor(.secondary)
                 }
             }
 

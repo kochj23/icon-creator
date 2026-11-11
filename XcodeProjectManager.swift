@@ -70,59 +70,6 @@ class XcodeProjectManager: ObservableObject {
         discoverProjects()
     }
 
-    // MARK: - Common Project Locations (DEPRECATED - Use ProjectLocationManager)
-
-    /// Returns common locations where Xcode projects are typically stored
-    /// DEPRECATED: This method is no longer used. Use ProjectLocationManager.shared.getEnabledPaths() instead.
-    private static func getCommonProjectLocations() -> [URL] {
-        // DEPRECATED: Use ProjectLocationManager for configurable locations
-        return []
-
-        /* ORIGINAL HARDCODED IMPLEMENTATION (DEPRECATED):
-        var locations: [URL] = []
-        let fileManager = FileManager.default
-        let homeDirectory = fileManager.homeDirectoryForCurrentUser
-
-        // Common Xcode project locations
-        let potentialLocations = [
-            // Desktop
-            homeDirectory.appendingPathComponent("Desktop/xcode"),
-            homeDirectory.appendingPathComponent("Desktop"),
-
-            // Documents
-            homeDirectory.appendingPathComponent("Documents/Xcode"),
-            homeDirectory.appendingPathComponent("Documents/Projects"),
-            homeDirectory.appendingPathComponent("Documents"),
-
-            // Developer
-            homeDirectory.appendingPathComponent("Developer"),
-            homeDirectory.appendingPathComponent("Developer/Projects"),
-
-            // Common project folders
-            homeDirectory.appendingPathComponent("Projects"),
-            homeDirectory.appendingPathComponent("Code"),
-            homeDirectory.appendingPathComponent("Development"),
-            homeDirectory.appendingPathComponent("workspace"),
-            homeDirectory.appendingPathComponent("Workspace"),
-
-            // iCloud Drive
-            homeDirectory.appendingPathComponent("Library/Mobile Documents/com~apple~CloudDocs/Projects"),
-            homeDirectory.appendingPathComponent("Library/Mobile Documents/com~apple~CloudDocs/Xcode"),
-        ]
-
-        // Filter to only existing directories
-        for location in potentialLocations {
-            var isDirectory: ObjCBool = false
-            if fileManager.fileExists(atPath: location.path, isDirectory: &isDirectory), isDirectory.boolValue {
-                locations.append(location)
-            }
-        }
-        */
-
-        // This method is deprecated - use ProjectLocationManager.shared.getEnabledPaths() instead
-        return []
-    }
-
     // MARK: - Project Discovery
 
     /// Discovers all Xcode projects using configured locations
@@ -228,9 +175,10 @@ class XcodeProjectManager: ObservableObject {
             // Sort projects alphabetically
             discoveredProjects.sort { $0.displayName.localizedCaseInsensitiveCompare($1.displayName) == .orderedAscending }
 
+            let found = discoveredProjects
             await MainActor.run {
-                print("📊 Updating UI with \(discoveredProjects.count) projects")
-                self.projects = discoveredProjects
+                print("📊 Updating UI with \(found.count) projects")
+                self.projects = found
                 self.scannedDirectories = locationManager.locations.filter { $0.isEnabled }.map { $0.displayPath }
                 print("📊 Projects array now has \(self.projects.count) items")
             }

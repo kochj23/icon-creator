@@ -121,7 +121,7 @@ class BatchProcessingManager: ObservableObject {
             for platform in item.platforms {
                 let platformStart = completedPlatforms / platformCount
 
-                try await iconGenerator.exportIcons(for: platform, to: exportURL) { progress in
+                try iconGenerator.exportIcons(for: platform, to: exportURL) { progress in
                     let itemProgress = platformStart + (progress / platformCount)
                     self.updateItemProgress(itemID: item.id, progress: itemProgress)
                 }

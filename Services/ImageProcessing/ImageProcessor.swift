@@ -508,17 +508,17 @@ class ImageProcessor {
     ///   - image: Source image
     ///   - sizes: Array of target sizes (NSSize)
     ///   - backgroundColor: Background color for letterboxing
-    /// - Returns: Dictionary mapping size to resized image
+    /// - Returns: (size, resized image) pairs in the order of `sizes`
     func batchResizeScreenshots(
         _ image: NSImage,
         sizes: [NSSize],
         backgroundColor: NSColor = .black
-    ) -> [NSSize: NSImage] {
-        var results: [NSSize: NSImage] = [:]
+    ) -> [(size: NSSize, image: NSImage)] {
+        var results: [(size: NSSize, image: NSImage)] = []
 
         for size in sizes {
             if let resized = resizeToScreenshotSize(image, targetSize: size, backgroundColor: backgroundColor) {
-                results[size] = resized
+                results.append((size: size, image: resized))
             }
         }
 

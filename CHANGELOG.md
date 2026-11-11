@@ -2,6 +2,30 @@
 
 All notable changes to the Icon Creator project are documented in this file.
 
+## [2.7.0] - 2026-11-11
+
+### Changed
+- AI: migrated to NovaAIKit 1.0.0 (AI on/off, Auto failover across Ollama / MLX / TinyLLM / TinyChat / OpenWebUI /
+  Nova Gateway / OpenRouter / OpenAI, model picker, editable URLs, Keychain-only https-only keys under
+  `com.jkoch.iconcreator.*`, status indicator, timeouts/retries, validated replies with a built-in fallback).
+- "Expand Keywords" now always works: with AI off or unreachable it uses a built-in icon vocabulary, and the header shows
+  where the result came from.
+- AI settings live in the toolbar "AI Config" sheet and in a new Settings window (⌘,).
+
+### Removed
+- The app's own AI client (backend manager, status menu, "unified AI capabilities", Ethical AI Guardian) and the Google
+  Cloud / Azure / AWS / IBM Watson backends.
+
+### Security
+- First launch migrates the OpenAI key from `com.jordankoch.IconCreator` to `com.jkoch.iconcreator.openai` and deletes
+  the removed backends' secrets from the Keychain and any plaintext leftovers from UserDefaults.
+
+### Fixed
+- `NovaAPIServer.swift` was referenced by an absolute path to an old checkout, so fresh clones did not build.
+- WCAG contrast crashed for gray/catalog colors (`.black`, `.white`); colors are converted to sRGB first.
+- The comprehensive test file (`IconCreatorTests.swift`) was not in the test target; it now compiles and runs
+  (209 tests, 0 failures). Build is warning-free.
+
 ## [1.1.3] - 2025-10-28
 
 ### Added - Automatic Asset Catalog Creation

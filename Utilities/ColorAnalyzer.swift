@@ -102,6 +102,8 @@ class ColorAnalyzer {
     }
 
     private func relativeLuminance(_ color: NSColor) -> Double {
+        // Gray / catalog colors (e.g. .black, .white) have no RGB components until converted.
+        let color = color.usingColorSpace(.sRGB) ?? color
         let r = linearize(color.redComponent)
         let g = linearize(color.greenComponent)
         let b = linearize(color.blueComponent)
@@ -116,7 +118,7 @@ class ColorAnalyzer {
 
     // MARK: - Pixel Sampling
 
-    private struct Pixel {
+    fileprivate struct Pixel {
         var r: Double
         var g: Double
         var b: Double
